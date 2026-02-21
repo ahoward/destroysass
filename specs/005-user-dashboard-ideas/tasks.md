@@ -30,10 +30,10 @@
   - update nav in app/ideas/[id]/page.tsx
   - update nav in app/ideas/new/page.tsx
 - [x] **T5** run `./dev/post_flight` — must pass
-- [ ] **T6** commit + push to 005-user-dashboard-ideas
-- [ ] **T7** merge to main + push
-- [ ] **T8** deploy: `vercel deploy --prod --yes`
-- [ ] **T9** run `./dev/health` — must return ok
+- [x] **T6** commit + push to 005-user-dashboard-ideas
+- [x] **T7** merge to main + push
+- [x] **T8** deploy: `vercel deploy --prod --yes`
+- [x] **T9** run `./dev/health` — must return ok
 
 ## Definition of Done
 
