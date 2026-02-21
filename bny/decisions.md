@@ -11,3 +11,5 @@ append-only log of significant decisions and why.
 2026-02-21 — feature 001 (landing page) complete. deployed live at destroysass.vercel.app. dark theme, hero, 3-step section, CTA, footer. implemented directly (skipped bny implement) because claude code oauth token expired. bunny bug filed: implement script should pre-check auth before entering ralph loop and print actionable recovery message instead of 401 loop.
 
 2026-02-21 — feature 002 (idea board) complete. ideas+pledges tables, rls, idea_board view, seed data, /ideas page live. sourced ~/.envrc — ANTHROPIC_API_KEY and GEMINI_API_KEY now available. installed @google/gemini-cli globally. full bny factory (claude+gemini) now operational.
+
+2026-02-21 — feature 003 (idea submission form) complete. /ideas/new with auth gate, server action with full validation (trim, int parse, length checks), useActionState for form state, previousData preservation on error, open redirect protection on next param, Suspense boundary for useSearchParams. all gemini security fixes (S1–S6) addressed.

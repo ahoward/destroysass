@@ -3,6 +3,13 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
+function safeRedirectTarget(next: string | null): string {
+  if (next && next.startsWith("/") && !next.startsWith("//")) {
+    return next;
+  }
+  return "/";
+}
+
 export async function signIn(formData: FormData) {
   const supabase = await createClient();
 
@@ -15,7 +22,8 @@ export async function signIn(formData: FormData) {
     return { error: error.message };
   }
 
-  redirect("/");
+  const next = formData.get("next") as string | null;
+  redirect(safeRedirectTarget(next));
 }
 
 export async function signUp(formData: FormData) {
