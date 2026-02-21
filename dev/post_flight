@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "post-flight checks..."
+
+# type check only (fast) — full build happens in CI/Vercel
+npx tsc --noEmit
+
+echo "post-flight ok."

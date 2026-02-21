@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+
+cd "$(dirname "$0")/.."
+
+# type-check and build — if this passes, the app is deployable
+echo "running type check..."
+npx tsc --noEmit
+
+echo "running next build..."
+npm run build
+
+echo "all checks passed."

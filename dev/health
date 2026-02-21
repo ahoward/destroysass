@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -e
+
+cd "$(dirname "$0")/.."
+
+# check the live vercel deployment
+VERCEL_URL="${VERCEL_URL:-https://destroysass.vercel.app}"
+
+echo "checking $VERCEL_URL..."
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$VERCEL_URL" --max-time 10)
+
+if [ "$STATUS" = "200" ]; then
+  echo "{\"status\":\"ok\",\"url\":\"$VERCEL_URL\",\"http\":$STATUS}"
+  exit 0
+else
+  echo "{\"status\":\"error\",\"url\":\"$VERCEL_URL\",\"http\":$STATUS}"
+  exit 1
+fi

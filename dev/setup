@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "installing dependencies..."
+npm install
+
+echo "configuring git hooks..."
+git config core.hooksPath .githooks
+
+echo "checking bun (needed for bny)..."
+if ! command -v bun &>/dev/null; then
+  echo "WARNING: bun not found on PATH — required for bny scripts"
+  echo "install: curl -fsSL https://bun.sh/install | bash"
+fi
+
+echo "checking claude (needed for bny implement)..."
+command -v claude &>/dev/null && echo "  claude: ok" || echo "  WARNING: claude not found"
+
+echo "checking gemini (needed for bny review)..."
+command -v gemini &>/dev/null && echo "  gemini: ok" || echo "  WARNING: gemini not found (review --prompt-only still works)"
+
+echo "done."

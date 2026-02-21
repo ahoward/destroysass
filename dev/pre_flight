@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "pre-flight checks..."
+
+# node_modules present?
+if [ ! -d "node_modules" ]; then
+  echo "FAIL: node_modules missing — run ./dev/setup"
+  exit 1
+fi
+
+# .envrc present?
+if [ ! -f ".envrc" ]; then
+  echo "WARN: .envrc not found — NEXT_PUBLIC_SUPABASE_URL/ANON_KEY may be missing locally"
+fi
+
+# env vars present?
+if [ -z "$NEXT_PUBLIC_SUPABASE_URL" ] && [ -f ".envrc" ]; then
+  source .envrc 2>/dev/null || true
+fi
+
+echo "  node_modules: ok"
+echo "  git status: $(git status --short | wc -l | tr -d ' ') modified files"
+echo "pre-flight ok."
