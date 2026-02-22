@@ -6,6 +6,7 @@ import PledgePanel from "./pledge_panel";
 import EditIdea from "./edit_idea";
 import DeleteIdea from "./delete_idea";
 import Comments from "./comments";
+import ShareButtons from "./share_buttons";
 
 type MetaProps = { params: Promise<{ id: string }> };
 
@@ -148,6 +149,13 @@ export default async function IdeaDetailPage({ params }: Props) {
             <span className="text-gray-300 font-semibold">${idea.monthly_ask}/mo</span>{" "}
             to maintain and host this.
           </p>
+
+          <div className="mt-4">
+            <ShareButtons
+              title={idea.title}
+              url={`https://destroysass.vercel.app/ideas/${id}`}
+            />
+          </div>
         </div>
 
         {/* pledge summary bar */}

@@ -7,6 +7,21 @@ export default async function Home() {
     data: { user },
   } = await supabase.auth.getUser();
 
+  // fetch platform stats
+  const { count: idea_count } = await supabase
+    .from("idea_board")
+    .select("*", { count: "exact", head: true });
+
+  const { data: pledge_stats } = await supabase
+    .from("pledges")
+    .select("amount_monthly, user_id");
+
+  const total_pledged = (pledge_stats ?? []).reduce(
+    (sum, p) => sum + Number(p.amount_monthly),
+    0
+  );
+  const total_sponsors = new Set((pledge_stats ?? []).map((p) => p.user_id)).size;
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] font-sans">
 
@@ -105,6 +120,26 @@ export default async function Home() {
             </div>
           </div>
         </div>
+
+        {/* stats */}
+        {(idea_count ?? 0) > 0 && (
+          <div className="grid grid-cols-3 gap-6 mb-16 border border-[#222] rounded-lg p-6">
+            <div className="text-center">
+              <p className="text-3xl font-bold text-red-600">{idea_count}</p>
+              <p className="text-xs text-gray-500 mt-1">ideas submitted</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-red-600">
+                ${total_pledged.toLocaleString()}
+              </p>
+              <p className="text-xs text-gray-500 mt-1">pledged / month</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-red-600">{total_sponsors}</p>
+              <p className="text-xs text-gray-500 mt-1">sponsors</p>
+            </div>
+          </div>
+        )}
 
         {/* cta */}
         <div className="mb-24">
