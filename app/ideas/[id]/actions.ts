@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
+import { notify_new_pledge, notify_status_change } from "@/lib/email";
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -159,6 +160,8 @@ export async function pledgeIdea(idea_id: string, amount: number): Promise<Actio
     return { error: "idea not found." };
   }
 
+  const status_before = idea.status;
+
   const pledgeable = ["proposed", "gaining_traction"];
   if (!pledgeable.includes(idea.status)) {
     return { error: "this idea is no longer accepting pledges." };
@@ -182,6 +185,20 @@ export async function pledgeIdea(idea_id: string, amount: number): Promise<Actio
     }
   } catch {
     return { error: "something went wrong. please try again." };
+  }
+
+  // fire-and-forget email notifications
+  void notify_new_pledge(idea_id, user.id, amount);
+
+  // check if status changed (DB trigger may update on pledge)
+  const { data: idea_after } = await supabase
+    .from("ideas")
+    .select("status")
+    .eq("id", idea_id)
+    .single();
+
+  if (idea_after && idea_after.status !== status_before) {
+    void notify_status_change(idea_id, idea_after.status);
   }
 
   revalidatePath("/ideas");
@@ -215,6 +232,8 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
     }
   }
 
+  const status_before = idea?.status;
+
   try {
     const { error } = await supabase
       .from("pledges")
@@ -227,6 +246,19 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
     }
   } catch {
     return { error: "something went wrong. please try again." };
+  }
+
+  // check if status changed (DB trigger may downgrade on unpledge)
+  if (status_before) {
+    const { data: idea_after } = await supabase
+      .from("ideas")
+      .select("status")
+      .eq("id", idea_id)
+      .single();
+
+    if (idea_after && idea_after.status !== status_before) {
+      void notify_status_change(idea_id, idea_after.status);
+    }
   }
 
   revalidatePath("/ideas");

@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
+import { notify_cell_formation } from "@/lib/email";
 
 // NOTE: SUPABASE_SERVICE_ROLE_KEY must be added to .envrc and Vercel env vars manually.
 // Without it, triggerCellFormation will fail (RLS blocks service-role-key-less mutations).
@@ -64,6 +65,9 @@ export async function triggerCellFormation(ideaId: string): Promise<ActionResult
   if (updateError) {
     return { error: `failed to update status: ${updateError.message}` };
   }
+
+  // fire-and-forget email to all stakeholders
+  void notify_cell_formation(ideaId);
 
   revalidatePath("/ideas");
   revalidatePath(`/ideas/${ideaId}`);
