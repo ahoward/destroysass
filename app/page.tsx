@@ -17,6 +17,7 @@ export default async function Home() {
         </span>
         <div className="flex items-center gap-4 text-sm text-gray-400">
           <a href="/ideas" className="hover:text-white transition-colors">ideas</a>
+          <a href="/dev-cells" className="hover:text-white transition-colors">dev cells</a>
           <a href="/about" className="hover:text-white transition-colors">about</a>
           {user ? (
             <>

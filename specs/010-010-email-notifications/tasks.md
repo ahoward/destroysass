@@ -24,9 +24,9 @@
 - [x] **T5** modify `app/admin/actions.ts` → `triggerCellFormation`:
   - after successful status update: call `notifyCellFormation(ideaId)`
 - [x] **T6** run `./dev/post_flight` — must pass
-- [ ] **T7** commit + push + merge to main
-- [ ] **T8** deploy: `vercel deploy --prod --yes`
-- [ ] **T9** run `./dev/health` — must return ok
+- [x] **T7** commit + push + merge to main
+- [x] **T8** deploy: `vercel deploy --prod --yes`
+- [x] **T9** run `./dev/health` — must return ok
 
 ## Notes
 

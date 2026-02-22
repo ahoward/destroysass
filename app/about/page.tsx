@@ -56,6 +56,7 @@ export default async function AboutPage() {
         </a>
         <div className="flex items-center gap-4 text-sm text-gray-400">
           <a href="/ideas" className="hover:text-white transition-colors">ideas</a>
+          <a href="/dev-cells" className="hover:text-white transition-colors">dev cells</a>
           <a href="/about" className="text-white">about</a>
           {user ? (
             <>

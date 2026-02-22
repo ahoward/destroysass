@@ -46,6 +46,7 @@ export default async function IdeasPage() {
         </a>
         <div className="flex items-center gap-4 text-sm text-gray-400">
           <span className="text-white">ideas</span>
+          <a href="/dev-cells" className="hover:text-white transition-colors">dev cells</a>
           <a href="/about" className="hover:text-white transition-colors">about</a>
           {user ? (
             <>

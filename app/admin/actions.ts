@@ -75,3 +75,77 @@ export async function triggerCellFormation(ideaId: string): Promise<ActionResult
 
   return { success: true };
 }
+
+export async function approveDevCell(id: string): Promise<ActionResult> {
+  if (!UUID_RE.test(id)) {
+    return { error: "invalid id." };
+  }
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user || !user.email || !ADMIN_EMAILS.includes(user.email)) {
+    return { error: "unauthorized." };
+  }
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+
+  if (!serviceRoleKey) {
+    return { error: "SUPABASE_SERVICE_ROLE_KEY not configured." };
+  }
+
+  const adminClient = createServiceClient(supabaseUrl, serviceRoleKey);
+
+  const { error: updateError } = await adminClient
+    .from("dev_cells")
+    .update({ status: "approved", updated_at: new Date().toISOString() })
+    .eq("id", id);
+
+  if (updateError) {
+    return { error: `failed to approve: ${updateError.message}` };
+  }
+
+  revalidatePath("/dev-cells");
+  revalidatePath("/admin");
+  return { success: true };
+}
+
+export async function rejectDevCell(id: string): Promise<ActionResult> {
+  if (!UUID_RE.test(id)) {
+    return { error: "invalid id." };
+  }
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user || !user.email || !ADMIN_EMAILS.includes(user.email)) {
+    return { error: "unauthorized." };
+  }
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+
+  if (!serviceRoleKey) {
+    return { error: "SUPABASE_SERVICE_ROLE_KEY not configured." };
+  }
+
+  const adminClient = createServiceClient(supabaseUrl, serviceRoleKey);
+
+  const { error: updateError } = await adminClient
+    .from("dev_cells")
+    .update({ status: "rejected", updated_at: new Date().toISOString() })
+    .eq("id", id);
+
+  if (updateError) {
+    return { error: `failed to reject: ${updateError.message}` };
+  }
+
+  revalidatePath("/dev-cells");
+  revalidatePath("/admin");
+  return { success: true };
+}

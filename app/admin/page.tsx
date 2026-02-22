@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { signOut } from "@/app/auth/actions";
 import CellFormButton from "./cell_form_button";
+import DevCellReviewButton from "./dev_cell_review_button";
 
 const ADMIN_EMAILS = ["ara.t.howard@gmail.com"];
 
@@ -33,6 +35,16 @@ type IdeaRow = {
   created_at: string;
 };
 
+type DevCellRow = {
+  id: string;
+  name: string;
+  description: string;
+  website: string | null;
+  skills: string[];
+  contact_email: string;
+  created_at: string;
+};
+
 export default async function AdminPage() {
   const supabase = await createClient();
   const {
@@ -51,6 +63,22 @@ export default async function AdminPage() {
   const allIdeas: IdeaRow[] = ideas ?? [];
   const readyToForm = allIdeas.filter((i) => i.status === "threshold_reached");
 
+  // fetch pending dev cell applications (RLS only shows approved, need service role)
+  let pendingCells: DevCellRow[] = [];
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+  if (serviceRoleKey) {
+    const adminClient = createServiceClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL || "",
+      serviceRoleKey
+    );
+    const { data: cells } = await adminClient
+      .from("dev_cells")
+      .select("id, name, description, website, skills, contact_email, created_at")
+      .eq("status", "pending")
+      .order("created_at", { ascending: true });
+    pendingCells = cells ?? [];
+  }
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* nav */}
@@ -60,6 +88,7 @@ export default async function AdminPage() {
         </a>
         <div className="flex items-center gap-4 text-sm text-gray-400">
           <a href="/ideas" className="hover:text-white transition-colors">ideas</a>
+          <a href="/dev-cells" className="hover:text-white transition-colors">dev cells</a>
           <a href="/dashboard" className="hover:text-white transition-colors">dashboard</a>
           <span className="text-red-500 font-medium">admin</span>
           <form action={signOut}>
@@ -111,7 +140,64 @@ export default async function AdminPage() {
           )}
         </section>
 
-        {/* section 2: all ideas */}
+        {/* section 2: dev cell applications */}
+        <section className="mb-12">
+          <h2 className="text-xl font-semibold mb-1 text-purple-400">dev cell applications</h2>
+          <p className="text-gray-500 text-sm mb-4">
+            pending cooperative applications — approve to list on /dev-cells.
+          </p>
+
+          {pendingCells.length === 0 ? (
+            <p className="text-gray-600 text-sm italic">no pending applications.</p>
+          ) : (
+            <div className="space-y-3">
+              {pendingCells.map((cell) => (
+                <div
+                  key={cell.id}
+                  className="border border-purple-900 rounded-lg p-4"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium">{cell.name}</p>
+                      <p className="text-sm text-gray-400 mt-1">{cell.description}</p>
+                    </div>
+                    <DevCellReviewButton cellId={cell.id} />
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 mt-2 text-xs text-gray-500">
+                    <span>{cell.contact_email}</span>
+                    {cell.website && (
+                      <>
+                        <span>·</span>
+                        <a
+                          href={cell.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-white transition-colors"
+                        >
+                          {cell.website}
+                        </a>
+                      </>
+                    )}
+                  </div>
+                  {cell.skills.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {cell.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="text-xs border border-gray-700 text-gray-400 rounded px-1.5 py-0.5"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* section 3: all ideas */}
         <section>
           <h2 className="text-xl font-semibold mb-4">all ideas</h2>
           {allIdeas.length === 0 ? (
