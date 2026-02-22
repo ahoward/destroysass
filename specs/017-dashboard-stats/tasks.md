@@ -15,9 +15,9 @@
   - display: relative time + description ("someone pledged $50/mo to 'title'")
   - use service role client to get commenter display names if needed
 - [x] **T3** run `./dev/post_flight` — must pass
-- [ ] **T4** commit + push + merge to main
-- [ ] **T5** deploy: `vercel deploy --prod --yes`
-- [ ] **T6** run `./dev/health` — must return ok
+- [x] **T4** commit + push + merge to main
+- [x] **T5** deploy: `vercel deploy --prod --yes`
+- [x] **T6** run `./dev/health` — must return ok
 
 ## Definition of Done
 
