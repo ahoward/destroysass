@@ -10,6 +10,8 @@ export default function Footer() {
           <a href="/ideas" className="hover:text-gray-400 transition-colors">ideas</a>
           <a href="/about" className="hover:text-gray-400 transition-colors">about</a>
           <a href="/dev-cells" className="hover:text-gray-400 transition-colors">dev cells</a>
+          <a href="/terms" className="hover:text-gray-400 transition-colors">terms</a>
+          <a href="/privacy" className="hover:text-gray-400 transition-colors">privacy</a>
           <a
             href="https://github.com/ahoward/destroysass"
             className="hover:text-gray-400 transition-colors"

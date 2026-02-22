@@ -9,9 +9,9 @@
   - top 5 ideas by upvote count (from idea_board)
   - growth: ideas + pledges this week vs last week (simple count comparison)
 - [x] **T2** run `./dev/post_flight` — must pass
-- [ ] **T3** commit + push + merge to main
-- [ ] **T4** deploy: `vercel deploy --prod --yes`
-- [ ] **T5** run `./dev/health` — must return ok
+- [x] **T3** commit + push + merge to main
+- [x] **T4** deploy: `vercel deploy --prod --yes`
+- [x] **T5** run `./dev/health` — must return ok
 
 ## Definition of Done
 

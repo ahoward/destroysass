@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/auth/actions";
 import WithdrawButton from "./withdraw_button";
+import VerifyBanner from "./verify_banner";
 
 export const metadata: Metadata = {
   title: "dashboard — destroysass",
@@ -263,6 +264,8 @@ export default async function DashboardPage() {
           </h1>
           <p className="text-sm text-gray-500">{user.email}</p>
         </div>
+
+        {!user.email_confirmed_at && <VerifyBanner />}
 
         {/* --- stats bar --- */}
         <section className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-12">

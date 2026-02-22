@@ -60,6 +60,28 @@ export async function resetPassword(formData: FormData) {
   return { success: "Check your email for a password reset link." };
 }
 
+export async function resendVerification() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user?.email) {
+    return { error: "Not signed in." };
+  }
+
+  const { error } = await supabase.auth.resend({
+    type: "signup",
+    email: user.email,
+  });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  return { success: "Verification email sent — check your inbox." };
+}
+
 export async function signOut() {
   const supabase = await createClient();
   await supabase.auth.signOut();
