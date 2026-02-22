@@ -9,6 +9,78 @@ type ActionResult = {
   error?: string;
 } | null;
 
+type IdeaUpdate = {
+  title: string;
+  description: string;
+  problem: string;
+  monthly_ask: number;
+};
+
+export async function updateIdea(ideaId: string, data: IdeaUpdate): Promise<ActionResult> {
+  if (!UUID_RE.test(ideaId)) {
+    return { error: "invalid idea." };
+  }
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: "you must be signed in." };
+  }
+
+  // verify ownership
+  const { data: idea } = await supabase
+    .from("ideas")
+    .select("id, created_by, status")
+    .eq("id", ideaId)
+    .single();
+
+  if (!idea || idea.created_by !== user.id) {
+    return { error: "you can only edit your own ideas." };
+  }
+
+  // only allow edits on early-stage ideas
+  const editable = ["proposed", "gaining_traction"];
+  if (!editable.includes(idea.status)) {
+    return { error: "this idea can no longer be edited." };
+  }
+
+  // validate
+  if (!data.title.trim() || data.title.length > 200) {
+    return { error: "title is required (max 200 chars)." };
+  }
+  if (!data.description.trim() || data.description.length > 2000) {
+    return { error: "description is required (max 2000 chars)." };
+  }
+  if (!data.problem.trim() || data.problem.length > 2000) {
+    return { error: "problem is required (max 2000 chars)." };
+  }
+  if (!Number.isInteger(data.monthly_ask) || data.monthly_ask < 25 || data.monthly_ask > 10000) {
+    return { error: "monthly ask must be $25–$10,000." };
+  }
+
+  const { error: updateError } = await supabase
+    .from("ideas")
+    .update({
+      title: data.title.trim(),
+      description: data.description.trim(),
+      problem: data.problem.trim(),
+      monthly_ask: data.monthly_ask,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", ideaId);
+
+  if (updateError) {
+    return { error: "failed to update. please try again." };
+  }
+
+  revalidatePath("/ideas");
+  revalidatePath(`/ideas/${ideaId}`);
+  revalidatePath("/dashboard");
+
+  return null;
+}
+
 export async function pledgeIdea(idea_id: string, amount: number): Promise<ActionResult> {
   if (!UUID_RE.test(idea_id)) {
     return { error: "invalid idea." };
