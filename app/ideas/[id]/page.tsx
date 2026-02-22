@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/auth/actions";
 import PledgePanel from "./pledge_panel";
 import EditIdea from "./edit_idea";
+import DeleteIdea from "./delete_idea";
 
 type MetaProps = { params: Promise<{ id: string }> };
 
@@ -170,9 +171,9 @@ export default async function IdeaDetailPage({ params }: Props) {
           is_creator={is_creator}
         />
 
-        {/* edit (creator only, early-stage only) */}
+        {/* edit + delete (creator only, early-stage only) */}
         {is_creator && ["proposed", "gaining_traction"].includes(idea.status) && (
-          <div className="mt-8">
+          <div className="mt-8 flex items-center gap-4">
             <EditIdea
               ideaId={id}
               title={idea.title}
@@ -180,6 +181,7 @@ export default async function IdeaDetailPage({ params }: Props) {
               problem={idea.problem}
               monthlyAsk={idea.monthly_ask}
             />
+            {Number(idea.pledge_count) === 0 && <DeleteIdea ideaId={id} />}
           </div>
         )}
       </main>

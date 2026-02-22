@@ -81,6 +81,56 @@ export async function updateIdea(ideaId: string, data: IdeaUpdate): Promise<Acti
   return null;
 }
 
+export async function deleteIdea(ideaId: string): Promise<ActionResult> {
+  if (!UUID_RE.test(ideaId)) {
+    return { error: "invalid idea." };
+  }
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: "you must be signed in." };
+  }
+
+  // verify ownership
+  const { data: idea } = await supabase
+    .from("idea_board")
+    .select("id, created_by, status, pledge_count")
+    .eq("id", ideaId)
+    .single();
+
+  if (!idea || idea.created_by !== user.id) {
+    return { error: "you can only delete your own ideas." };
+  }
+
+  // only allow deletion if no pledges from others
+  if (Number(idea.pledge_count) > 0) {
+    return { error: "cannot delete an idea that has pledges. withdraw all pledges first." };
+  }
+
+  // don't allow deletion of advanced-stage ideas
+  const deletable = ["proposed", "gaining_traction"];
+  if (!deletable.includes(idea.status)) {
+    return { error: "this idea can no longer be deleted." };
+  }
+
+  const { error: deleteError } = await supabase
+    .from("ideas")
+    .delete()
+    .eq("id", ideaId)
+    .eq("created_by", user.id);
+
+  if (deleteError) {
+    return { error: "failed to delete. please try again." };
+  }
+
+  revalidatePath("/ideas");
+  revalidatePath("/dashboard");
+
+  return null;
+}
+
 export async function pledgeIdea(idea_id: string, amount: number): Promise<ActionResult> {
   if (!UUID_RE.test(idea_id)) {
     return { error: "invalid idea." };
