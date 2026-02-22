@@ -16,7 +16,7 @@ const STATUS_COLORS: Record<string, string> = {
   proposed: "text-gray-500 border-gray-700",
   gaining_traction: "text-yellow-600 border-yellow-800",
   threshold_reached: "text-green-500 border-green-700",
-  cell_forming: "text-blue-400 border-blue-600",
+  cell_forming: "text-purple-400 border-purple-600",
   active: "text-green-400 border-green-600",
   cancelled: "text-red-800 border-red-900",
 };
