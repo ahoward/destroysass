@@ -13,6 +13,7 @@ type IdeaRow = {
   created_at: string;
   total_pledged: number;
   pledge_count: number;
+  upvote_count: number;
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -47,6 +48,7 @@ const STATUS_COLORS: Record<string, string> = {
 
 const SORT_OPTIONS = [
   { value: "pledged", label: "most pledged" },
+  { value: "upvoted", label: "most upvoted" },
   { value: "newest", label: "newest" },
   { value: "sponsors", label: "most sponsors" },
 ] as const;
@@ -75,6 +77,7 @@ export default function IdeasFilter({ ideas }: { ideas: IdeaRow[] }) {
     })
     .sort((a, b) => {
       if (sort === "pledged") return b.total_pledged - a.total_pledged;
+      if (sort === "upvoted") return Number(b.upvote_count) - Number(a.upvote_count);
       if (sort === "newest") return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
       if (sort === "sponsors") return b.pledge_count - a.pledge_count;
       return 0;
@@ -179,6 +182,8 @@ export default function IdeasFilter({ ideas }: { ideas: IdeaRow[] }) {
               </p>
 
               <div className="flex items-center gap-4 text-xs text-gray-600">
+                <span className="text-gray-400">&#9650; {Number(idea.upvote_count)}</span>
+                <span className="text-gray-700">·</span>
                 <span>
                   <span className="text-gray-400">{idea.pledge_count}</span>{" "}
                   {Number(idea.pledge_count) === 1 ? "sponsor" : "sponsors"}

@@ -18,6 +18,7 @@ type IdeaRow = {
   created_at: string;
   total_pledged: number;
   pledge_count: number;
+  upvote_count: number;
 };
 
 export default async function IdeasPage() {

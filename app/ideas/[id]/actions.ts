@@ -267,6 +267,51 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
   return null;
 }
 
+export async function toggleUpvote(idea_id: string): Promise<ActionResult> {
+  if (!UUID_RE.test(idea_id)) {
+    return { error: "invalid idea." };
+  }
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: "you must be signed in to upvote." };
+  }
+
+  // check if already upvoted
+  const { data: existing } = await supabase
+    .from("upvotes")
+    .select("id")
+    .eq("idea_id", idea_id)
+    .eq("user_id", user.id)
+    .single();
+
+  if (existing) {
+    const { error } = await supabase
+      .from("upvotes")
+      .delete()
+      .eq("idea_id", idea_id)
+      .eq("user_id", user.id);
+
+    if (error) {
+      return { error: "failed to remove upvote." };
+    }
+  } else {
+    const { error } = await supabase
+      .from("upvotes")
+      .insert({ idea_id, user_id: user.id });
+
+    if (error) {
+      return { error: "failed to upvote." };
+    }
+  }
+
+  revalidatePath("/ideas");
+  revalidatePath(`/ideas/${idea_id}`);
+  return null;
+}
+
 export async function postComment(idea_id: string, body: string): Promise<ActionResult> {
   if (!UUID_RE.test(idea_id)) {
     return { error: "invalid idea." };

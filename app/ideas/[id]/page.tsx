@@ -7,6 +7,7 @@ import EditIdea from "./edit_idea";
 import DeleteIdea from "./delete_idea";
 import Comments from "./comments";
 import ShareButtons from "./share_buttons";
+import UpvoteButton from "./upvote_button";
 
 type MetaProps = { params: Promise<{ id: string }> };
 
@@ -66,6 +67,7 @@ export default async function IdeaDetailPage({ params }: Props) {
   const { data: { user } } = await supabase.auth.getUser();
 
   let existing_pledge: { amount_monthly: number } | null = null;
+  let user_has_upvoted = false;
   if (user) {
     const { data } = await supabase
       .from("pledges")
@@ -74,6 +76,14 @@ export default async function IdeaDetailPage({ params }: Props) {
       .eq("user_id", user.id)
       .single();
     existing_pledge = data;
+
+    const { data: upvote } = await supabase
+      .from("upvotes")
+      .select("id")
+      .eq("idea_id", id)
+      .eq("user_id", user.id)
+      .single();
+    user_has_upvoted = !!upvote;
   }
 
   // fetch comments
@@ -155,7 +165,12 @@ export default async function IdeaDetailPage({ params }: Props) {
             to maintain and host this.
           </p>
 
-          <div className="mt-4">
+          <div className="mt-4 flex items-center gap-4">
+            <UpvoteButton
+              idea_id={id}
+              upvote_count={Number(idea.upvote_count) || 0}
+              user_has_upvoted={user_has_upvoted}
+            />
             <ShareButtons
               title={idea.title}
               url={`https://destroysass.vercel.app/ideas/${id}`}
