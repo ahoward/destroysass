@@ -266,3 +266,74 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
   revalidatePath("/dashboard");
   return null;
 }
+
+export async function postComment(idea_id: string, body: string): Promise<ActionResult> {
+  if (!UUID_RE.test(idea_id)) {
+    return { error: "invalid idea." };
+  }
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: "you must be signed in to comment." };
+  }
+
+  const trimmed = body.trim();
+  if (!trimmed || trimmed.length > 2000) {
+    return { error: "comment must be 1–2,000 characters." };
+  }
+
+  // verify idea exists
+  const { data: idea } = await supabase
+    .from("ideas")
+    .select("id")
+    .eq("id", idea_id)
+    .single();
+
+  if (!idea) {
+    return { error: "idea not found." };
+  }
+
+  const display_name = (user.email ?? "").split("@")[0] || "anonymous";
+
+  const { error: insert_error } = await supabase.from("comments").insert({
+    idea_id,
+    user_id: user.id,
+    display_name,
+    body: trimmed,
+  });
+
+  if (insert_error) {
+    return { error: "failed to post comment. please try again." };
+  }
+
+  revalidatePath(`/ideas/${idea_id}`);
+  return null;
+}
+
+export async function deleteComment(comment_id: string, idea_id: string): Promise<ActionResult> {
+  if (!UUID_RE.test(comment_id) || !UUID_RE.test(idea_id)) {
+    return { error: "invalid id." };
+  }
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: "you must be signed in." };
+  }
+
+  const { error } = await supabase
+    .from("comments")
+    .delete()
+    .eq("id", comment_id)
+    .eq("user_id", user.id);
+
+  if (error) {
+    return { error: "failed to delete comment." };
+  }
+
+  revalidatePath(`/ideas/${idea_id}`);
+  return null;
+}

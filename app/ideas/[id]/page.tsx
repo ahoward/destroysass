@@ -5,6 +5,7 @@ import { signOut } from "@/app/auth/actions";
 import PledgePanel from "./pledge_panel";
 import EditIdea from "./edit_idea";
 import DeleteIdea from "./delete_idea";
+import Comments from "./comments";
 
 type MetaProps = { params: Promise<{ id: string }> };
 
@@ -73,6 +74,15 @@ export default async function IdeaDetailPage({ params }: Props) {
       .single();
     existing_pledge = data;
   }
+
+  // fetch comments
+  const { data: raw_comments } = await supabase
+    .from("comments")
+    .select("id, user_id, display_name, body, created_at")
+    .eq("idea_id", id)
+    .order("created_at", { ascending: false });
+
+  const comments = raw_comments ?? [];
 
   const total = Number(idea.total_pledged) || 0;
   const count = Number(idea.pledge_count) || 0;
@@ -185,6 +195,13 @@ export default async function IdeaDetailPage({ params }: Props) {
             {Number(idea.pledge_count) === 0 && <DeleteIdea ideaId={id} />}
           </div>
         )}
+
+        {/* comments */}
+        <Comments
+          idea_id={id}
+          user_id={user?.id ?? null}
+          comments={comments}
+        />
       </main>
     </div>
   );
