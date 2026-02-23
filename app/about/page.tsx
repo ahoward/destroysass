@@ -156,6 +156,32 @@ export default async function AboutPage() {
           </div>
         </section>
 
+        {/* go deeper */}
+        <section className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">go deeper</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a
+              href="/about/legal"
+              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
+            >
+              <p className="font-semibold mb-1">the legal model</p>
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+                LCA/DAO hybrid, enforceable contracts, fork freedom, and why you have more rights here than
+                you&apos;ve ever had as a saas customer.
+              </p>
+            </a>
+            <a
+              href="/about/money"
+              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
+            >
+              <p className="font-semibold mb-1">the financial model</p>
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+                how cells get funded, inventor equity, treasury mechanics, and exactly where every dollar goes.
+              </p>
+            </a>
+          </div>
+        </section>
+
         {/* faq */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">faq</h2>

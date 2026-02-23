@@ -141,8 +141,122 @@ export default async function Home() {
           </div>
         )}
 
+        {/* stakeholder sections */}
+        <div className="mb-16 space-y-16">
+
+          {/* business owners */}
+          <section>
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-faint)] mb-6">
+              for business owners
+            </h2>
+            <h3 className="text-2xl font-bold tracking-tight lowercase mb-4">
+              you&apos;re paying rent on tools you can&apos;t leave.
+            </h3>
+            <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+              <p>
+                your crm raises prices 20%. your project management tool gets acquired and sunsets your plan.
+                your data sits on someone else&apos;s servers and you have <span className="text-[var(--text-primary)] font-medium">zero legal standing</span> to
+                do anything about it.
+              </p>
+              <p>
+                destroysass makes you a <span className="text-[var(--text-primary)] font-medium">co-owner</span>, not a customer.
+                you fund software collectively with other businesses who need the same thing. a vetted developer
+                cooperative builds it under contract <em>to you</em>. the code is open-source. the data is yours.
+                the legal entity gives you voting rights and enforceable contracts.
+              </p>
+              <p className="text-[var(--text-primary)] font-medium">
+                if your vendor disappeared tomorrow, would your business survive? with destroysass, the answer is always yes.
+              </p>
+            </div>
+            <div className="flex gap-6 mt-4">
+              <a
+                href="/ideas/new"
+                className="text-sm text-red-600 hover:text-red-500 transition-colors"
+              >
+                propose what your business needs &rarr;
+              </a>
+              <a
+                href="/about/legal"
+                className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+              >
+                read the legal model &rarr;
+              </a>
+            </div>
+          </section>
+
+          {/* developers */}
+          <section>
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-faint)] mb-6">
+              for developers
+            </h2>
+            <h3 className="text-2xl font-bold tracking-tight lowercase mb-4">
+              build software people actually pay for. no vc. no boss. no bullshit.
+            </h3>
+            <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+              <p>
+                the dev cell model is simple: form a cooperative, get certified, and bid on cells that hit threshold.
+                you build real software for real businesses under a real contract — not spec work, not exposure,
+                not &ldquo;equity&rdquo; in someone else&apos;s startup.
+              </p>
+              <p>
+                you ship on your terms. the treasury pays monthly, contingent on hitting your SLA.
+                all code is open-source. if you do great work, your reputation compounds and more cells come to you.
+                if you walk away, the collective replaces you. <span className="text-[var(--text-primary)] font-medium">no one is trapped</span> — not
+                the businesses, not you.
+              </p>
+              <p className="text-[var(--text-primary)] font-medium">
+                this is contract work that scales like a product, without giving up ownership of your labor.
+              </p>
+            </div>
+            <a
+              href="/dev-cells"
+              className="inline-block mt-4 text-sm text-red-600 hover:text-red-500 transition-colors"
+            >
+              apply as a dev cell &rarr;
+            </a>
+          </section>
+
+          {/* investors */}
+          <section>
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-faint)] mb-6">
+              for investors
+            </h2>
+            <h3 className="text-2xl font-bold tracking-tight lowercase mb-4">
+              saas margins without saas fragility.
+            </h3>
+            <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+              <p>
+                traditional saas is a rent-seeking monoculture. one vendor, millions of customers, and a single point
+                of failure. ai is collapsing that model — building software is no longer the moat. the winners of the
+                next decade will own the <span className="text-[var(--text-primary)] font-medium">network</span>, not the code.
+              </p>
+              <p>
+                destroysass is a platform that spawns self-sustaining micro-cooperatives. each cell funds its own
+                development, governs its own roadmap, and pays platform fees for infrastructure. the code is free.
+                the network, legal rails, and treasury infrastructure are the value.
+              </p>
+              <p>
+                revenue model: cell formation fees, platform take-rate (5&ndash;10% of each cell&apos;s treasury),
+                dev cell certification, and inter-cell API routing fees at scale.
+                every cell that forms <span className="text-[var(--text-primary)] font-medium">increases the network and decreases churn</span> —
+                because owners don&apos;t churn the way customers do.
+              </p>
+              <p className="text-[var(--text-primary)] font-medium">
+                this isn&apos;t a saas company. it&apos;s the protocol layer that replaces saas companies.
+              </p>
+            </div>
+            <a
+              href="/about/money"
+              className="inline-block mt-4 text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+            >
+              see the full financial model &rarr;
+            </a>
+          </section>
+
+        </div>
+
         {/* cta */}
-        <div className="mb-24">
+        <div className="mb-24 border-t border-[var(--border-primary)] pt-12">
           <a
             href="/ideas/new"
             className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded transition-colors mr-4"

@@ -4,8 +4,8 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { signOut } from "@/app/auth/actions";
 import CellFormButton from "./cell_form_button";
 import DevCellReviewButton from "./dev_cell_review_button";
-
-const ADMIN_EMAILS = ["ara.t.howard@gmail.com"];
+import GroupManager from "./group_manager";
+import { is_admin, ensure_root_membership } from "@/lib/groups";
 
 const STATUS_LABELS: Record<string, string> = {
   proposed: "proposed",
@@ -67,7 +67,7 @@ export default async function AdminPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user || !user.email || !ADMIN_EMAILS.includes(user.email)) {
+  if (!user || !(await is_admin(supabase, user))) {
     notFound();
   }
 
@@ -78,6 +78,11 @@ export default async function AdminPage() {
         serviceRoleKey
       )
     : null;
+
+  // ensure root user is always in sudo+admin groups
+  if (adminClient) {
+    await ensure_root_membership(adminClient, user);
+  }
 
   // time boundaries for growth comparison
   const now = new Date();
@@ -198,6 +203,56 @@ export default async function AdminPage() {
         new Date(u.created_at).getTime() >= two_weeks_ts &&
         new Date(u.created_at).getTime() < one_week_ts
     ).length;
+  }
+
+  // fetch groups and members for group management
+  type GroupWithMembers = {
+    id: string;
+    name: string;
+    description: string | null;
+    members: { user_id: string; email: string }[];
+  };
+
+  let allGroups: GroupWithMembers[] = [];
+
+  if (adminClient) {
+    const { data: groups } = await adminClient
+      .from("groups")
+      .select("id, name, description")
+      .order("name");
+
+    const { data: members } = await adminClient
+      .from("group_members")
+      .select("group_id, user_id");
+
+    // get all user emails via admin API
+    const { data: allUsersData } = await adminClient.auth.admin.listUsers({
+      page: 1,
+      perPage: 1000,
+    });
+    const userEmailMap = new Map<string, string>();
+    const rawUsers = (
+      allUsersData as unknown as { users: { id: string; email: string }[] }
+    )?.users;
+    if (rawUsers) {
+      for (const u of rawUsers) {
+        if (u.email) userEmailMap.set(u.id, u.email);
+      }
+    }
+
+    if (groups) {
+      allGroups = groups.map((g) => ({
+        id: g.id,
+        name: g.name,
+        description: g.description,
+        members: (members ?? [])
+          .filter((m) => m.group_id === g.id)
+          .map((m) => ({
+            user_id: m.user_id,
+            email: userEmailMap.get(m.user_id) ?? m.user_id,
+          })),
+      }));
+    }
   }
 
   const allIdeas: IdeaRow[] = ideas_result.data ?? [];
@@ -560,6 +615,17 @@ export default async function AdminPage() {
               ))}
             </div>
           )}
+        </section>
+
+        {/* --- group management --- */}
+        <section className="mt-12">
+          <h2 className="text-xl font-semibold mb-1 text-yellow-400">
+            groups
+          </h2>
+          <p className="text-gray-500 text-sm mb-4">
+            manage groups and memberships. sudo can do everything admin can, and more.
+          </p>
+          <GroupManager groups={allGroups} />
         </section>
       </main>
     </div>
