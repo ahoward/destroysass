@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/app/components/footer";
 import ThemeToggle from "@/app/components/theme_toggle";
+import GhostBanner from "@/app/components/ghost_banner";
 
 export const metadata: Metadata = {
   title: "destroysass — own the software you use",
@@ -45,6 +46,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
       <body className="antialiased bg-[var(--bg-primary)] text-[var(--text-primary)]">
+        <GhostBanner />
         <div className="fixed top-4 right-4 z-50">
           <ThemeToggle />
         </div>

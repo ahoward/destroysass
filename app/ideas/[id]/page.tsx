@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { getEffectiveUser } from "@/lib/ghost";
 import Nav from "@/app/components/nav";
 import PledgePanel from "./pledge_panel";
 import EditIdea from "./edit_idea";
@@ -63,17 +64,17 @@ export default async function IdeaDetailPage({ params }: Props) {
     notFound();
   }
 
-  // fetch auth + existing pledge
-  const { data: { user } } = await supabase.auth.getUser();
+  // fetch auth + existing pledge (use effective user for acting-as support)
+  const { user, effectiveUserId } = await getEffectiveUser();
 
   let existing_pledge: { amount_monthly: number } | null = null;
   let user_has_upvoted = false;
-  if (user) {
+  if (user && effectiveUserId) {
     const { data } = await supabase
       .from("pledges")
       .select("amount_monthly")
       .eq("idea_id", id)
-      .eq("user_id", user.id)
+      .eq("user_id", effectiveUserId)
       .single();
     existing_pledge = data;
 
@@ -81,7 +82,7 @@ export default async function IdeaDetailPage({ params }: Props) {
       .from("upvotes")
       .select("id")
       .eq("idea_id", id)
-      .eq("user_id", user.id)
+      .eq("user_id", effectiveUserId)
       .single();
     user_has_upvoted = !!upvote;
   }
@@ -98,7 +99,7 @@ export default async function IdeaDetailPage({ params }: Props) {
   const total = Number(idea.total_pledged) || 0;
   const count = Number(idea.pledge_count) || 0;
   const pct = Math.min(Math.round((total / THRESHOLD) * 100), 100);
-  const is_creator = user?.id === idea.created_by;
+  const is_creator = effectiveUserId === idea.created_by;
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
@@ -182,7 +183,7 @@ export default async function IdeaDetailPage({ params }: Props) {
         {/* pledge panel */}
         <PledgePanel
           idea_id={id}
-          user_id={user?.id ?? null}
+          user_id={effectiveUserId ?? null}
           existing_amount={existing_pledge?.amount_monthly ?? null}
           is_creator={is_creator}
         />
@@ -204,7 +205,7 @@ export default async function IdeaDetailPage({ params }: Props) {
         {/* comments */}
         <Comments
           idea_id={id}
-          user_id={user?.id ?? null}
+          user_id={effectiveUserId ?? null}
           comments={comments}
         />
       </main>

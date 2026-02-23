@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { getActionContext } from "@/lib/ghost";
 
 const CATEGORIES = [
   "communication",
@@ -42,14 +42,13 @@ export async function submitIdea(
   _prev: SubmitIdeaResult,
   formData: FormData
 ): Promise<SubmitIdeaResult> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const ctx = await getActionContext();
 
-  if (!user) {
+  if (!ctx) {
     return { errors: { general: "you must be signed in to submit an idea." } };
   }
+
+  const { effectiveUserId, client } = ctx;
 
   const raw_title = (formData.get("title") as string) ?? "";
   const raw_problem = (formData.get("problem") as string) ?? "";
@@ -122,13 +121,13 @@ export async function submitIdea(
   }
 
   try {
-    const { error } = await supabase.from("ideas").insert({
+    const { error } = await client.from("ideas").insert({
       title,
       problem,
       description,
       monthly_ask,
       category,
-      created_by: user.id,
+      created_by: effectiveUserId,
     });
 
     if (error) {

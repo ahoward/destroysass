@@ -313,12 +313,18 @@ export default async function AdminPage() {
         <p className="text-gray-500 text-sm mb-4">
           logged in as <span className="text-gray-300">{user.email}</span>
         </p>
-        <div className="mb-10">
+        <div className="mb-10 flex gap-6">
           <a
             href="/admin/invitations"
             className="text-sm text-red-600 hover:text-red-500 transition-colors"
           >
             manage invitations &rarr;
+          </a>
+          <a
+            href="/admin/ghosts"
+            className="text-sm text-red-600 hover:text-red-500 transition-colors"
+          >
+            ghost roster &rarr;
           </a>
         </div>
 

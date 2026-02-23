@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { getActionContext } from "@/lib/ghost";
 import { notify_new_pledge, notify_status_change } from "@/lib/email";
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -22,21 +22,21 @@ export async function updateIdea(ideaId: string, data: IdeaUpdate): Promise<Acti
     return { error: "invalid idea." };
   }
 
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
+  const ctx = await getActionContext();
+  if (!ctx) {
     return { error: "you must be signed in." };
   }
 
+  const { effectiveUserId, client } = ctx;
+
   // verify ownership
-  const { data: idea } = await supabase
+  const { data: idea } = await client
     .from("ideas")
     .select("id, created_by, status")
     .eq("id", ideaId)
     .single();
 
-  if (!idea || idea.created_by !== user.id) {
+  if (!idea || idea.created_by !== effectiveUserId) {
     return { error: "you can only edit your own ideas." };
   }
 
@@ -60,7 +60,7 @@ export async function updateIdea(ideaId: string, data: IdeaUpdate): Promise<Acti
     return { error: "monthly ask must be $25–$10,000." };
   }
 
-  const { error: updateError } = await supabase
+  const { error: updateError } = await client
     .from("ideas")
     .update({
       title: data.title.trim(),
@@ -87,21 +87,21 @@ export async function deleteIdea(ideaId: string): Promise<ActionResult> {
     return { error: "invalid idea." };
   }
 
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
+  const ctx = await getActionContext();
+  if (!ctx) {
     return { error: "you must be signed in." };
   }
 
+  const { effectiveUserId, client } = ctx;
+
   // verify ownership
-  const { data: idea } = await supabase
+  const { data: idea } = await client
     .from("idea_board")
     .select("id, created_by, status, pledge_count")
     .eq("id", ideaId)
     .single();
 
-  if (!idea || idea.created_by !== user.id) {
+  if (!idea || idea.created_by !== effectiveUserId) {
     return { error: "you can only delete your own ideas." };
   }
 
@@ -116,11 +116,11 @@ export async function deleteIdea(ideaId: string): Promise<ActionResult> {
     return { error: "this idea can no longer be deleted." };
   }
 
-  const { error: deleteError } = await supabase
+  const { error: deleteError } = await client
     .from("ideas")
     .delete()
     .eq("id", ideaId)
-    .eq("created_by", user.id);
+    .eq("created_by", effectiveUserId);
 
   if (deleteError) {
     return { error: "failed to delete. please try again." };
@@ -137,12 +137,12 @@ export async function pledgeIdea(idea_id: string, amount: number): Promise<Actio
     return { error: "invalid idea." };
   }
 
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
+  const ctx = await getActionContext();
+  if (!ctx) {
     return { error: "you must be signed in to pledge." };
   }
+
+  const { effectiveUserId, client } = ctx;
 
   // validate amount: integer, 25-500, step of 25
   if (!Number.isInteger(amount) || amount < 25 || amount > 500 || amount % 25 !== 0) {
@@ -150,7 +150,7 @@ export async function pledgeIdea(idea_id: string, amount: number): Promise<Actio
   }
 
   // check idea exists and is in a pledgeable status
-  const { data: idea, error: idea_error } = await supabase
+  const { data: idea, error: idea_error } = await client
     .from("ideas")
     .select("id, status, created_by")
     .eq("id", idea_id)
@@ -168,15 +168,15 @@ export async function pledgeIdea(idea_id: string, amount: number): Promise<Actio
   }
 
   // creator cannot pledge to own idea
-  if (idea.created_by === user.id) {
+  if (idea.created_by === effectiveUserId) {
     return { error: "you cannot pledge to your own idea." };
   }
 
   try {
-    const { error } = await supabase
+    const { error } = await client
       .from("pledges")
       .upsert(
-        { idea_id, user_id: user.id, amount_monthly: amount },
+        { idea_id, user_id: effectiveUserId, amount_monthly: amount },
         { onConflict: "idea_id,user_id" }
       );
 
@@ -188,10 +188,10 @@ export async function pledgeIdea(idea_id: string, amount: number): Promise<Actio
   }
 
   // fire-and-forget email notifications
-  void notify_new_pledge(idea_id, user.id, amount);
+  void notify_new_pledge(idea_id, effectiveUserId, amount);
 
   // check if status changed (DB trigger may update on pledge)
-  const { data: idea_after } = await supabase
+  const { data: idea_after } = await client
     .from("ideas")
     .select("status")
     .eq("id", idea_id)
@@ -211,15 +211,15 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
     return { error: "invalid idea." };
   }
 
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
+  const ctx = await getActionContext();
+  if (!ctx) {
     return { error: "you must be signed in." };
   }
 
+  const { effectiveUserId, client } = ctx;
+
   // check idea status — cannot withdraw from locked ideas
-  const { data: idea } = await supabase
+  const { data: idea } = await client
     .from("ideas")
     .select("status")
     .eq("id", idea_id)
@@ -235,11 +235,11 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
   const status_before = idea?.status;
 
   try {
-    const { error } = await supabase
+    const { error } = await client
       .from("pledges")
       .delete()
       .eq("idea_id", idea_id)
-      .eq("user_id", user.id);
+      .eq("user_id", effectiveUserId);
 
     if (error) {
       return { error: "failed to withdraw pledge. please try again." };
@@ -250,7 +250,7 @@ export async function unpledgeIdea(idea_id: string): Promise<ActionResult> {
 
   // check if status changed (DB trigger may downgrade on unpledge)
   if (status_before) {
-    const { data: idea_after } = await supabase
+    const { data: idea_after } = await client
       .from("ideas")
       .select("status")
       .eq("id", idea_id)
@@ -272,35 +272,35 @@ export async function toggleUpvote(idea_id: string): Promise<ActionResult> {
     return { error: "invalid idea." };
   }
 
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
+  const ctx = await getActionContext();
+  if (!ctx) {
     return { error: "you must be signed in to upvote." };
   }
 
+  const { effectiveUserId, client } = ctx;
+
   // check if already upvoted
-  const { data: existing } = await supabase
+  const { data: existing } = await client
     .from("upvotes")
     .select("id")
     .eq("idea_id", idea_id)
-    .eq("user_id", user.id)
+    .eq("user_id", effectiveUserId)
     .single();
 
   if (existing) {
-    const { error } = await supabase
+    const { error } = await client
       .from("upvotes")
       .delete()
       .eq("idea_id", idea_id)
-      .eq("user_id", user.id);
+      .eq("user_id", effectiveUserId);
 
     if (error) {
       return { error: "failed to remove upvote." };
     }
   } else {
-    const { error } = await supabase
+    const { error } = await client
       .from("upvotes")
-      .insert({ idea_id, user_id: user.id });
+      .insert({ idea_id, user_id: effectiveUserId });
 
     if (error) {
       return { error: "failed to upvote." };
@@ -317,12 +317,12 @@ export async function postComment(idea_id: string, body: string): Promise<Action
     return { error: "invalid idea." };
   }
 
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
+  const ctx = await getActionContext();
+  if (!ctx) {
     return { error: "you must be signed in to comment." };
   }
+
+  const { effectiveUserId, client, isActingAs } = ctx;
 
   const trimmed = body.trim();
   if (!trimmed || trimmed.length > 2000) {
@@ -330,7 +330,7 @@ export async function postComment(idea_id: string, body: string): Promise<Action
   }
 
   // verify idea exists
-  const { data: idea } = await supabase
+  const { data: idea } = await client
     .from("ideas")
     .select("id")
     .eq("id", idea_id)
@@ -340,11 +340,30 @@ export async function postComment(idea_id: string, body: string): Promise<Action
     return { error: "idea not found." };
   }
 
-  const display_name = (user.email ?? "").split("@")[0] || "anonymous";
+  // when acting-as a ghost, use their profile display_name or email prefix
+  let display_name = (ctx.user.email ?? "").split("@")[0] || "anonymous";
+  if (isActingAs) {
+    const { data: profile } = await client
+      .from("profiles")
+      .select("display_name")
+      .eq("id", effectiveUserId)
+      .single();
+    if (profile?.display_name) {
+      display_name = profile.display_name;
+    } else {
+      // fall back to ghost email prefix
+      const { getServiceClient } = await import("@/lib/ghost");
+      const adminClient = getServiceClient();
+      const { data: userData } = await adminClient.auth.admin.getUserById(effectiveUserId);
+      if (userData?.user?.email) {
+        display_name = userData.user.email.split("@")[0] || "ghost";
+      }
+    }
+  }
 
-  const { error: insert_error } = await supabase.from("comments").insert({
+  const { error: insert_error } = await client.from("comments").insert({
     idea_id,
-    user_id: user.id,
+    user_id: effectiveUserId,
     display_name,
     body: trimmed,
   });
@@ -362,18 +381,18 @@ export async function deleteComment(comment_id: string, idea_id: string): Promis
     return { error: "invalid id." };
   }
 
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
+  const ctx = await getActionContext();
+  if (!ctx) {
     return { error: "you must be signed in." };
   }
 
-  const { error } = await supabase
+  const { effectiveUserId, client } = ctx;
+
+  const { error } = await client
     .from("comments")
     .delete()
     .eq("id", comment_id)
-    .eq("user_id", user.id);
+    .eq("user_id", effectiveUserId);
 
   if (error) {
     return { error: "failed to delete comment." };
