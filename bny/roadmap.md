@@ -18,9 +18,9 @@ after every implement cycle: QA the live app per `bny/qa-playbook.md`.
 
 ## Current State
 
-the app is live at https://destroysass.vercel.app
+the app is live at https://destroysass.coop
 
-### what's built (23 features shipped)
+### what's built (25 features shipped)
 
 - [x] next.js 16 + supabase auth scaffolding
 - [x] deployed to vercel (production)
@@ -50,6 +50,8 @@ the app is live at https://destroysass.vercel.app
 - [x] 021 — light/dark theme system (CSS custom properties, toggle, respects system pref)
 - [x] 022 — stakeholder sections, /about/legal, /about/money, groups infrastructure (sudo/admin/cabal), /cabal placeholder
 - [x] 023 — shared nav component, /me account page, /about/authors (founder profile), /cabal investor update + bizops playbook, invitation system with tracking
+- [x] 024 — rename "dev cells" to "cells" (database, routes, code, docs — broadened concept)
+- [x] 025 — ghost users, sudo impersonation, seed data bootstrap (11 personas, 15 ideas, 59 pledges, 10 comments from N5 research)
 
 ### database
 
@@ -59,28 +61,38 @@ the app is live at https://destroysass.vercel.app
 - upvotes (id, idea_id, user_id, created_at)
 - profiles (id→auth.users, display_name, bio, website, created_at)
 - cells (id, name, description, website, skills[], contact_email, status, applied_by, timestamps)
-- groups (id, name, description, created_at)
+- groups (id, name, description, created_at) — sudo, admin, cabal, ghost
 - group_members (id, group_id, user_id, created_at)
 - invitations (id, token, created_by, recipient_name/email, group_names[], redirect_path, note, view_count, viewed_at, accepted_at/by, expires_at, created_at)
 - idea_board view (ideas + aggregated pledge totals + upvote counts)
 - auto-status trigger: proposed→gaining_traction@$300, →threshold_reached@$1000
 - RLS on all tables with ownership checks; service role for admin ops
+- 11 ghost users (ghost+{slug}@destroysass.coop) in ghost group — no passwords, sudo-only access
 
 ### infra
 
-- vercel production deploy
+- vercel production deploy (destroysass.coop)
 - supabase (bjaejvgoifgdanwvglnv, us-east-1)
 - SUPABASE_SERVICE_ROLE_KEY in vercel env
 - SUPABASE_ACCESS_TOKEN for management API
 - resend integration (lib/email.ts) — RESEND_API_KEY not yet configured (issue #2)
-- groups-based RBAC (sudo > admin > cabal, root email fallback)
-- 10 migrations applied (001–010)
+- groups-based RBAC (sudo > admin > cabal > ghost, root email fallback)
+- 12 migrations applied (001–012)
+- ghost acting-as: cookie-based sudo impersonation (lib/ghost.ts, /admin/ghosts)
+- seed script: scripts/seed_ghosts.ts (idempotent, bun)
+
+### board state (post-seed)
+
+- 18 ideas on the board
+- $4,400+ pledged monthly
+- 6 ideas at "gaining traction" status
+- 11 ghost sponsors + original 3 seed ideas
 
 ---
 
 ## Next
 
-### 024 — stripe integration (real pledges → real payments)
+### 026 — stripe integration (real pledges → real payments)
 
 **blocked by:** business questions in `docs/business-questions.md`
 
@@ -90,6 +102,7 @@ before code:
 - decide platform fee structure (pre-formation, post-formation, or both?)
 - decide minimum pledge floor (stripe fees eat small amounts)
 - decide if pledges transfer to cell stripe account at formation
+- decide: ghost user pledges skip payment collection (flag check on ghost group membership)
 
 what to build:
 - stripe checkout for monthly subscriptions
@@ -98,7 +111,7 @@ what to build:
 - pledge conversion from intent to real subscription at cell trigger
 - subscription management (upgrade/downgrade/cancel)
 
-### 025 — configure resend for real email delivery
+### 027 — configure resend for real email delivery
 
 - get RESEND_API_KEY, add to .envrc + vercel env vars
 - verify custom domain with resend (SPF, DKIM, DMARC)
@@ -117,6 +130,7 @@ not a feature — this is manual work:
 - get them to submit ideas and pledge
 - pattern-match the first cell's problem from conversations
 - see /cabal/bizops for the full playbook
+- ghost ideas provide conversation starters — "would you pledge to any of these?"
 
 ### cell recruitment (non-code)
 
@@ -162,6 +176,7 @@ not a feature — this is manual work:
 - automated cell payments (SLA metrics → auto-approve → auto-pay)
 - mobile-optimized views
 - public api for cell data
+- ghost graduation: sunset ghost pledges as real users replace them
 
 ---
 
@@ -194,3 +209,5 @@ not a feature — this is manual work:
 - [x] 021 — light/dark theme system
 - [x] 022 — stakeholder content, legal/money deep-dives, groups infrastructure, cabal
 - [x] 023 — shared nav, /me, /about/authors, cabal investor update + bizops, invitation system
+- [x] 024 — rename "dev cells" to "cells" (database + routes + all references)
+- [x] 025 — ghost users + sudo impersonation + seed data bootstrap
