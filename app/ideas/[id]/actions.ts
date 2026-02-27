@@ -353,7 +353,7 @@ export async function postComment(idea_id: string, body: string): Promise<Action
     } else {
       // fall back to ghost email prefix
       const { getServiceClient } = await import("@/lib/ghost");
-      const adminClient = getServiceClient();
+      const adminClient = await getServiceClient();
       const { data: userData } = await adminClient.auth.admin.getUserById(effectiveUserId);
       if (userData?.user?.email) {
         display_name = userData.user.email.split("@")[0] || "ghost";

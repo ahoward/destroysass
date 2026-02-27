@@ -56,7 +56,7 @@ export async function getEffectiveUser(): Promise<{
 /**
  * create a service role supabase client. throws if key not configured.
  */
-export function getServiceClient(): SupabaseClient {
+export async function getServiceClient(): Promise<SupabaseClient> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
   if (!key) throw new Error("SUPABASE_SERVICE_ROLE_KEY not configured");
@@ -77,7 +77,7 @@ export async function getActionContext(): Promise<{
   const { user, effectiveUserId, isActingAs } = await getEffectiveUser();
   if (!user || !effectiveUserId) return null;
 
-  const client = isActingAs ? getServiceClient() : await createClient();
+  const client = isActingAs ? await getServiceClient() : await createClient();
   return { user, effectiveUserId, client, isActingAs };
 }
 
