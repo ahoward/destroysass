@@ -2,7 +2,8 @@ import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
-const FROM = "destroysass <hello@destroysass.coop>";
+const FROM = "destroysass <ara@destroysass.coop>";
+const REPLY_TO = "ara@destroysass.coop";
 
 const STATUS_LABELS: Record<string, string> = {
   proposed: "Proposed",
@@ -52,7 +53,7 @@ export async function send_email(to: string, subject: string, html: string): Pro
   if (!resend) return;
 
   try {
-    await resend.emails.send({ from: FROM, to, subject, html });
+    await resend.emails.send({ from: FROM, replyTo: REPLY_TO, to, subject, html });
   } catch (err) {
     console.error("[email] send failed:", err);
   }
