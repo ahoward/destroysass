@@ -35,7 +35,9 @@ export default async function MoneyPage() {
               pledges are held until total monthly commitments hit the{" "}
               <span className="text-[var(--text-primary)] font-medium">$1,000/month threshold</span>.
               at that point, pledges lock and convert into monthly treasury contributions.
-              a legal entity forms. development begins.
+              a legal entity forms. development begins. certified cells compete by building
+              working MVPs. the collective selects the best one, and that cell earns the
+              ongoing maintenance contract.
             </p>
             <p>
               if the threshold is never reached, nobody pays anything. there&apos;s no risk in pledging —

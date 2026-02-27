@@ -36,8 +36,12 @@ export default async function Home() {
           <br />
           and start owning it.
         </h1>
-        <p className="text-xl text-[var(--text-secondary)] mb-16">
+        <p className="text-xl text-[var(--text-secondary)] mb-2">
           saas is dead. we&apos;re building what comes next.
+        </p>
+        <p className="text-sm text-[var(--text-muted)] mb-16">
+          saas &mdash; &ldquo;software as a service&rdquo; &mdash; is the model where you pay
+          monthly rent for software someone else owns, controls, and can take away.
         </p>
 
         {/* problem */}
@@ -93,11 +97,36 @@ export default async function Home() {
             <div>
               <p className="font-semibold mb-1">own</p>
               <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                a vetted developer cooperative builds it under contract to your
-                collective. the code is open-source. the hosting is yours. you
-                have legal standing.
+                certified developer cooperatives compete by building working
+                MVPs. the collective picks the best one. the winning cell
+                maintains and evolves it under contract. the code is
+                open-source. you own it.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* credit union analogy */}
+        <div className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-faint)] mb-6">
+            think of it like a credit union
+          </h2>
+          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              banks extract from you. credit unions are{" "}
+              <span className="text-[var(--text-primary)] font-medium">owned by their members</span>.
+            </p>
+            <p>
+              saas vendors extract from you. destroysass collectives are{" "}
+              <span className="text-[var(--text-primary)] font-medium">owned by their members</span>.
+            </p>
+            <p>
+              same deposits. same services. radically different economics &mdash; because the
+              profits go back to you, not shareholders.
+            </p>
+            <p className="text-[var(--text-primary)] font-medium">
+              you already understand this model. you just haven&apos;t applied it to software yet.
+            </p>
           </div>
         </div>
 
@@ -174,12 +203,14 @@ export default async function Home() {
             </h3>
             <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
               <p>
-                the cell model is simple: form a cooperative, get certified, and bid on cells that hit threshold.
-                you build real software for real businesses under a real contract — not spec work, not exposure,
-                not &ldquo;equity&rdquo; in someone else&apos;s startup.
+                the code is free. maintenance is not. when an idea hits threshold, certified cooperatives compete
+                by shipping a working MVP &mdash; no spec decks, no slide decks, just running code.
+                the collective picks the best one and contracts that cell for ongoing maintenance, hosting,
+                and evolution.
               </p>
               <p>
-                you ship on your terms. the treasury pays monthly, contingent on hitting your SLA.
+                building the MVP is your audition. if you ship great work, you win a maintenance contract
+                that pays monthly. the treasury pays contingent on hitting your SLA.
                 all code is open-source. if you do great work, your reputation compounds and more cells come to you.
                 if you walk away, the collective replaces you. <span className="text-[var(--text-primary)] font-medium">no one is trapped</span> — not
                 the businesses, not you.

@@ -154,6 +154,16 @@ export default async function AboutPage() {
               </p>
             </a>
             <a
+              href="/about/philosophy"
+              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
+            >
+              <p className="font-semibold mb-1">the philosophy</p>
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+                from stallman to credit unions &mdash; why collective ownership of software
+                is the only path to financial freedom for small business.
+              </p>
+            </a>
+            <a
               href="/about/authors"
               className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors sm:col-span-2"
             >

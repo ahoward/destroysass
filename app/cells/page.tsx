@@ -30,7 +30,7 @@ export default async function CellsPage() {
       <main className="max-w-2xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold mb-2">cells</h1>
         <p className="text-[var(--text-muted)] text-sm mb-8">
-          the groups of people who organize to build and run software for the collective.
+          certified cooperatives that compete to build, host, and maintain software for the collective.
         </p>
 
         {approved.length === 0 ? (
@@ -80,7 +80,8 @@ export default async function CellsPage() {
 
         <div className="border-t border-[var(--border-primary)] pt-8">
           <p className="text-[var(--text-muted)] text-sm mb-3">
-            want to build and run software for the collective? get in.
+            certified cells compete by shipping working MVPs. the collective picks the winner.
+            no spec decks &mdash; running code.
           </p>
           <a
             href="/cells/apply"
