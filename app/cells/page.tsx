@@ -30,7 +30,7 @@ export default async function CellsPage() {
       <main className="max-w-2xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold mb-2">cells</h1>
         <p className="text-[var(--text-muted)] text-sm mb-8">
-          certified cooperatives that compete to build, host, and maintain software for the collective.
+          full-service product cooperatives that design, build, and operate software for the collective.
         </p>
 
         {approved.length === 0 ? (
@@ -78,10 +78,36 @@ export default async function CellsPage() {
           </div>
         )}
 
+        {/* what is a cell? */}
+        <div className="border border-[var(--border-primary)] rounded-lg p-6 mb-10">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-4">what is a cell?</h2>
+          <div className="space-y-3 text-sm text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              a cell is not a dev shop. it&apos;s a{" "}
+              <span className="text-[var(--text-primary)] font-medium">micro product company</span> that
+              operates under contract to its collective.
+            </p>
+            <p>
+              cells own the full stack &mdash;{" "}
+              <span className="text-[var(--text-primary)] font-medium">product, design, engineering, and operations</span>.
+              they take a problem from a business owner, figure out what to build, build it, ship it,
+              and keep it running. there is no separate &ldquo;product manager&rdquo; role &mdash;
+              the cell <em>is</em> the product team.
+            </p>
+            <p>
+              the business owners bring the problem and fund the work. the cell brings the solution &mdash;
+              from user research to production uptime. when cells compete by shipping MVPs,
+              they&apos;re not just showing code. they&apos;re showing{" "}
+              <span className="text-[var(--text-primary)] font-medium">product vision + execution</span>.
+              the collective picks the best <em>product</em>, not just the best code.
+            </p>
+          </div>
+        </div>
+
         <div className="border-t border-[var(--border-primary)] pt-8">
           <p className="text-[var(--text-muted)] text-sm mb-3">
-            certified cells compete by shipping working MVPs. the collective picks the winner.
-            no spec decks &mdash; running code.
+            cells compete by shipping working MVPs &mdash; product thinking, design, and code.
+            the collective picks the winner. no spec decks. no pitch decks. running product.
           </p>
           <a
             href="/cells/apply"

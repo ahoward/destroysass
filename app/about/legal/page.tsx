@@ -86,24 +86,26 @@ export default async function LegalPage() {
 
         {/* cell contracts */}
         <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">developer contracts</h2>
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">cell contracts</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              developer cooperatives build and maintain your software, but they don&apos;t govern it.
+              product cooperatives design, build, and operate your software, but they don&apos;t govern it.
               they&apos;re <span className="text-[var(--text-primary)] font-medium">contractors, not owners</span>.
-              think of it like hiring a builder for your house — they do the work, you own the result.
+              think of it like hiring an architect and builder for your house &mdash; they handle the
+              design and construction, you own the result.
             </p>
             <p>
-              cells are bound by a{" "}
+              cells own the full product lifecycle &mdash; product direction, design, engineering,
+              hosting, and support. they&apos;re bound by a{" "}
               <span className="text-[var(--text-primary)] font-medium">strict SLA</span> covering uptime,
               bug resolution, and delivery timelines. they draw from the cell&apos;s treasury monthly,
-              contingent on hitting those metrics. all intellectual property belongs to the LCA, not the devs.
+              contingent on hitting those metrics. all intellectual property belongs to the LCA, not the cell.
             </p>
             <p>
               if a cell underperforms, abandons the project, or breaches the SLA, the collective votes
               to sever the contract and route to a new certified cell.{" "}
               <span className="text-[var(--text-primary)] font-medium">
-                the software survives the developer
+                the software survives the cell
               </span>. always.
             </p>
           </div>

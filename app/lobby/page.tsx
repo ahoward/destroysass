@@ -131,7 +131,7 @@ export default async function LobbyPage() {
               },
               {
                 title: "cell recruitment",
-                desc: "vetting 3\u20135 developer cooperatives to certify as builders.",
+                desc: "vetting 3\u20135 product cooperatives to certify \u2014 teams that own product, design, eng, and ops.",
               },
               {
                 title: "platform entity formation",

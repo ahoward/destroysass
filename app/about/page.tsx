@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "who builds the software?",
-    a: "vetted developer cooperatives — small, skilled teams contracted by your collective. not offshore agencies. not solo freelancers. real cooperatives with skin in the game.",
+    a: "vetted product cooperatives — small teams that handle product, design, engineering, and operations. not offshore agencies. not solo freelancers. real cooperatives with skin in the game that own the whole problem, not just the code.",
   },
   {
     q: "what's the legal structure?",
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "what happens after cell formation?",
-    a: "development begins. the cooperative ships regular updates. members vote on priorities. you get a working product maintained by people accountable to you — not shareholders.",
+    a: "the winning cell takes over — product direction, design, development, hosting, and support. members vote on priorities. you get a working product designed and maintained by people accountable to you — not shareholders.",
   },
   {
     q: "is the code really open source?",
@@ -80,7 +80,7 @@ export default async function AboutPage() {
             <p>
               destroysass flips the script. instead of renting from a vendor, businesses{" "}
               <span className="text-[var(--text-primary)] font-medium">collectively fund the software they need</span>.
-              a vetted developer cooperative builds and maintains it under contract to your collective.
+              a vetted product cooperative designs, builds, and operates it under contract to your collective.
             </p>
             <p>
               the code is open-source. the data belongs to you. the legal structure — an{" "}
@@ -117,7 +117,7 @@ export default async function AboutPage() {
               },
               {
                 step: "build + own",
-                desc: "a developer cooperative builds it. members vote on priorities. you own what you paid for.",
+                desc: "a product cooperative designs, builds, and operates it. members vote on priorities. you own what you paid for.",
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">

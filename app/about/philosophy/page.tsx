@@ -144,9 +144,10 @@ export default async function PhilosophyPage() {
               saas vendors use to extract from you indefinitely.
             </p>
             <p>
-              in the destroysass model, certified developer cooperatives compete by building
-              working MVPs &mdash; the initial build is their audition. the collective picks the
-              best one and contracts that cell for the hard part:{" "}
+              in the destroysass model, certified product cooperatives compete by shipping
+              working MVPs &mdash; product thinking, design, and code. the initial build is
+              their audition. the collective picks the best one and contracts that cell for
+              the hard part:{" "}
               <span className="text-[var(--text-primary)] font-medium">
                 keeping it alive, secure, and evolving for years
               </span>.

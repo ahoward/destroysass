@@ -38,8 +38,8 @@ export default async function ApplyPage() {
       <main className="max-w-2xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold mb-2">apply to become a cell</h1>
         <p className="text-[var(--text-muted)] text-sm mb-8">
-          tell us about your group. approved cells appear on the public listing
-          and can be assigned to build and run funded ideas.
+          tell us about your team. approved cells appear on the public listing
+          and compete to design, build, and operate funded ideas.
         </p>
 
         {has_pending ? (

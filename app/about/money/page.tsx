@@ -35,9 +35,9 @@ export default async function MoneyPage() {
               pledges are held until total monthly commitments hit the{" "}
               <span className="text-[var(--text-primary)] font-medium">$1,000/month threshold</span>.
               at that point, pledges lock and convert into monthly treasury contributions.
-              a legal entity forms. development begins. certified cells compete by building
-              working MVPs. the collective selects the best one, and that cell earns the
-              ongoing maintenance contract.
+              a legal entity forms. certified cells compete by shipping working MVPs &mdash;
+              product vision, design, and code. the collective selects the best one, and that
+              cell earns the contract to design, build, and operate it long-term.
             </p>
             <p>
               if the threshold is never reached, nobody pays anything. there&apos;s no risk in pledging —
@@ -114,8 +114,8 @@ export default async function MoneyPage() {
             <p>
               the cell draws from the treasury monthly,{" "}
               <span className="text-[var(--text-primary)] font-medium">contingent on hitting their SLA metrics</span>.
-              uptime, bug resolution, delivery cadence — if they miss, they don&apos;t get paid in full.
-              accountability is baked into the payment structure, not left to trust.
+              uptime, bug resolution, delivery cadence, product responsiveness &mdash; if they miss,
+              they don&apos;t get paid in full. accountability is baked into the payment structure, not left to trust.
             </p>
           </div>
         </section>
@@ -140,7 +140,7 @@ export default async function MoneyPage() {
               },
               {
                 label: "cell certification",
-                desc: "developer cooperatives pay to get vetted and listed. this covers technical review, cooperative structure verification, and ongoing compliance.",
+                desc: "product cooperatives pay to get vetted and listed. this covers product capability review, technical assessment, cooperative structure verification, and ongoing compliance.",
               },
               {
                 label: "inter-cell routing",

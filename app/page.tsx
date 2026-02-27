@@ -97,10 +97,10 @@ export default async function Home() {
             <div>
               <p className="font-semibold mb-1">own</p>
               <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                certified developer cooperatives compete by building working
-                MVPs. the collective picks the best one. the winning cell
-                maintains and evolves it under contract. the code is
-                open-source. you own it.
+                certified product cooperatives compete by shipping working
+                MVPs &mdash; product vision, design, and code. the collective
+                picks the best one. the winning cell designs, builds, and
+                operates it under contract. the code is open-source. you own it.
               </p>
             </div>
           </div>
@@ -169,9 +169,9 @@ export default async function Home() {
               </p>
               <p>
                 destroysass makes you a <span className="text-[var(--text-primary)] font-medium">co-owner</span>, not a customer.
-                you fund software collectively with other businesses who need the same thing. a vetted developer
-                cooperative builds it under contract <em>to you</em>. the code is open-source. the data is yours.
-                the legal entity gives you voting rights and enforceable contracts.
+                you fund software collectively with other businesses who need the same thing. a vetted product
+                cooperative designs, builds, and operates it under contract <em>to you</em>. the code is open-source.
+                the data is yours. the legal entity gives you voting rights and enforceable contracts.
               </p>
               <p className="text-[var(--text-primary)] font-medium">
                 if your vendor disappeared tomorrow, would your business survive? with destroysass, the answer is always yes.
@@ -193,30 +193,39 @@ export default async function Home() {
             </div>
           </section>
 
-          {/* developers */}
+          {/* cells */}
           <section>
             <h2 className="text-xs uppercase tracking-widest text-[var(--text-faint)] mb-6">
-              for developers
+              for cells
             </h2>
             <h3 className="text-2xl font-bold tracking-tight lowercase mb-4">
-              build software people actually pay for. no vc. no boss. no bullshit.
+              own a product company without the vc. without the boss. without the bullshit.
             </h3>
             <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
               <p>
-                the code is free. maintenance is not. when an idea hits threshold, certified cooperatives compete
-                by shipping a working MVP &mdash; no spec decks, no slide decks, just running code.
-                the collective picks the best one and contracts that cell for ongoing maintenance, hosting,
-                and evolution.
+                a cell is a{" "}
+                <span className="text-[var(--text-primary)] font-medium">full-service product cooperative</span> &mdash;
+                product management, design, engineering, and operations under one roof.
+                you don&apos;t just write code. you own the whole problem: what to build, how it
+                looks, how it works, and keeping it running.
               </p>
               <p>
-                building the MVP is your audition. if you ship great work, you win a maintenance contract
+                when an idea hits threshold, certified cells compete by shipping a working MVP.
+                not a spec deck. not a slide deck.{" "}
+                <span className="text-[var(--text-primary)] font-medium">a running product</span>.
+                the collective picks the best one and contracts that cell for ongoing design,
+                development, hosting, and evolution.
+              </p>
+              <p>
+                your MVP is your audition. if you ship great work, you win a maintenance contract
                 that pays monthly. the treasury pays contingent on hitting your SLA.
-                all code is open-source. if you do great work, your reputation compounds and more cells come to you.
-                if you walk away, the collective replaces you. <span className="text-[var(--text-primary)] font-medium">no one is trapped</span> — not
-                the businesses, not you.
+                all code is open-source. if you do great work, your reputation compounds and more
+                collectives come to you. if you walk away, the collective replaces you.{" "}
+                <span className="text-[var(--text-primary)] font-medium">no one is trapped</span> &mdash;
+                not the businesses, not you.
               </p>
               <p className="text-[var(--text-primary)] font-medium">
-                this is contract work that scales like a product, without giving up ownership of your labor.
+                this is a product company that scales on contract revenue, without giving up ownership of your labor.
               </p>
             </div>
             <a
