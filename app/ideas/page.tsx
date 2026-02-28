@@ -4,7 +4,7 @@ import Nav from "@/app/components/nav";
 import IdeasFilter from "./ideas_filter";
 
 export const metadata: Metadata = {
-  title: "ideas — destroysass",
+  title: "ideas — destroysaas",
 };
 
 type IdeaRow = {

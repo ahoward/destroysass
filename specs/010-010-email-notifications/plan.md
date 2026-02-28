@@ -26,5 +26,5 @@ If the status changed, call notifyStatusChange with the new status.
 ## Resend Setup
 
 - `RESEND_API_KEY` env var (Vercel + .envrc)
-- Sender: `destroysass <notifications@destroysass.ai>` (or onboarding domain initially)
+- Sender: `destroysaas <notifications@destroysaas.ai>` (or onboarding domain initially)
 - No custom domain needed for MVP — use Resend's default `onboarding@resend.dev`

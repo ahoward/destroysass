@@ -1,13 +1,13 @@
 # QA Playbook
 
-how to verify destroysass.ai is working correctly after every deploy.
+how to verify destroysaas.ai is working correctly after every deploy.
 
 ## setup
 
-the live app is at: **https://destroysass.vercel.app**
+the live app is at: **https://destroysaas.vercel.app**
 
 to access it via browser automation:
-1. ara must have a chrome tab open to destroysass.vercel.app
+1. ara must have a chrome tab open to destroysaas.vercel.app
 2. the openclaw browser relay extension must be active on that tab (badge = ON)
 3. then use the browser tool with `profile="chrome"` and the targetId
 
@@ -23,11 +23,11 @@ if no tab is attached, navigate using `profile="openclaw"` (isolated browser, no
 browser(action="tabs", profile="chrome")
 ```
 
-if no destroysass tab is attached, ask ara to open one and click the relay icon.
+if no destroysaas tab is attached, ask ara to open one and click the relay icon.
 
 as a fallback:
 ```
-browser(action="open", profile="openclaw", targetUrl="https://destroysass.vercel.app")
+browser(action="open", profile="openclaw", targetUrl="https://destroysaas.vercel.app")
 ```
 
 ### step 2: snapshot the page
@@ -107,12 +107,12 @@ exec: vercel ls --prod 2>&1 | head -10
 
 check build logs if something looks broken:
 ```
-exec: vercel logs destroysass.vercel.app 2>&1 | tail -30
+exec: vercel logs destroysaas.vercel.app 2>&1 | tail -30
 ```
 
 force a re-deploy if needed:
 ```
-exec: cd ~/gh/ahoward/destroysass && vercel deploy --prod --yes
+exec: cd ~/gh/ahoward/destroysaas && vercel deploy --prod --yes
 ```
 
 ---

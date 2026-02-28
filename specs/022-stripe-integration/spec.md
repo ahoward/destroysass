@@ -62,7 +62,7 @@ Stripe sends webhook events for payment successes, failures, and cancellations.
 
 - **Stripe Customer**: 1:1 with user profile
 - **Stripe Subscription**: 1:1 with pledge
-- **Stripe Product**: Single product "destroysass pledge" with dynamic pricing
+- **Stripe Product**: Single product "destroysaas pledge" with dynamic pricing
 
 ## Pending Decisions (from docs/business-questions.md)
 

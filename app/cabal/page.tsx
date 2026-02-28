@@ -6,7 +6,7 @@ import Nav from "@/app/components/nav";
 import { is_member, is_sudo } from "@/lib/groups";
 
 export const metadata: Metadata = {
-  title: "cabal — destroysass",
+  title: "cabal — destroysaas",
 };
 
 export default async function CabalPage() {
@@ -130,8 +130,8 @@ export default async function CabalPage() {
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
               we&apos;re pre-revenue, pre-first-cell. the platform is live at{" "}
-              <a href="https://destroysass.vercel.app" className="text-red-600 hover:text-red-500">
-                destroysass.vercel.app
+              <a href="https://destroysaas.vercel.app" className="text-red-600 hover:text-red-500">
+                destroysaas.vercel.app
               </a>{" "}
               with 22 shipped features. the product works end-to-end from idea submission through
               pledge mechanics to admin-triggered cell formation. what&apos;s missing is the real-money
@@ -268,7 +268,7 @@ export default async function CabalPage() {
               {
                 num: "2",
                 title: "form the platform entity",
-                desc: "destroysass needs its own LLC or LCA to receive stripe payments. file in wyoming. open a bank account. get an EIN.",
+                desc: "destroysaas needs its own LLC or LCA to receive stripe payments. file in wyoming. open a bank account. get an EIN.",
               },
               {
                 num: "3",

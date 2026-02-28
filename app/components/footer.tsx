@@ -13,7 +13,7 @@ export default function Footer() {
           <a href="/terms" className="hover:text-[var(--text-secondary)] transition-colors">terms</a>
           <a href="/privacy" className="hover:text-[var(--text-secondary)] transition-colors">privacy</a>
           <a
-            href="https://github.com/ahoward/destroysass"
+            href="https://github.com/ahoward/destroysaas"
             className="hover:text-[var(--text-secondary)] transition-colors"
             target="_blank"
             rel="noopener noreferrer"

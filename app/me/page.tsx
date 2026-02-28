@@ -6,7 +6,7 @@ import Nav from "@/app/components/nav";
 import { user_groups } from "@/lib/groups";
 
 export const metadata: Metadata = {
-  title: "account — destroysass",
+  title: "account — destroysaas",
 };
 
 export default async function MePage() {

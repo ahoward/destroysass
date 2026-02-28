@@ -1,4 +1,4 @@
-# destroysass.ai
+# destroysaas.ai
 
 **the place where small businesses stop renting software and start owning it.**
 
@@ -18,7 +18,7 @@ this is the better way.
 
 ## what it is
 
-destroysass.ai is a **business portal** where smbs propose software they want to exist, recruit
+destroysaas.ai is a **business portal** where smbs propose software they want to exist, recruit
 peers with the same problem, and collectively form **cells** — legally-backed cooperative
 entities (lca + dao) that fund, own, and maintain the software together.
 
@@ -100,7 +100,7 @@ the portal does three things:
 
 ## status
 
-🔴 early. the portal scaffolding is live at [destroysass.coop](https://destroysass.coop).  
+🔴 early. the portal scaffolding is live at [destroysaas.coop](https://destroysaas.coop).  
 the first cell is being planned. if you're an smb with a software problem you wish a collective
 of peers would solve with you — [get in touch](mailto:ara.t.howard@gmail.com).
 

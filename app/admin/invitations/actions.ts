@@ -218,15 +218,15 @@ async function sendInvitationEmail(
   token: string,
   note: string | null
 ): Promise<void> {
-  const inviteUrl = `https://destroysass.vercel.app/invite/${token}`;
+  const inviteUrl = `https://destroysaas.vercel.app/invite/${token}`;
   const greeting = name ? `hi ${name},` : "hi,";
 
   const html = email_template(
-    "you're invited to destroysass",
+    "you're invited to destroysaas",
     `<p>${greeting}</p>
      ${note ? `<p style="margin-top:12px;">${note}</p>` : ""}
      <p style="margin-top:12px;">
-       you've been invited to join an inner circle at destroysass &mdash;
+       you've been invited to join an inner circle at destroysaas &mdash;
        the platform where small businesses stop renting software and start owning it.
      </p>
      <p style="margin-top:16px;">
@@ -239,5 +239,5 @@ async function sendInvitationEmail(
      </p>`
   );
 
-  await send_email(to, "you're invited to destroysass", html);
+  await send_email(to, "you're invited to destroysaas", html);
 }

@@ -8,7 +8,7 @@ import InvitationForm from "./invitation_form";
 import InvitationList from "./invitation_list";
 
 export const metadata: Metadata = {
-  title: "invitations — admin — destroysass",
+  title: "invitations — admin — destroysaas",
 };
 
 export default async function InvitationsAdminPage() {

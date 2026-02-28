@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 // smoke tests — verify every public page loads without errors
 
 const PUBLIC_PAGES = [
-  { path: "/", title: "destroysass" },
+  { path: "/", title: "destroysaas" },
   { path: "/math", title: "math" },
   { path: "/ideas", title: "ideas" },
   { path: "/cells", title: "cells" },
@@ -60,7 +60,7 @@ test("sitemap.xml returns valid content", async ({ page }) => {
   expect(response?.status()).toBe(200);
   const body = await response?.text();
   expect(body).toContain("<urlset");
-  expect(body).toContain("destroysass.coop");
+  expect(body).toContain("destroysaas.coop");
 });
 
 test("OG meta tags are present on homepage", async ({ page }) => {
@@ -72,7 +72,7 @@ test("OG meta tags are present on homepage", async ({ page }) => {
 
   expect(ogTitle).toBeTruthy();
   expect(ogDesc).toBeTruthy();
-  expect(ogUrl).toContain("destroysass.coop");
+  expect(ogUrl).toContain("destroysaas.coop");
   expect(ogImage).toBeTruthy();
 });
 

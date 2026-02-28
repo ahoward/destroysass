@@ -7,21 +7,21 @@ import ThemeToggle from "@/app/components/theme_toggle";
 import GhostBanner from "@/app/components/ghost_banner";
 
 export const metadata: Metadata = {
-  title: "destroysass — own the software you use",
+  title: "destroysaas — own the software you use",
   description:
     "small businesses collectively fund, own, and control the software they depend on. no more saas rent. propose ideas, pledge monthly, and own what gets built.",
-  metadataBase: new URL("https://destroysass.coop"),
+  metadataBase: new URL("https://destroysaas.coop"),
   openGraph: {
-    title: "destroysass — own the software you use",
+    title: "destroysaas — own the software you use",
     description:
       "small businesses collectively fund, own, and control the software they depend on. no more saas rent.",
-    url: "https://destroysass.coop",
+    url: "https://destroysaas.coop",
     type: "website",
-    siteName: "destroysass",
+    siteName: "destroysaas",
   },
   twitter: {
     card: "summary_large_image",
-    title: "destroysass — own the software you use",
+    title: "destroysaas — own the software you use",
     description:
       "small businesses collectively fund, own, and control the software they depend on. no more saas rent.",
   },

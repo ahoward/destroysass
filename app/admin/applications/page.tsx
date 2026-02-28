@@ -70,7 +70,7 @@ export default async function ApplicationsPage() {
           href="/"
           className="text-red-500 font-bold text-lg tracking-tight"
         >
-          destroysass
+          destroysaas
         </a>
         <div className="flex items-center gap-4 text-sm text-[var(--text-muted)]">
           <a

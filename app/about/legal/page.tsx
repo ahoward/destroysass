@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
-  title: "legal model — destroysass",
+  title: "legal model — destroysaas",
   description:
-    "how destroysass gives you real legal standing over the software you fund. LCA/DAO hybrid, enforceable contracts, fork freedom.",
+    "how destroysaas gives you real legal standing over the software you fund. LCA/DAO hybrid, enforceable contracts, fork freedom.",
 };
 
 export default async function LegalPage() {

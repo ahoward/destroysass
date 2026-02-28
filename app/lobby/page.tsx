@@ -5,7 +5,7 @@ import { is_inner } from "@/lib/groups";
 import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
-  title: "lobby — destroysass",
+  title: "lobby — destroysaas",
 };
 
 export default async function LobbyPage() {
@@ -135,7 +135,7 @@ export default async function LobbyPage() {
               },
               {
                 title: "platform entity formation",
-                desc: "filing the LLC/LCA for destroysass itself. EIN, bank account, legal rails.",
+                desc: "filing the LLC/LCA for destroysaas itself. EIN, bank account, legal rails.",
               },
             ].map((item) => (
               <div key={item.title} className="border-l-2 border-[var(--border-primary)] pl-4">

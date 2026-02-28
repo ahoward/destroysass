@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "destroysass — own the software you use";
+export const alt = "destroysaas — own the software you use";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -28,7 +28,7 @@ export default function OGImage() {
             letterSpacing: "-0.02em",
           }}
         >
-          destroysass
+          destroysaas
         </div>
         <div
           style={{
@@ -53,7 +53,7 @@ export default function OGImage() {
             marginTop: 16,
           }}
         >
-          destroysass.coop
+          destroysaas.coop
         </div>
       </div>
     ),

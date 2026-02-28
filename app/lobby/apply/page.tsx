@@ -6,7 +6,7 @@ import Nav from "@/app/components/nav";
 import ApplicationForm from "./form";
 
 export const metadata: Metadata = {
-  title: "apply — destroysass",
+  title: "apply — destroysaas",
 };
 
 export default async function ApplyPage() {

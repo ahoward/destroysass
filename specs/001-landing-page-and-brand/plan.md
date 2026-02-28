@@ -28,7 +28,7 @@ and is handled via a server action or form post.
 1. Check what the current `app/page.tsx` and `app/layout.tsx` look like
 2. Check `app/auth/` for the existing sign-out pattern to reuse
 3. Rewrite `app/page.tsx` with:
-   - Nav: destroysass (red) + auth state (sign in or email + sign out)
+   - Nav: destroysaas (red) + auth state (sign in or email + sign out)
    - Hero: large headline + subtitle
    - Problem statement paragraph
    - 3-step section (propose / pledge / own)

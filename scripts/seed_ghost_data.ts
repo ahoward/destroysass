@@ -1,4 +1,4 @@
-// ghost persona and idea data for seeding the destroysass board
+// ghost persona and idea data for seeding the destroysaas board
 
 export type GhostPersona = {
   slug: string;
@@ -33,67 +33,67 @@ export type CommentSpec = {
 export const GHOSTS: GhostPersona[] = [
   {
     slug: "restaurant",
-    email: "ghost+restaurant@destroysass.coop",
+    email: "ghost+restaurant@destroysaas.coop",
     display_name: "maria santos",
     bio: "three restaurants in albuquerque. drowning in toast, square, and seven different vendor dashboards.",
   },
   {
     slug: "lawfirm",
-    email: "ghost+lawfirm@destroysass.coop",
+    email: "ghost+lawfirm@destroysaas.coop",
     display_name: "james okafor",
     bio: "immigration law practice in denver. clio costs us $89/seat and half the features don't work for solo firms.",
   },
   {
     slug: "ranch",
-    email: "ghost+ranch@destroysass.coop",
+    email: "ghost+ranch@destroysaas.coop",
     display_name: "sarah coldwell",
     bio: "fourth-generation ranch outside boulder. john deere owns more of our data than we do.",
   },
   {
     slug: "nonprofit",
-    email: "ghost+nonprofit@destroysass.coop",
+    email: "ghost+nonprofit@destroysaas.coop",
     display_name: "devon reyes",
     bio: "we feed 2,000 families a month and spend 30% of our time fighting donor management software.",
   },
   {
     slug: "contractor",
-    email: "ghost+contractor@destroysass.coop",
+    email: "ghost+contractor@destroysaas.coop",
     display_name: "mike petrov",
     bio: "15-person crew doing residential in the front range. scheduling is three whiteboards and a prayer.",
   },
   {
     slug: "clinic",
-    email: "ghost+clinic@destroysass.coop",
+    email: "ghost+clinic@destroysaas.coop",
     display_name: "dr. anika patel",
     bio: "four-provider family practice. our EHR vendor raised prices 40% and we can't switch without losing a year of records.",
   },
   {
     slug: "studio",
-    email: "ghost+studio@destroysass.coop",
+    email: "ghost+studio@destroysaas.coop",
     display_name: "kai brennan",
     bio: "design studio doing brand work for food and beverage clients. notion is our brain and we're terrified of it.",
   },
   {
     slug: "logistics",
-    email: "ghost+logistics@destroysass.coop",
+    email: "ghost+logistics@destroysaas.coop",
     display_name: "elena vasquez",
     bio: "48 routes daily across northern new mexico. our routing software thinks we're in new jersey.",
   },
   {
     slug: "csa",
-    email: "ghost+csa@destroysass.coop",
+    email: "ghost+csa@destroysaas.coop",
     display_name: "tom whitehorse",
     bio: "120-member csa outside taos. managing shares, pickups, and crop planning in spreadsheets.",
   },
   {
     slug: "salon",
-    email: "ghost+salon@destroysass.coop",
+    email: "ghost+salon@destroysaas.coop",
     display_name: "priya sharma",
     bio: "two salons in santa fe. between booking software, POS, and inventory, we're paying $1,100/month in SaaS.",
   },
   {
     slug: "hvac",
-    email: "ghost+hvac@destroysass.coop",
+    email: "ghost+hvac@destroysaas.coop",
     display_name: "robert kim",
     bio: "24 techs in the field. our dispatch system costs $3,200/month and the app crashes every other day.",
   },

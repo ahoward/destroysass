@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin", "/dashboard", "/auth", "/lobby", "/me", "/profile"],
     },
-    sitemap: "https://destroysass.coop/sitemap.xml",
+    sitemap: "https://destroysaas.coop/sitemap.xml",
   };
 }

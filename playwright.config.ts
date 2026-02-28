@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL || "https://destroysass.coop",
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || "https://destroysaas.coop",
     trace: "on-first-retry",
   },
   projects: [

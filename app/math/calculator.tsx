@@ -131,10 +131,10 @@ export default function Calculator() {
             </p>
           </div>
 
-          {/* destroysass side */}
+          {/* destroysaas side */}
           <div className="p-5 border-b border-[var(--border-primary)]">
             <p className="text-xs uppercase tracking-widest text-[var(--text-faint)] mb-3">
-              with destroysass
+              with destroysaas
             </p>
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>

@@ -117,7 +117,7 @@ export default async function Home() {
               <span className="text-[var(--text-primary)] font-medium">owned by their members</span>.
             </p>
             <p>
-              saas vendors extract from you. destroysass collectives are{" "}
+              saas vendors extract from you. destroysaas collectives are{" "}
               <span className="text-[var(--text-primary)] font-medium">owned by their members</span>.
             </p>
             <p>
@@ -168,13 +168,13 @@ export default async function Home() {
                 do anything about it.
               </p>
               <p>
-                destroysass makes you a <span className="text-[var(--text-primary)] font-medium">co-owner</span>, not a customer.
+                destroysaas makes you a <span className="text-[var(--text-primary)] font-medium">co-owner</span>, not a customer.
                 you fund software collectively with other businesses who need the same thing. a vetted product
                 cooperative designs, builds, and operates it under contract <em>to you</em>. the code is open-source.
                 the data is yours. the legal entity gives you voting rights and enforceable contracts.
               </p>
               <p className="text-[var(--text-primary)] font-medium">
-                if your vendor disappeared tomorrow, would your business survive? with destroysass, the answer is always yes.
+                if your vendor disappeared tomorrow, would your business survive? with destroysaas, the answer is always yes.
               </p>
             </div>
             <div className="flex flex-wrap gap-6 mt-4">
@@ -257,7 +257,7 @@ export default async function Home() {
                 next decade will own the <span className="text-[var(--text-primary)] font-medium">network</span>, not the code.
               </p>
               <p>
-                destroysass is a platform that spawns self-sustaining micro-cooperatives. each cell funds its own
+                destroysaas is a platform that spawns self-sustaining micro-cooperatives. each cell funds its own
                 development, governs its own roadmap, and pays platform fees for infrastructure. the code is free.
                 the network, legal rails, and treasury infrastructure are the value.
               </p>
@@ -287,7 +287,7 @@ export default async function Home() {
             href="/auth"
             className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded transition-colors mr-4"
           >
-            join destroysass &rarr;
+            join destroysaas &rarr;
           </a>
           <a
             href="/ideas"

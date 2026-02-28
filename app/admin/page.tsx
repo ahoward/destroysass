@@ -284,7 +284,7 @@ export default async function AdminPage() {
           href="/"
           className="text-red-500 font-bold text-lg tracking-tight"
         >
-          destroysass.ai
+          destroysaas.ai
         </a>
         <div className="flex items-center gap-4 text-sm text-gray-400">
           <a href="/ideas" className="hover:text-white transition-colors">

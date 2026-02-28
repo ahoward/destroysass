@@ -2,7 +2,7 @@
 
 ## Summary
 
-Developer cooperatives ("dev cells") can apply to be listed on destroysass. Once certified
+Developer cooperatives ("dev cells") can apply to be listed on destroysaas. Once certified
 by an admin, they appear on `/dev-cells` with a public profile. When cells form around
 funded ideas, certified dev cells can be assigned to build them.
 

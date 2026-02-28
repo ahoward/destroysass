@@ -45,7 +45,7 @@ export async function generateMetadata({
     .single();
 
   const name = profile?.display_name || "user";
-  return { title: `${name} — destroysass` };
+  return { title: `${name} — destroysaas` };
 }
 
 export default async function ProfilePage({

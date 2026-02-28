@@ -15,7 +15,7 @@ These questions need answers before or during development of the corresponding f
 
 ## Platform Economics (blocks: Stripe integration, cell formation)
 
-- [ ] **Platform fee timing.** Does destroysass take a cut on pledges immediately (e.g., 5% of every pledge), or only after cell formation?
+- [ ] **Platform fee timing.** Does destroysaas take a cut on pledges immediately (e.g., 5% of every pledge), or only after cell formation?
 - [ ] **Platform fee amount.** What percentage? Fixed + percentage? Different rates for pre-formation vs. post-formation?
 - [ ] **Receiving entity.** What entity receives Stripe payments? Personal account, an LLC, or a platform LCA? This determines Stripe account type and legal obligations.
 - [ ] **Treasury activation.** When a cell triggers, does it get its own OpenCollective collective? Its own Stripe Connect account? Or does the platform hold funds in a single account with internal ledger?

@@ -2,7 +2,7 @@
 
 ## Summary
 
-Add an `/about` page explaining the destroysass model, a FAQ section answering common questions,
+Add an `/about` page explaining the destroysaas model, a FAQ section answering common questions,
 and proper OpenGraph + SEO meta tags across all pages for social sharing.
 
 ## Routes
@@ -41,18 +41,18 @@ and proper OpenGraph + SEO meta tags across all pages for social sharing.
 ## SEO / OpenGraph
 
 Add to `app/layout.tsx` metadata export:
-- title: "destroysass — own the software you use"
+- title: "destroysaas — own the software you use"
 - description: "Small businesses collectively fund, own, and control the software they depend on. No more SaaS rent."
 - og:image: generate a simple OG image or use a static one
 - og:type: website
 - twitter:card: summary_large_image
 
 Per-page titles:
-- /ideas: "ideas — destroysass"
-- /ideas/[id]: "{idea.title} — destroysass"
-- /about: "about — destroysass"
-- /dashboard: "dashboard — destroysass"
-- /admin: "admin — destroysass"
+- /ideas: "ideas — destroysaas"
+- /ideas/[id]: "{idea.title} — destroysaas"
+- /about: "about — destroysaas"
+- /dashboard: "dashboard — destroysaas"
+- /admin: "admin — destroysaas"
 
 ## Acceptance Criteria
 

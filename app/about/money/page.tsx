@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
-  title: "financial model — destroysass",
+  title: "financial model — destroysaas",
   description:
     "how cells get funded, where the money goes, and how equity works. transparent economics for collective software ownership.",
 };
@@ -125,7 +125,7 @@ export default async function MoneyPage() {
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">platform economics</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              destroysass is the infrastructure that makes cells possible. the platform earns revenue through:
+              destroysaas is the infrastructure that makes cells possible. the platform earns revenue through:
             </p>
           </div>
           <div className="mt-6 space-y-4">

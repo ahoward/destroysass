@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import ViewTracker from "./view_tracker";
 
 export const metadata: Metadata = {
-  title: "you're invited — destroysass",
+  title: "you're invited — destroysaas",
 };
 
 type Props = { params: Promise<{ token: string }> };
@@ -49,7 +49,7 @@ export default async function InviteLandingPage({ params }: Props) {
             href="/"
             className="text-red-600 font-bold text-lg tracking-tight"
           >
-            destroysass
+            destroysaas
           </a>
         </nav>
         <main className="max-w-2xl mx-auto px-6 pt-12 pb-32">
@@ -80,7 +80,7 @@ export default async function InviteLandingPage({ params }: Props) {
           href="/"
           className="text-red-600 font-bold text-lg tracking-tight"
         >
-          destroysass
+          destroysaas
         </a>
       </nav>
 
@@ -104,7 +104,7 @@ export default async function InviteLandingPage({ params }: Props) {
         {/* the pitch */}
         <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed mb-12">
           <p>
-            destroysass is building the protocol layer that replaces saas
+            destroysaas is building the protocol layer that replaces saas
             subscriptions. small businesses collectively fund, own, and control
             the software they depend on &mdash; through legally enforceable
             cooperative structures, not promises.
@@ -203,7 +203,7 @@ export default async function InviteLandingPage({ params }: Props) {
               href="/about"
               className="text-red-600 hover:text-red-500 transition-colors"
             >
-              about destroysass
+              about destroysaas
             </a>
             <a
               href="/about/legal"

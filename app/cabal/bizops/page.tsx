@@ -5,7 +5,7 @@ import Nav from "@/app/components/nav";
 import { is_member, is_sudo } from "@/lib/groups";
 
 export const metadata: Metadata = {
-  title: "bizops — cabal — destroysass",
+  title: "bizops — cabal — destroysaas",
 };
 
 export default async function BizOpsPage() {
@@ -59,7 +59,7 @@ export default async function BizOpsPage() {
             </p>
             <p>
               this page is the playbook for every non-code task that needs to happen to make
-              destroysass real. each section is a manual process that eventually becomes an automated one.
+              destroysaas real. each section is a manual process that eventually becomes an automated one.
             </p>
           </div>
         </section>
@@ -122,7 +122,7 @@ export default async function BizOpsPage() {
             <div className="border-l-2 border-[var(--border-primary)] pl-6">
               <p className="font-semibold text-[var(--text-primary)] mb-1">platform entity (prerequisite)</p>
               <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-                destroysass itself needs a legal entity to receive stripe payments.
+                destroysaas itself needs a legal entity to receive stripe payments.
                 options: LLC (simplest), or eat our own dogfood and form as an LCA.
                 need: EIN, bank account, stripe account. this blocks everything.
               </p>
@@ -235,7 +235,7 @@ export default async function BizOpsPage() {
               { task: "identify the pain", detail: "which businesses are spending $500+/mo on SaaS tools they hate? which ones just got hit with a price increase? which ones lost access to their data when a vendor shut down?" },
               { task: "find them", detail: "local business groups, chambers of commerce, indie hacker communities, reddit r/smallbusiness, linkedin outreach. warm intros > cold emails." },
               { task: "have the conversation", detail: "\"what software do you depend on that you wish you owned?\" \"what would you pay monthly for a tool your group collectively controlled?\" listen more than pitch." },
-              { task: "get them on the board", detail: "every conversation should end with: \"submit your idea at destroysass.vercel.app\" or \"pledge on this existing idea.\" track conversions." },
+              { task: "get them on the board", detail: "every conversation should end with: \"submit your idea at destroysaas.vercel.app\" or \"pledge on this existing idea.\" track conversions." },
               { task: "pattern match", detail: "after 20 conversations, the first cell's problem will be obvious. it'll be the thing 5+ people independently described. that's the one we form around." },
             ].map((item) => (
               <div key={item.task} className="flex gap-2">

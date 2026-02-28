@@ -39,7 +39,7 @@ export default async function Nav({ currentPath }: NavProps) {
   return (
     <nav className="max-w-2xl mx-auto px-6 py-6 flex justify-between items-center">
       <a href="/" className="text-red-600 font-bold text-lg tracking-tight hover:text-red-500 transition-colors">
-        destroysass
+        destroysaas
       </a>
       <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)]">
         {/* cabal — first, only if member */}

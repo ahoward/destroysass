@@ -53,7 +53,7 @@ The seeded board looks believable to a new visitor.
 - **FR-006**: Each idea has 2-8 comments from different seed users
 - **FR-007**: Upvotes distributed realistically (more popular ideas have more)
 - **FR-008**: Rollback script deletes all `is_seed=true` records in correct order (upvotes → comments → pledges → ideas → profiles)
-- **FR-009**: Seed users use non-functional email addresses (e.g., seed-user-01@destroysass.local) so password resets don't send real emails
+- **FR-009**: Seed users use non-functional email addresses (e.g., seed-user-01@destroysaas.local) so password resets don't send real emails
 
 ### Database Changes
 

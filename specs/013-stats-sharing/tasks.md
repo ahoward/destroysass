@@ -15,7 +15,7 @@
 - [ ] **T3** modify `app/ideas/[id]/page.tsx`:
   - import ShareButtons
   - add below idea description, above pledge summary bar
-  - pass idea title and full URL (construct from env or hardcode destroysass.vercel.app)
+  - pass idea title and full URL (construct from env or hardcode destroysaas.vercel.app)
 - [ ] **T4** run `./dev/post_flight` — must pass
 - [ ] **T5** commit + push + merge to main
 - [ ] **T6** deploy: `vercel deploy --prod --yes`

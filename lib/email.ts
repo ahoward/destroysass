@@ -2,8 +2,8 @@ import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
-const FROM = "destroysass <ara@destroysass.coop>";
-const REPLY_TO = "ara@destroysass.coop";
+const FROM = "destroysaas <ara@destroysaas.coop>";
+const REPLY_TO = "ara@destroysaas.coop";
 
 const STATUS_LABELS: Record<string, string> = {
   proposed: "Proposed",
@@ -35,13 +35,13 @@ export function email_template(title: string, body_html: string): string {
 <head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#0a0a0a;color:#e5e5e5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:32px 24px;">
-    <div style="font-size:14px;font-weight:600;color:#dc2626;margin-bottom:24px;">destroysass</div>
+    <div style="font-size:14px;font-weight:600;color:#dc2626;margin-bottom:24px;">destroysaas</div>
     <div style="font-size:18px;font-weight:600;margin-bottom:16px;color:#fff;">${title}</div>
     <div style="font-size:14px;line-height:1.6;color:#d4d4d4;">
       ${body_html}
     </div>
     <div style="margin-top:32px;padding-top:16px;border-top:1px solid #262626;font-size:12px;color:#737373;">
-      <a href="https://destroysass.coop/dashboard" style="color:#737373;">Manage your account</a>
+      <a href="https://destroysaas.coop/dashboard" style="color:#737373;">Manage your account</a>
     </div>
   </div>
 </body>
@@ -117,7 +117,7 @@ export async function notify_new_pledge(
        <strong>Pledgers:</strong> ${idea.pledge_count}
      </p>
      <p style="margin-top:12px;">
-       <a href="https://destroysass.coop/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
+       <a href="https://destroysaas.coop/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
      </p>`
   );
 
@@ -156,7 +156,7 @@ export async function notify_status_change(
        <strong>Pledgers:</strong> ${idea.pledge_count}
      </p>
      <p style="margin-top:12px;">
-       <a href="https://destroysass.coop/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
+       <a href="https://destroysaas.coop/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
      </p>`
   );
 
@@ -195,9 +195,9 @@ export async function notify_cell_formation(idea_id: string): Promise<void> {
        <strong>Total pledged:</strong> $${idea.total_pledged}/mo<br>
        <strong>Pledgers:</strong> ${idea.pledge_count}
      </p>
-     <p style="margin-top:12px;">What happens next: the destroysass team will reach out to coordinate the cell formation process. Stay tuned.</p>
+     <p style="margin-top:12px;">What happens next: the destroysaas team will reach out to coordinate the cell formation process. Stay tuned.</p>
      <p style="margin-top:12px;">
-       <a href="https://destroysass.coop/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
+       <a href="https://destroysaas.coop/ideas/${idea_id}" style="color:#dc2626;">View idea &rarr;</a>
      </p>`
   );
 

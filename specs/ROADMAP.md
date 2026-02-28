@@ -1,12 +1,12 @@
 # Roadmap
 
-## IPM: destroysass.ai — Launch Iteration
+## IPM: destroysaas.ai — Launch Iteration
 
 ---
 
 ## Current State
 
-The app is live at destroysass.vercel.app with a functional MVP covering the idea-to-pledge pipeline. What exists:
+The app is live at destroysaas.vercel.app with a functional MVP covering the idea-to-pledge pipeline. What exists:
 
 **Core loop works:** Users can propose ideas, pledge monthly amounts, upvote, comment, and track everything from a dashboard. Ideas auto-progress through statuses (`proposed` → `gaining_traction` → `threshold_reached`) based on pledge thresholds. Admins can trigger cell formation.
 
@@ -48,7 +48,7 @@ The app is live at destroysass.vercel.app with a functional MVP covering the ide
 
 ### 4. Business Model Questions Doc
 - **Priority:** P0
-- **Description:** Create `docs/business-questions.md` — a structured document of open business model questions that affect development. Sections: Payment & Billing (refund policy, failed payments, pledge changes, subscription lifecycle), Cell Formation (what triggers real formation vs. status change, minimum viable sponsor count, timeline expectations), Legal & Compliance (ToS updates needed for real payments, tax implications, LCA formation triggers), Platform Economics (destroysass take-rate on pledges, when does platform fee kick in, dev cell payment flow). Each question flagged as blocking or non-blocking for current dev work.
+- **Description:** Create `docs/business-questions.md` — a structured document of open business model questions that affect development. Sections: Payment & Billing (refund policy, failed payments, pledge changes, subscription lifecycle), Cell Formation (what triggers real formation vs. status change, minimum viable sponsor count, timeline expectations), Legal & Compliance (ToS updates needed for real payments, tax implications, LCA formation triggers), Platform Economics (destroysaas take-rate on pledges, when does platform fee kick in, dev cell payment flow). Each question flagged as blocking or non-blocking for current dev work.
 - **Rationale:** COO needs this to make decisions. Dev team needs answers before building Stripe webhooks, refund flows, and cell formation triggers. Shipping this doc is a forcing function for business alignment.
 
 ### 5. Launch Polish Pass
@@ -87,7 +87,7 @@ The app is live at destroysass.vercel.app with a functional MVP covering the ide
 See `docs/business-questions.md` (to be created in feature #4) for the full list. Preview:
 
 - What's the refund policy when a user unpledges after being charged?
-- Does destroysass take a platform fee on pledges now, or only after cell formation?
+- Does destroysaas take a platform fee on pledges now, or only after cell formation?
 - What happens to active subscriptions if an idea gets cancelled?
 - Is there a minimum pledge amount with Stripe fees considered? ($25 pledge minus Stripe's ~$1.03 fee = $23.97 net — acceptable?)
 - Do we need a payment terms page before Stripe goes live?

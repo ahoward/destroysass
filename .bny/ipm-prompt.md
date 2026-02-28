@@ -1,6 +1,6 @@
 # README
 
-# destroysass.ai
+# destroysaas.ai
 
 **the place where small businesses stop renting software and start owning it.**
 
@@ -20,7 +20,7 @@ this is the better way.
 
 ## what it is
 
-destroysass.ai is a **business portal** where smbs propose software they want to exist, recruit
+destroysaas.ai is a **business portal** where smbs propose software they want to exist, recruit
 peers with the same problem, and collectively form **cells** — legally-backed cooperative
 entities (lca + dao) that fund, own, and maintain the software together.
 
@@ -102,7 +102,7 @@ the portal does three things:
 
 ## status
 
-🔴 early. the portal scaffolding is live at [destroysass.vercel.app](https://destroysass.vercel.app).  
+🔴 early. the portal scaffolding is live at [destroysaas.vercel.app](https://destroysaas.vercel.app).  
 the first cell is being planned. if you're an smb with a software problem you wish a collective
 of peers would solve with you — [get in touch](mailto:ara.t.howard@gmail.com).
 
@@ -117,7 +117,7 @@ of peers would solve with you — [get in touch](mailto:ara.t.howard@gmail.com).
 
 # product vision
 
-## what destroysass.ai is
+## what destroysaas.ai is
 
 a business portal where smbs propose software they want to exist, recruit peers with the same
 problem, form legally-backed cooperative cells to fund it, and collectively own and maintain it
@@ -195,7 +195,7 @@ cell operates indefinitely, self-governed
 
 ## the mvp cell: a knowledge management tool
 
-the first cell destroysass.ai should form:
+the first cell destroysaas.ai should form:
 
 **concept:** a hosted, self-owned alternative to notion/confluence — graph-based, fast, no
 vendor lock-in.
@@ -220,7 +220,7 @@ by the lca
 ## on-brand principles
 
 ### the code is free. the network is the value.
-all software built through destroysass.ai is open-source. anyone can fork it. but forking the
+all software built through destroysaas.ai is open-source. anyone can fork it. but forking the
 code doesn't give you the accumulated shared infrastructure, legal standing, trust network, or
 running instances. the moat is the network, not the binary.
 
@@ -259,7 +259,7 @@ one-size-fits-all is the saas disease. custom-fit-for-us is the cure.
 - 50+ cells across multiple verticals (knowledge management, team comms, inventory, scheduling)
 - cells starting to interoperate — the brane cell talking to the comms cell
 - dev cells competing for quality reputation, not just price
-- destroysass.ai is the place you go when you've decided saas is not the answer
+- destroysaas.ai is the place you go when you've decided saas is not the answer
 
 **year 3:**
 - a global dao governing shared protocols
@@ -280,7 +280,7 @@ bottleneck from writing code to untangling a nightmare of api costs, yaml files,
 entropy. for smbs, the true cost of software is now 80% maintenance. you aren't paying for the
 tool — you're paying to keep the lights on.
 
-destroysass.ai is the commercial portal that capitalizes on this collapse. it is the middle path
+destroysaas.ai is the commercial portal that capitalizes on this collapse. it is the middle path
 for businesses that can't afford enterprise internal dev teams, but refuse to rely on fragile
 consumer-grade vibe-code. it sits on top of the **collective software (cs) model** —
 opencollective + lca + dao — packaging open-source, dao governance, and legal entity frameworks
@@ -292,7 +292,7 @@ into a scalable marketplace.
 
 ## the cs model (the foundation)
 
-destroysass.ai is a commercial layer built on top of three existing primitives:
+destroysaas.ai is a commercial layer built on top of three existing primitives:
 
 - **opencollective** — transparent fundraising, treasury management, and fiscal hosting
 - **lca (limited cooperative association)** — legal entity for patron-owners; can sue, sign
@@ -351,7 +351,7 @@ software — they get **founding equity** that compounds as the network grows.
 ### exit
 
 - lca treasury has **right of first refusal** at 24× monthly recurring treasury
-- if declined: shares transfer only to another active patron member within destroysass.ai
+- if declined: shares transfer only to another active patron member within destroysaas.ai
 - **no external sales** — class b shares freeze and surrender after 60-day grace if a member
   stops paying
 
@@ -388,9 +388,9 @@ the dev cell is **capital vs. labor** — kept deliberately separate from govern
 
 ---
 
-## destroysass.ai revenue
+## destroysaas.ai revenue
 
-destroysass.ai is the marketplace layer. it charges for trust, legal scaffolding, and network access — not code.
+destroysaas.ai is the marketplace layer. it charges for trust, legal scaffolding, and network access — not code.
 
 | revenue stream | phase | description |
 |----------------|-------|-------------|
@@ -411,7 +411,7 @@ goal: prove that local businesses will pay for maintained interconnectivity they
 - bootstrap with opencollective as fiscal host
 - launch first cell around a high-pain, low-complexity problem
 - smbs pay monthly sponsorship; devs draw bounties from treasury
-- destroysass.ai revenue: formation fees + premium listings
+- destroysaas.ai revenue: formation fees + premium listings
 
 ### phase 2: the great decoupling (months 6–12)
 
@@ -420,7 +420,7 @@ goal: scale by separating core protocol from local messy integrations.
 - smbs start migrating away from traditional saas into mature cells
 - core architectural logic is extracted into isolated, forkable repositories
 - local cells become implementations of shared core protocols
-- destroysass.ai revenue: platform take-rate clips the ticket on every cell's mrr
+- destroysaas.ai revenue: platform take-rate clips the ticket on every cell's mrr
 
 ### phase 3: dao genesis (year 2+)
 
@@ -430,13 +430,13 @@ goal: autonomous, interoperable cell ecosystem.
 - local lcas pay upstream franchise fee to core dao
 - cells interoperate via standard protocols — software talking to software
 - new cells can form in any geography or vertical, owning local infra
-- destroysass.ai revenue: inter-cell economic routing and protocol fees
+- destroysaas.ai revenue: inter-cell economic routing and protocol fees
 
 ---
 
 ## who this is for
 
-destroysass.ai is explicitly **not** for:
+destroysaas.ai is explicitly **not** for:
 
 - enterprise (they build internally and hoard it)
 - individual consumers (the soup — too chaotic, no maintenance budget)
@@ -451,7 +451,7 @@ it is for **smbs** — real small businesses with real shared needs, who:
 > "saas is dead. went from $480/month on tools to $1,245/month on api costs and 15 hours a week
 > fixing yaml files."
 
-that gap is where destroysass.ai lives.
+that gap is where destroysaas.ai lives.
 
 ---
 
@@ -477,7 +477,7 @@ after every implement cycle: QA the live app per `bny/qa-playbook.md`.
 
 ## Current State
 
-the app is live at https://destroysass.vercel.app
+the app is live at https://destroysaas.vercel.app
 
 what exists:
 - [x] next.js 16 + supabase auth scaffolding
@@ -581,13 +581,13 @@ turn pledges into actual recurring payments when a cell triggers.
 
 # Current ROADMAP
 
-## IPM: destroysass.ai
+## IPM: destroysaas.ai
 
 ---
 
 ## Current State
 
-The app is live at destroysass.vercel.app with a functional MVP covering the idea-to-pledge pipeline. What exists:
+The app is live at destroysaas.vercel.app with a functional MVP covering the idea-to-pledge pipeline. What exists:
 
 **Core loop works:** Users can propose ideas, pledge monthly amounts, upvote, comment, and track everything from a dashboard. Ideas auto-progress through statuses (`proposed` → `gaining_traction` → `threshold_reached`) based on pledge thresholds. Admins can trigger cell formation.
 
@@ -688,13 +688,13 @@ Comparing the product vision and business model docs against what's built:
 ## Summary
 
 Replace the default Next.js + Supabase boilerplate homepage with a branded landing page that
-communicates the destroysass.ai vision clearly and compellingly. The page must work for both
+communicates the destroysaas.ai vision clearly and compellingly. The page must work for both
 anonymous and authenticated visitors.
 
 ## Context
 
 The app currently shows a generic "Welcome. You can use this app without signing in..." page.
-This communicates nothing about what destroysass.ai is. The brand voice is: lowercase, direct,
+This communicates nothing about what destroysaas.ai is. The brand voice is: lowercase, direct,
 no corporate bullshit, manifesto-style. See docs/philosophy.md and docs/product-vision.md.
 
 ## Goals
@@ -726,7 +726,7 @@ no corporate bullshit, manifesto-style. See docs/philosophy.md and docs/product-
 ## Page Structure
 
 ### Nav (top)
-- Left: `destroysass` in red
+- Left: `destroysaas` in red
 - Right: if anon → "sign in" link; if auth → user email + "sign out" button
 
 ### Hero section
@@ -763,7 +763,7 @@ Under it in small text: "or browse existing ideas →" — links to `/ideas` (pl
 
 ### Footer
 - One line: "the code is free. the network is the value."
-- Links: GitHub (https://github.com/ahoward/destroysass) | Docs (links to docs/ directory on github)
+- Links: GitHub (https://github.com/ahoward/destroysaas) | Docs (links to docs/ directory on github)
 
 ## Auth State Behavior
 
@@ -797,7 +797,7 @@ Under it in small text: "or browse existing ideas →" — links to `/ideas` (pl
 
 ## Acceptance Criteria
 
-- [ ] `https://destroysass.vercel.app/` loads with 200 (no 500)
+- [ ] `https://destroysaas.vercel.app/` loads with 200 (no 500)
 - [ ] Anonymous visitor sees the full landing page with "sign in" in nav
 - [ ] Authenticated user sees their email and "sign out" in nav
 - [ ] Hero headline is visible above the fold
@@ -1308,7 +1308,7 @@ Update all status badge color maps across the app to include `cell_forming` with
 
 ## Summary
 
-Add an `/about` page explaining the destroysass model, a FAQ section answering common questions,
+Add an `/about` page explaining the destroysaas model, a FAQ section answering common questions,
 and proper OpenGraph + SEO meta tags across all pages for social sharing.
 
 ## Routes
@@ -1347,18 +1347,18 @@ and proper OpenGraph + SEO meta tags across all pages for social sharing.
 ## SEO / OpenGraph
 
 Add to `app/layout.tsx` metadata export:
-- title: "destroysass — own the software you use"
+- title: "destroysaas — own the software you use"
 - description: "Small businesses collectively fund, own, and control the software they depend on. No more SaaS rent."
 - og:image: generate a simple OG image or use a static one
 - og:type: website
 - twitter:card: summary_large_image
 
 Per-page titles:
-- /ideas: "ideas — destroysass"
-- /ideas/[id]: "{idea.title} — destroysass"
-- /about: "about — destroysass"
-- /dashboard: "dashboard — destroysass"
-- /admin: "admin — destroysass"
+- /ideas: "ideas — destroysaas"
+- /ideas/[id]: "{idea.title} — destroysaas"
+- /about: "about — destroysaas"
+- /dashboard: "dashboard — destroysaas"
+- /admin: "admin — destroysaas"
 
 ## Acceptance Criteria
 
@@ -1446,7 +1446,7 @@ If it changed, fire notifyStatusChange.
 
 ## Summary
 
-Developer cooperatives ("dev cells") can apply to be listed on destroysass. Once certified
+Developer cooperatives ("dev cells") can apply to be listed on destroysaas. Once certified
 by an admin, they appear on `/dev-cells` with a public profile. When cells form around
 funded ideas, certified dev cells can be assigned to build them.
 

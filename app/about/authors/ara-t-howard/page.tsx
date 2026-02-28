@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
-  title: "ara t. howard — authors — destroysass",
+  title: "ara t. howard — authors — destroysaas",
   description:
     "ruby hero. 481M+ gem downloads. founded a worker-owned LCA. open-sourced the bylaws. now building the infrastructure for collective software ownership.",
 };
@@ -52,7 +52,7 @@ export default async function AraHowardPage() {
               <span className="text-[var(--text-primary)] font-medium">
                 open-sourced its legal bylaws
               </span>{" "}
-              so anyone could follow. destroysass is the productization of
+              so anyone could follow. destroysaas is the productization of
               everything he learned doing it the hard way first.
             </p>
           </div>
@@ -136,11 +136,11 @@ export default async function AraHowardPage() {
               },
               {
                 label: "LLC → LCA conversion",
-                desc: "converted dojo4 from a standard LLC to a limited cooperative association — the exact same legal structure destroysass proposes for every cell. filed the articles. wrote the operating agreement. lived the governance. this isn't theory.",
+                desc: "converted dojo4 from a standard LLC to a limited cooperative association — the exact same legal structure destroysaas proposes for every cell. filed the articles. wrote the operating agreement. lived the governance. this isn't theory.",
               },
               {
                 label: "open-sourced the bylaws",
-                desc: "published dojo4's LCA bylaws, cooperative conversion documents, and policy templates on github (dojo4/policy). the legal templates for destroysass cells aren't hypothetical — they're based on documents ara already wrote, used, and published for anyone to fork.",
+                desc: "published dojo4's LCA bylaws, cooperative conversion documents, and policy templates on github (dojo4/policy). the legal templates for destroysaas cells aren't hypothetical — they're based on documents ara already wrote, used, and published for anyone to fork.",
               },
               {
                 label: "social impact clients",
@@ -198,7 +198,7 @@ export default async function AraHowardPage() {
             <p className="text-[var(--text-primary)] font-medium leading-relaxed">
               ara is in neither camp. he&apos;s in both. 481 million gem downloads
               and a real LCA with open-sourced bylaws. the &ldquo;coop-in-a-box&rdquo;
-              automation destroysass is building for cells is a productization of
+              automation destroysaas is building for cells is a productization of
               his own experience converting a company to cooperative ownership.
             </p>
           </div>
@@ -217,7 +217,7 @@ export default async function AraHowardPage() {
               arguments, the operating agreements, the lawyer calls.
             </p>
             <p>
-              destroysass is the thesis:{" "}
+              destroysaas is the thesis:{" "}
               <span className="text-[var(--text-primary)] font-medium">
                 AI collapsed the cost of building software but not the cost of
                 maintaining it
@@ -284,7 +284,7 @@ export default async function AraHowardPage() {
               the bottom line: ara didn&apos;t read about cooperative ownership in a
               book. he filed the articles, wrote the operating agreement, ran the
               governance, open-sourced the bylaws, and shipped infrastructure used
-              by hundreds of millions. destroysass is what happens when someone
+              by hundreds of millions. destroysaas is what happens when someone
               who&apos;s done it before decides to make it possible for everyone else.
             </p>
           </div>

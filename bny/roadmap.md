@@ -18,7 +18,7 @@ after every implement cycle: QA the live app per `bny/qa-playbook.md`.
 
 ## Current State
 
-the app is live at https://destroysass.coop
+the app is live at https://destroysaas.coop
 
 ### what's built (31 features shipped)
 
@@ -56,7 +56,7 @@ the app is live at https://destroysass.coop
 - [x] 027 — soft gate: lobby dashboard + cabal application (is_inner() gate, /lobby with stats+roadmap+activity, /lobby/apply cabal application form, /admin/applications review queue, non-inner users redirected from /dashboard and /ideas/new)
 - [x] 028 — redefine cells as full-service product cooperatives (product+design+eng+ops, "what is a cell?" section, updated all cell language across site)
 - [x] 029 — lowercase legibility CSS (letter-spacing, word-spacing, line-height 1.75 on body text, ::first-letter weight anchoring, tightened headings)
-- [x] 030 — /why page: SMB economics + interactive SaaS cost calculator (the SaaS tax, destroysass math, industry examples, comparison table, "run your own numbers" calculator)
+- [x] 030 — /why page: SMB economics + interactive SaaS cost calculator (the SaaS tax, destroysaas math, industry examples, comparison table, "run your own numbers" calculator)
 - [x] 031 — production hardening: security headers (HSTS, X-Frame-Options, nosniff, XSS, referrer, permissions), robots.txt, dynamic sitemap, Vercel Analytics + Speed Insights
 
 ### database
@@ -74,20 +74,20 @@ the app is live at https://destroysass.coop
 - idea_board view (ideas + aggregated pledge totals + upvote counts)
 - auto-status trigger: proposed→gaining_traction@$300, →threshold_reached@$1000
 - RLS on all tables with ownership checks; service role for admin ops
-- 11 ghost users (ghost+{slug}@destroysass.coop) in ghost group — no passwords, sudo-only access
+- 11 ghost users (ghost+{slug}@destroysaas.coop) in ghost group — no passwords, sudo-only access
 
 ### infra
 
-- vercel production deploy (destroysass.coop)
+- vercel production deploy (destroysaas.coop)
 - supabase (bjaejvgoifgdanwvglnv, us-east-1)
 - SUPABASE_SERVICE_ROLE_KEY in vercel env
 - SUPABASE_ACCESS_TOKEN for management API
-- resend integration (lib/email.ts) — RESEND_API_KEY configured, FROM: ara@destroysass.coop, domain verified
-- proton mail for inbound email (ara@destroysass.coop)
+- resend integration (lib/email.ts) — RESEND_API_KEY configured, FROM: ara@destroysaas.coop, domain verified
+- proton mail for inbound email (ara@destroysaas.coop)
 - vercel analytics + speed insights enabled
 - security headers: HSTS, X-Frame-Options, nosniff, XSS, referrer, permissions
 - robots.txt + dynamic sitemap (static pages + all idea pages from supabase)
-- vercel CLI linked (project: destroysass, org: ahowards-projects)
+- vercel CLI linked (project: destroysaas, org: ahowards-projects)
 - groups-based RBAC (sudo > admin > cabal > ghost, root email fallback)
 - 13 migrations applied (001–013)
 - ghost acting-as: cookie-based sudo impersonation (lib/ghost.ts, /admin/ghosts)
@@ -146,7 +146,7 @@ not a feature — this is manual work:
 
 ### platform entity formation (non-code)
 
-- form LLC or LCA for destroysass itself
+- form LLC or LCA for destroysaas itself
 - wyoming filing (~$100), EIN, bank account
 - needed before stripe can go live
 

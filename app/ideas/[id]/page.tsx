@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: MetaProps): Promise<Metadata>
     .eq("id", id)
     .single();
   return {
-    title: idea ? `${idea.title} — destroysass` : "idea — destroysass",
+    title: idea ? `${idea.title} — destroysaas` : "idea — destroysaas",
   };
 }
 
@@ -154,7 +154,7 @@ export default async function IdeaDetailPage({ params }: Props) {
             />
             <ShareButtons
               title={idea.title}
-              url={`https://destroysass.coop/ideas/${id}`}
+              url={`https://destroysaas.coop/ideas/${id}`}
             />
           </div>
         </div>

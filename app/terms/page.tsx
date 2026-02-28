@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
-  title: "terms of service — destroysass",
+  title: "terms of service — destroysaas",
 };
 
 export default function TermsPage() {
@@ -24,7 +24,7 @@ export default function TermsPage() {
               1. platform purpose
             </h2>
             <p>
-              destroysass is a platform where small businesses collectively
+              destroysaas is a platform where small businesses collectively
               fund, own, and control the software they depend on. we facilitate
               the process of proposing software ideas, gathering financial
               commitments (pledges), and forming development cooperatives
@@ -69,7 +69,7 @@ export default function TermsPage() {
               4. fork freedom
             </h2>
             <p>
-              all software built through destroysass is open source. any
+              all software built through destroysaas is open source. any
               participant may fork, modify, and independently deploy the
               software at any time. leaving a cooperative does not revoke your
               right to use the software — it revokes your right to the
@@ -131,7 +131,7 @@ export default function TermsPage() {
               8. limitation of liability
             </h2>
             <p>
-              destroysass provides this platform &ldquo;as is&rdquo; without
+              destroysaas provides this platform &ldquo;as is&rdquo; without
               warranty of any kind. we are not liable for the quality, delivery,
               or maintenance of software built by cells. we are not a party
               to cooperative agreements formed through the platform. our

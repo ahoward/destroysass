@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
-  title: "about — destroysass",
+  title: "about — destroysaas",
 };
 
 const faqs = [
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "how is this different from open source?",
-    a: "open source gives you code. destroysass gives you a funded, maintained, hosted product with legal protections and collective governance. the code is open-source, but the service is what you're buying — and you own that too.",
+    a: "open source gives you code. destroysaas gives you a funded, maintained, hosted product with legal protections and collective governance. the code is open-source, but the service is what you're buying — and you own that too.",
   },
 ];
 
@@ -78,7 +78,7 @@ export default async function AboutPage() {
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">the model</h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
-              destroysass flips the script. instead of renting from a vendor, businesses{" "}
+              destroysaas flips the script. instead of renting from a vendor, businesses{" "}
               <span className="text-[var(--text-primary)] font-medium">collectively fund the software they need</span>.
               a vetted product cooperative designs, builds, and operates it under contract to your collective.
             </p>
@@ -169,7 +169,7 @@ export default async function AboutPage() {
             >
               <p className="font-semibold mb-1">the authors</p>
               <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                the people behind destroysass and why they&apos;re building this. not theorists &mdash; practitioners
+                the people behind destroysaas and why they&apos;re building this. not theorists &mdash; practitioners
                 who&apos;ve already operated cooperatives, shipped infrastructure, and open-sourced the bylaws.
               </p>
             </a>

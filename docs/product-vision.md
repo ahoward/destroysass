@@ -1,6 +1,6 @@
 # product vision
 
-## what destroysass.ai is
+## what destroysaas.ai is
 
 a business portal where smbs propose software they want to exist, recruit peers with the same
 problem, form legally-backed cooperative cells to fund it, and collectively own and maintain it
@@ -78,7 +78,7 @@ cell operates indefinitely, self-governed
 
 ## the mvp cell: a knowledge management tool
 
-the first cell destroysass.ai should form:
+the first cell destroysaas.ai should form:
 
 **concept:** a hosted, self-owned alternative to notion/confluence — graph-based, fast, no
 vendor lock-in.
@@ -103,7 +103,7 @@ by the lca
 ## on-brand principles
 
 ### the code is free. the network is the value.
-all software built through destroysass.ai is open-source. anyone can fork it. but forking the
+all software built through destroysaas.ai is open-source. anyone can fork it. but forking the
 code doesn't give you the accumulated shared infrastructure, legal standing, trust network, or
 running instances. the moat is the network, not the binary.
 
@@ -142,7 +142,7 @@ one-size-fits-all is the saas disease. custom-fit-for-us is the cure.
 - 50+ cells across multiple verticals (knowledge management, team comms, inventory, scheduling)
 - cells starting to interoperate — the brane cell talking to the comms cell
 - cells competing for quality reputation, not just price
-- destroysass.ai is the place you go when you've decided saas is not the answer
+- destroysaas.ai is the place you go when you've decided saas is not the answer
 
 **year 3:**
 - a global dao governing shared protocols

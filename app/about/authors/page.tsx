@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
-  title: "authors — destroysass",
+  title: "authors — destroysaas",
   description:
-    "the people behind destroysass. builders, cooperators, and troublemakers.",
+    "the people behind destroysaas. builders, cooperators, and troublemakers.",
 };
 
 const authors = [
@@ -27,7 +27,7 @@ export default async function AuthorsPage() {
           authors
         </h1>
         <p className="text-[var(--text-secondary)] text-lg mb-16">
-          the people building destroysass and why they give a damn.
+          the people building destroysaas and why they give a damn.
         </p>
 
         <div className="space-y-6">

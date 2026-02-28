@@ -7,7 +7,7 @@ import WithdrawButton from "./withdraw_button";
 import VerifyBanner from "./verify_banner";
 
 export const metadata: Metadata = {
-  title: "dashboard — destroysass",
+  title: "dashboard — destroysaas",
 };
 
 const STATUS_LABELS: Record<string, string> = {

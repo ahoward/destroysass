@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
-  title: "privacy policy — destroysass",
+  title: "privacy policy — destroysaas",
 };
 
 export default function PrivacyPage() {

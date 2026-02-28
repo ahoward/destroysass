@@ -3,7 +3,7 @@ import Nav from "@/app/components/nav";
 import Calculator from "./calculator";
 
 export const metadata: Metadata = {
-  title: "the math — destroysass",
+  title: "the math — destroysaas",
   description:
     "the economics of SaaS don't work for small business. here's the math on collective software ownership.",
 };
@@ -129,10 +129,10 @@ export default async function WhyPage() {
           </div>
         </section>
 
-        {/* the destroysass math */}
+        {/* the destroysaas math */}
         <section className="mb-16">
           <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            the destroysass math
+            the destroysaas math
           </h2>
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
@@ -158,7 +158,7 @@ export default async function WhyPage() {
               </div>
               <div className="border border-[var(--border-primary)] rounded-lg p-5 text-center">
                 <p className="text-xs text-[var(--text-faint)] uppercase tracking-widest mb-2">
-                  destroysass (10 years)
+                  destroysaas (10 years)
                 </p>
                 <p className="text-3xl font-bold text-green-600 tabular-nums">
                   $6,000
@@ -216,7 +216,7 @@ export default async function WhyPage() {
               evolving. that hasn&apos;t changed.
             </p>
             <p>
-              destroysass solves the last mile:{" "}
+              destroysaas solves the last mile:{" "}
               <span className="text-[var(--text-primary)] font-medium">
                 20 businesses splitting $1,000/month
               </span>{" "}
@@ -281,7 +281,7 @@ export default async function WhyPage() {
                   <span className="text-[var(--text-faint)]">&rarr;</span>
                   <div className="flex items-center gap-2">
                     <span className="text-xs text-[var(--text-faint)]">
-                      destroysass:
+                      destroysaas:
                     </span>
                     <span className="text-green-600 font-bold tabular-nums">
                       {ex.ds}
@@ -309,7 +309,7 @@ export default async function WhyPage() {
                 saas
               </div>
               <div className="p-3 font-medium text-center text-green-600">
-                destroysass
+                destroysaas
               </div>
             </div>
             {/* rows */}
@@ -355,7 +355,7 @@ export default async function WhyPage() {
             href="/auth"
             className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded transition-colors mr-4"
           >
-            join destroysass &rarr;
+            join destroysaas &rarr;
           </a>
           <a
             href="/ideas"

@@ -5,7 +5,7 @@ import Nav from "@/app/components/nav";
 import ProfileForm from "./form";
 
 export const metadata: Metadata = {
-  title: "edit profile — destroysass",
+  title: "edit profile — destroysaas",
 };
 
 export default async function EditProfilePage() {

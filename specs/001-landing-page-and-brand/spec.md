@@ -3,13 +3,13 @@
 ## Summary
 
 Replace the default Next.js + Supabase boilerplate homepage with a branded landing page that
-communicates the destroysass.ai vision clearly and compellingly. The page must work for both
+communicates the destroysaas.ai vision clearly and compellingly. The page must work for both
 anonymous and authenticated visitors.
 
 ## Context
 
 The app currently shows a generic "Welcome. You can use this app without signing in..." page.
-This communicates nothing about what destroysass.ai is. The brand voice is: lowercase, direct,
+This communicates nothing about what destroysaas.ai is. The brand voice is: lowercase, direct,
 no corporate bullshit, manifesto-style. See docs/philosophy.md and docs/product-vision.md.
 
 ## Goals
@@ -41,7 +41,7 @@ no corporate bullshit, manifesto-style. See docs/philosophy.md and docs/product-
 ## Page Structure
 
 ### Nav (top)
-- Left: `destroysass` in red
+- Left: `destroysaas` in red
 - Right: if anon → "sign in" link; if auth → user email + "sign out" button
 
 ### Hero section
@@ -78,7 +78,7 @@ Under it in small text: "or browse existing ideas →" — links to `/ideas` (pl
 
 ### Footer
 - One line: "the code is free. the network is the value."
-- Links: GitHub (https://github.com/ahoward/destroysass) | Docs (links to docs/ directory on github)
+- Links: GitHub (https://github.com/ahoward/destroysaas) | Docs (links to docs/ directory on github)
 
 ## Auth State Behavior
 
@@ -112,7 +112,7 @@ Under it in small text: "or browse existing ideas →" — links to `/ideas` (pl
 
 ## Acceptance Criteria
 
-- [ ] `https://destroysass.vercel.app/` loads with 200 (no 500)
+- [ ] `https://destroysaas.vercel.app/` loads with 200 (no 500)
 - [ ] Anonymous visitor sees the full landing page with "sign in" in nav
 - [ ] Authenticated user sees their email and "sign out" in nav
 - [ ] Hero headline is visible above the fold

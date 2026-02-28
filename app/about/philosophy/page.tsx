@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
 
 export const metadata: Metadata = {
-  title: "philosophy — destroysass",
+  title: "philosophy — destroysaas",
   description:
     "from stallman to credit unions — why collective ownership of software is the only path to financial freedom for small business.",
 };
@@ -46,7 +46,7 @@ export default async function PhilosophyPage() {
               </span>
             </p>
             <p>
-              destroysass extends the free software movement to the business layer &mdash; the
+              destroysaas extends the free software movement to the business layer &mdash; the
               hosting, the maintenance, the governance, the legal standing. free code without
               funded maintenance is a tire without a car. we&apos;re building the car.
             </p>
@@ -75,7 +75,7 @@ export default async function PhilosophyPage() {
               extracting value from every transaction.
             </p>
             <p>
-              destroysass does the same thing for software. your monthly payment doesn&apos;t go
+              destroysaas does the same thing for software. your monthly payment doesn&apos;t go
               to shareholders &mdash; it goes to a{" "}
               <span className="text-[var(--text-primary)] font-medium">
                 treasury you control
@@ -108,7 +108,7 @@ export default async function PhilosophyPage() {
               and every vendor knows it.
             </p>
             <p>
-              with destroysass, that same money buys you{" "}
+              with destroysaas, that same money buys you{" "}
               <span className="text-[var(--text-primary)] font-medium">co-ownership</span> of the
               tools you use. voting rights on the roadmap. legal standing if things go wrong.
               fork freedom if you want to leave. your payments build equity, not someone
@@ -144,7 +144,7 @@ export default async function PhilosophyPage() {
               saas vendors use to extract from you indefinitely.
             </p>
             <p>
-              in the destroysass model, certified product cooperatives compete by shipping
+              in the destroysaas model, certified product cooperatives compete by shipping
               working MVPs &mdash; product thinking, design, and code. the initial build is
               their audition. the collective picks the best one and contracts that cell for
               the hard part:{" "}
@@ -255,7 +255,7 @@ export default async function PhilosophyPage() {
               </span>.
             </p>
             <p>
-              destroysass isn&apos;t a software company. it&apos;s an{" "}
+              destroysaas isn&apos;t a software company. it&apos;s an{" "}
               <span className="text-[var(--text-primary)] font-medium">
                 economic infrastructure project
               </span>.
@@ -275,7 +275,7 @@ export default async function PhilosophyPage() {
           <div className="border-l-2 border-red-600 pl-6">
             <p className="text-[var(--text-primary)] font-medium leading-relaxed">
               stallman gave us the right to read the code. credit unions gave us the model
-              for member ownership. destroysass combines both &mdash; free code, funded maintenance,
+              for member ownership. destroysaas combines both &mdash; free code, funded maintenance,
               collective governance, and legal standing. not because it&apos;s idealistic.
               because concentrated power is the oldest threat in human history, and
               ownership is the oldest defense.

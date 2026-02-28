@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "$0")/.."
 
 # check the live vercel deployment
-VERCEL_URL="${VERCEL_URL:-https://destroysass.vercel.app}"
+VERCEL_URL="${VERCEL_URL:-https://destroysaas.vercel.app}"
 
 echo "checking $VERCEL_URL..."
 STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$VERCEL_URL" --max-time 10)

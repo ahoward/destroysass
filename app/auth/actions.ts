@@ -50,7 +50,7 @@ export async function resetPassword(formData: FormData) {
   }
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "https://destroysass.coop/auth",
+    redirectTo: "https://destroysaas.coop/auth",
   });
 
   if (error) {

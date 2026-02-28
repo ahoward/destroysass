@@ -128,7 +128,7 @@ export default async function GhostRosterPage() {
     <div className="min-h-screen bg-black text-white">
       <nav className="border-b border-gray-800 px-6 py-4 flex items-center justify-between">
         <a href="/" className="text-red-500 font-bold text-lg tracking-tight">
-          destroysass
+          destroysaas
         </a>
         <div className="flex items-center gap-4 text-sm text-gray-400">
           <a href="/admin" className="hover:text-white transition-colors">

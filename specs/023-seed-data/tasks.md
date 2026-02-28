@@ -7,7 +7,7 @@
 ## Seed Data Content
 
 - [ ] Create `scripts/seed-data.ts` with exported arrays:
-  - `seedUsers`: ~30 users with realistic names, bios, business descriptions. Diverse: restaurant owner, lawyer, contractor, farmer, nonprofit director, real estate agent, etc. Emails: `seed-user-NN@destroysass.local`
+  - `seedUsers`: ~30 users with realistic names, bios, business descriptions. Diverse: restaurant owner, lawyer, contractor, farmer, nonprofit director, real estate agent, etc. Emails: `seed-user-NN@destroysaas.local`
   - `seedIdeas`: 11 ideas across verticals:
     1. Restaurant inventory & menu management
     2. Small law firm case management
