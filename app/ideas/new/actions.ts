@@ -140,14 +140,16 @@ export async function submitIdea(
     });
 
     if (error) {
+      console.error("idea insert error:", error);
       return {
-        errors: { general: "failed to submit idea. please try again." },
+        errors: { general: `failed to submit idea: ${error.message}` },
         previousData,
       };
     }
-  } catch {
+  } catch (err) {
+    console.error("idea submit exception:", err);
     return {
-      errors: { general: "something went wrong. please try again." },
+      errors: { general: `something went wrong: ${err instanceof Error ? err.message : String(err)}` },
       previousData,
     };
   }
