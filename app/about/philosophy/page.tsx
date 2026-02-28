@@ -189,13 +189,96 @@ export default async function PhilosophyPage() {
           </div>
         </section>
 
+        {/* monocultures fail */}
+        <section className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">monocultures fail</h2>
+          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              five companies control the software infrastructure of american business.
+              they set the prices. they write the terms. they own the data. thirty million
+              small businesses run on tools controlled by boardrooms they will never enter
+              and shareholders they will never meet.
+            </p>
+            <p>
+              this is a{" "}
+              <span className="text-[var(--text-primary)] font-medium">monoculture</span>.
+              biology has a word for what happens to monocultures: collapse. when every farm
+              plants the same crop, one disease wipes out the food supply. when every business
+              runs on the same five platforms, one pricing change, one acquisition, one policy
+              decision ripples through the entire economy.
+            </p>
+            <p>
+              and monocultures don&apos;t just fail on their own &mdash; they{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                concentrate power in the hands of the few
+              </span>.
+              when the tools you depend on are controlled by someone else, your autonomy is
+              an illusion. you make decisions within boundaries someone else drew. your data
+              feeds algorithms you can&apos;t inspect. your business model is one terms-of-service
+              update away from irrelevance.
+            </p>
+            <p>
+              the internet was supposed to decentralize power. instead, it centralized it
+              faster than any technology in history. the answer isn&apos;t to build a better
+              monopoly. it&apos;s to{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                make monopoly structurally impossible
+              </span>.
+            </p>
+          </div>
+        </section>
+
+        {/* decentralization is democracy */}
+        <section className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">decentralization is democracy</h2>
+          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+            <p>
+              there are 33 million small businesses in america. each one makes independent
+              decisions about what to sell, who to hire, how to serve their community.
+              that&apos;s not a market statistic &mdash; that&apos;s the{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                largest decentralized economy on earth
+              </span>.
+            </p>
+            <p>
+              but if every one of those businesses runs on the same five vendors&apos; software,
+              the decisions aren&apos;t really independent anymore. the platforms shape what&apos;s
+              possible. the algorithms decide who gets seen. the pricing tiers determine
+              who survives. the independence is aesthetic. the control is structural.
+            </p>
+            <p>
+              history is unambiguous about what happens when economic power concentrates
+              into fewer and fewer hands while ordinary people lose their autonomy, their
+              voice, and their ability to organize independently.{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                every democratic society that has failed, failed this way
+              </span>.
+            </p>
+            <p>
+              destroysass isn&apos;t a software company. it&apos;s an{" "}
+              <span className="text-[var(--text-primary)] font-medium">
+                economic infrastructure project
+              </span>.
+              every cell that forms is a pocket of genuine independence &mdash; businesses
+              that own their tools, control their data, and govern their own roadmap.
+              no single point of failure. no single point of control.
+            </p>
+            <p className="text-[var(--text-primary)] font-medium">
+              when small businesses own their own infrastructure, they can&apos;t be captured.
+              that&apos;s not a feature. that&apos;s the point.
+            </p>
+          </div>
+        </section>
+
         {/* bottom line */}
         <section className="mb-16">
           <div className="border-l-2 border-red-600 pl-6">
             <p className="text-[var(--text-primary)] font-medium leading-relaxed">
               stallman gave us the right to read the code. credit unions gave us the model
               for member ownership. destroysass combines both &mdash; free code, funded maintenance,
-              collective governance, and legal standing. this is what comes after saas.
+              collective governance, and legal standing. not because it&apos;s idealistic.
+              because concentrated power is the oldest threat in human history, and
+              ownership is the oldest defense.
             </p>
           </div>
         </section>
