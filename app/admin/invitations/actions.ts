@@ -134,16 +134,9 @@ export async function acceptInvitation(
     return { error: "invitation not found." };
   }
 
-  if (invitation.accepted_at) {
-    // already accepted — still return redirect so the user can proceed
-    return {
-      error: "invitation already accepted.",
-      redirect_path: invitation.redirect_path,
-    };
-  }
-
   if (
     invitation.expires_at &&
+    !invitation.accepted_at &&
     new Date(invitation.expires_at) < new Date()
   ) {
     return { error: "invitation has expired." };
@@ -159,7 +152,7 @@ export async function acceptInvitation(
     );
   }
 
-  // add user to all groups
+  // add user to all groups (idempotent via upsert)
   for (const group_name of invitation.group_names) {
     const { data: group } = await adminClient
       .from("groups")
@@ -177,14 +170,16 @@ export async function acceptInvitation(
     }
   }
 
-  // mark accepted
-  await adminClient
-    .from("invitations")
-    .update({
-      accepted_at: new Date().toISOString(),
-      accepted_by: user.id,
-    })
-    .eq("id", invitation.id);
+  // mark accepted (only on first accept)
+  if (!invitation.accepted_at) {
+    await adminClient
+      .from("invitations")
+      .update({
+        accepted_at: new Date().toISOString(),
+        accepted_by: user.id,
+      })
+      .eq("id", invitation.id);
+  }
 
   revalidatePath("/admin/invitations");
   return { success: true, redirect_path: invitation.redirect_path };
@@ -218,7 +213,7 @@ async function sendInvitationEmail(
   token: string,
   note: string | null
 ): Promise<void> {
-  const inviteUrl = `https://destroysaas.vercel.app/invite/${token}`;
+  const inviteUrl = `https://destroysaas.coop/invite/${token}`;
   const greeting = name ? `hi ${name},` : "hi,";
 
   const html = email_template(

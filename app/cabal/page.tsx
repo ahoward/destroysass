@@ -130,8 +130,8 @@ export default async function CabalPage() {
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
               we&apos;re pre-revenue, pre-first-cell. the platform is live at{" "}
-              <a href="https://destroysaas.vercel.app" className="text-red-600 hover:text-red-500">
-                destroysaas.vercel.app
+              <a href="https://destroysaas.coop" className="text-red-600 hover:text-red-500">
+                destroysaas.coop
               </a>{" "}
               with 22 shipped features. the product works end-to-end from idea submission through
               pledge mechanics to admin-triggered cell formation. what&apos;s missing is the real-money
