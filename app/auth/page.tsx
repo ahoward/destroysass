@@ -2,7 +2,49 @@
 
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
 import { signIn, signUp, resetPassword } from "./actions";
+
+function OAuthButtons({ next }: { next: string }) {
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleOAuth(provider: "google" | "github") {
+    setError(null);
+    const supabase = createClient();
+    const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next || "/")}`;
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo },
+    });
+
+    if (error) {
+      setError(error.message);
+    }
+  }
+
+  return (
+    <div className="space-y-3">
+      <button
+        type="button"
+        onClick={() => handleOAuth("google")}
+        className="w-full rounded border border-[var(--border-secondary)] bg-[var(--bg-input)] px-4 py-2 text-sm font-medium text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
+      >
+        sign in with google
+      </button>
+
+      <button
+        type="button"
+        onClick={() => handleOAuth("github")}
+        className="w-full rounded border border-[var(--border-secondary)] bg-[var(--bg-input)] px-4 py-2 text-sm font-medium text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
+      >
+        sign in with github
+      </button>
+
+      {error && <p className="text-sm text-red-500">{error}</p>}
+    </div>
+  );
+}
 
 function AuthForm() {
   const searchParams = useSearchParams();
@@ -38,6 +80,18 @@ function AuthForm() {
       <h1 className="text-2xl font-semibold text-center text-[var(--text-primary)]">
         {isForgot ? "reset password" : isSignUp ? "create account" : "sign in"}
       </h1>
+
+      {!isForgot && (
+        <>
+          <OAuthButtons next={next} />
+
+          <div className="flex items-center gap-3">
+            <div className="h-px flex-1 bg-[var(--border-secondary)]" />
+            <span className="text-xs text-[var(--text-muted)]">or</span>
+            <div className="h-px flex-1 bg-[var(--border-secondary)]" />
+          </div>
+        </>
+      )}
 
       <form action={handleSubmit} className="space-y-4">
         {next && <input type="hidden" name="next" value={next} />}
