@@ -10,6 +10,9 @@ import DeleteIdea from "./delete_idea";
 import Comments from "./comments";
 import ShareButtons from "./share_buttons";
 import UpvoteButton from "./upvote_button";
+import Materials from "./materials";
+import Proposals from "./proposals";
+import ProposalForm from "./proposal_form";
 
 type MetaProps = { params: Promise<{ id: string }> };
 
@@ -98,6 +101,100 @@ export default async function IdeaDetailPage({ params }: Props) {
   const comments = raw_comments ?? [];
 
   const inner = user ? await is_inner(supabase, user) : false;
+
+  // fetch materials + proposals for cell_forming+ ideas
+  const showProposals = ["cell_forming", "active"].includes(idea.status);
+
+  let materialsBody = "";
+  let proposalsList: {
+    id: string;
+    title: string;
+    body: string;
+    cell_name: string;
+    submitted_by: string;
+    created_at: string;
+    preference_count: number;
+  }[] = [];
+  let userPreferenceId: string | null = null;
+  let userCell: { id: string; name: string } | null = null;
+  let userExistingProposal: { id: string; title: string; body: string } | null = null;
+  let isSponsor = false;
+
+  if (showProposals) {
+    // materials
+    const { data: mat } = await supabase
+      .from("idea_materials")
+      .select("body")
+      .eq("idea_id", id)
+      .single();
+    if (mat) materialsBody = mat.body;
+
+    // proposals with cell name and preference count
+    const { data: rawProposals } = await supabase
+      .from("proposals")
+      .select("id, title, body, cell_id, submitted_by, created_at, cells(name)")
+      .eq("idea_id", id)
+      .order("created_at");
+
+    if (rawProposals) {
+      // get preference counts
+      const { data: allPrefs } = await supabase
+        .from("proposal_preferences")
+        .select("proposal_id")
+        .eq("idea_id", id);
+
+      const prefCounts: Record<string, number> = {};
+      for (const p of allPrefs ?? []) {
+        prefCounts[p.proposal_id] = (prefCounts[p.proposal_id] || 0) + 1;
+      }
+
+      proposalsList = rawProposals.map((p) => ({
+        id: p.id,
+        title: p.title,
+        body: p.body,
+        cell_name: (p.cells as unknown as { name: string })?.name ?? "unknown cell",
+        submitted_by: p.submitted_by,
+        created_at: p.created_at,
+        preference_count: prefCounts[p.id] || 0,
+      }));
+    }
+
+    if (effectiveUserId) {
+      // check if user is a sponsor
+      isSponsor = !!existing_pledge;
+
+      // check user's preference
+      const { data: pref } = await supabase
+        .from("proposal_preferences")
+        .select("proposal_id")
+        .eq("idea_id", id)
+        .eq("user_id", effectiveUserId)
+        .single();
+      if (pref) userPreferenceId = pref.proposal_id;
+
+      // check if user owns an approved cell
+      const { data: cell } = await supabase
+        .from("cells")
+        .select("id, name")
+        .eq("applied_by", effectiveUserId)
+        .eq("status", "approved")
+        .single();
+      if (cell) {
+        userCell = cell;
+        // check for existing proposal from this cell
+        const existing = proposalsList.find(
+          (p) => p.submitted_by === effectiveUserId
+        );
+        if (existing) {
+          userExistingProposal = {
+            id: existing.id,
+            title: existing.title,
+            body: existing.body,
+          };
+        }
+      }
+    }
+  }
 
   const total = Number(idea.total_pledged) || 0;
   const count = Number(idea.pledge_count) || 0;
@@ -203,6 +300,40 @@ export default async function IdeaDetailPage({ params }: Props) {
               monthlyAsk={idea.monthly_ask}
             />
             {Number(idea.pledge_count) === 0 && <DeleteIdea ideaId={id} />}
+          </div>
+        )}
+
+        {/* supporting materials + proposals (cell_forming+) */}
+        {showProposals && (
+          <div className="mt-10 space-y-6">
+            <Materials
+              ideaId={id}
+              isCreator={is_creator}
+              initialBody={materialsBody}
+            />
+
+            <div>
+              <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-4">
+                proposals
+              </h2>
+              <Proposals
+                ideaId={id}
+                proposals={proposalsList}
+                userPreferenceId={userPreferenceId}
+                isSponsor={isSponsor}
+              />
+            </div>
+
+            {userCell && idea.status === "cell_forming" && (
+              <div className="mt-4">
+                <ProposalForm
+                  ideaId={id}
+                  cellId={userCell.id}
+                  cellName={userCell.name}
+                  existing={userExistingProposal}
+                />
+              </div>
+            )}
           </div>
         )}
 
