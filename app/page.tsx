@@ -56,13 +56,13 @@ export default async function Home() {
           </p>
           <p className="text-[var(--text-secondary)] leading-relaxed">
             open-source was supposed to be the answer. but open-source requires a{" "}
-            <span className="text-[var(--text-primary)] font-medium">community</span> &mdash;
+            <span className="text-[var(--text-primary)] font-semibold">community</span> &mdash;
             people who care enough to maintain, review, document, and evolve the code.
             ai and vibe coding are destroying that community. when anyone can generate
             a codebase in an afternoon, nobody has a reason to contribute to yours.
             the volunteer maintenance model is collapsing.
           </p>
-          <p className="text-[var(--text-primary)] font-medium leading-relaxed">
+          <p className="text-[var(--text-primary)] font-semibold leading-relaxed">
             destroysaas brings the community back &mdash; not through volunteerism, but
             through collective ownership. when you fund it, you govern it. when you
             govern it, you maintain it. the incentive is the ownership.
@@ -77,12 +77,12 @@ export default async function Home() {
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
               in february 2026, wall street finally caught up.{" "}
-              <span className="text-[var(--text-primary)] font-medium">
+              <span className="text-[var(--text-primary)] font-semibold">
                 $2 trillion in saas market cap evaporated in weeks
               </span>.
               atlassian dropped 35%. salesforce dropped 28%. workday, hubspot,
               zendesk &mdash; all cratering. analysts are calling it the{" "}
-              <span className="text-[var(--text-primary)] font-medium">saaspocalypse</span>.
+              <span className="text-[var(--text-primary)] font-semibold">saaspocalypse</span>.
             </p>
             <p>
               the cause? ai agents are replacing entire software categories.
@@ -93,14 +93,14 @@ export default async function Home() {
             </p>
             <p>
               investors now understand what we&apos;ve been saying:{" "}
-              <span className="text-[var(--text-primary)] font-medium">
+              <span className="text-[var(--text-primary)] font-semibold">
                 the build-vs-buy decision is shifting toward build
               </span>.
               the barriers to creating software are so low that paying rent to a
               saas vendor is no longer the default. but building alone leaves you
               stranded when it breaks. the answer isn&apos;t build <em>or</em>{" "}
               buy &mdash; it&apos;s{" "}
-              <span className="text-[var(--text-primary)] font-medium">
+              <span className="text-[var(--text-primary)] font-semibold">
                 own collectively
               </span>.
             </p>
@@ -165,17 +165,17 @@ export default async function Home() {
           <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
             <p>
               banks extract from you. credit unions are{" "}
-              <span className="text-[var(--text-primary)] font-medium">owned by their members</span>.
+              <span className="text-[var(--text-primary)] font-semibold">owned by their members</span>.
             </p>
             <p>
               saas vendors extract from you. destroysaas collectives are{" "}
-              <span className="text-[var(--text-primary)] font-medium">owned by their members</span>.
+              <span className="text-[var(--text-primary)] font-semibold">owned by their members</span>.
             </p>
             <p>
               same deposits. same services. radically different economics &mdash; because the
               profits go back to you, not shareholders.
             </p>
-            <p className="text-[var(--text-primary)] font-medium">
+            <p className="text-[var(--text-primary)] font-semibold">
               you already understand this model. you just haven&apos;t applied it to software yet.
             </p>
           </div>
@@ -215,16 +215,16 @@ export default async function Home() {
             <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
               <p>
                 your crm raises prices 20%. your project management tool gets acquired and sunsets your plan.
-                your data sits on someone else&apos;s servers and you have <span className="text-[var(--text-primary)] font-medium">zero legal standing</span> to
+                your data sits on someone else&apos;s servers and you have <span className="text-[var(--text-primary)] font-semibold">zero legal standing</span> to
                 do anything about it.
               </p>
               <p>
-                destroysaas makes you a <span className="text-[var(--text-primary)] font-medium">co-owner</span>, not a customer.
+                destroysaas makes you a <span className="text-[var(--text-primary)] font-semibold">co-owner</span>, not a customer.
                 you fund software collectively with other businesses who need the same thing. a vetted product
                 cooperative designs, builds, and operates it under contract <em>to you</em>. the code is open-source.
                 the data is yours. the legal entity gives you voting rights and enforceable contracts.
               </p>
-              <p className="text-[var(--text-primary)] font-medium">
+              <p className="text-[var(--text-primary)] font-semibold">
                 if your vendor disappeared tomorrow, would your business survive? with destroysaas, the answer is always yes.
               </p>
             </div>
@@ -261,7 +261,7 @@ export default async function Home() {
             <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
               <p>
                 a cell is a{" "}
-                <span className="text-[var(--text-primary)] font-medium">full-service product cooperative</span> &mdash;
+                <span className="text-[var(--text-primary)] font-semibold">full-service product cooperative</span> &mdash;
                 product management, design, engineering, and operations under one roof.
                 you don&apos;t just write code. you own the whole problem: what to build, how it
                 looks, how it works, and keeping it running.
@@ -269,7 +269,7 @@ export default async function Home() {
               <p>
                 when an idea hits threshold, certified cells compete by shipping a working MVP.
                 not a spec deck. not a slide deck.{" "}
-                <span className="text-[var(--text-primary)] font-medium">a running product</span>.
+                <span className="text-[var(--text-primary)] font-semibold">a running product</span>.
                 the collective picks the best one and contracts that cell for ongoing design,
                 development, hosting, and evolution.
               </p>
@@ -278,10 +278,10 @@ export default async function Home() {
                 that pays monthly. the treasury pays contingent on hitting your SLA.
                 all code is open-source. if you do great work, your reputation compounds and more
                 collectives come to you. if you walk away, the collective replaces you.{" "}
-                <span className="text-[var(--text-primary)] font-medium">no one is trapped</span> &mdash;
+                <span className="text-[var(--text-primary)] font-semibold">no one is trapped</span> &mdash;
                 not the businesses, not you.
               </p>
-              <p className="text-[var(--text-primary)] font-medium">
+              <p className="text-[var(--text-primary)] font-semibold">
                 this is a product company that scales on contract revenue, without giving up ownership of your labor.
               </p>
             </div>
@@ -305,7 +305,7 @@ export default async function Home() {
               <p>
                 traditional saas is a rent-seeking monoculture. one vendor, millions of customers, and a single point
                 of failure. ai is collapsing that model — building software is no longer the moat. the winners of the
-                next decade will own the <span className="text-[var(--text-primary)] font-medium">network</span>, not the code.
+                next decade will own the <span className="text-[var(--text-primary)] font-semibold">network</span>, not the code.
               </p>
               <p>
                 destroysaas is a platform that spawns self-sustaining micro-cooperatives. each cell funds its own
@@ -315,10 +315,10 @@ export default async function Home() {
               <p>
                 revenue model: cell formation fees, platform take-rate (5&ndash;10% of each cell&apos;s treasury),
                 cell certification, and inter-cell API routing fees at scale.
-                every cell that forms <span className="text-[var(--text-primary)] font-medium">increases the network and decreases churn</span> —
+                every cell that forms <span className="text-[var(--text-primary)] font-semibold">increases the network and decreases churn</span> —
                 because owners don&apos;t churn the way customers do.
               </p>
-              <p className="text-[var(--text-primary)] font-medium">
+              <p className="text-[var(--text-primary)] font-semibold">
                 this isn&apos;t a saas company. it&apos;s the protocol layer that replaces saas companies.
               </p>
             </div>
