@@ -75,12 +75,6 @@ p, li, dd, blockquote, td {
   line-height: 1.75;
 }
 
-/* lowercase legibility: give first letter of each block a subtle anchor */
-p::first-letter, li::first-letter, dd::first-letter, blockquote::first-letter {
-  font-size: 1.05em;
-  font-weight: 600;
-}
-
 /* tighten headings back — they already have weight to anchor the eye */
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
