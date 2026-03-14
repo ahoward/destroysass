@@ -1,4 +1,6 @@
-# the place where small businesses stop renting software and start owning it.
+stop renting software.
+
+# the place where small businesses own the software they use.
 
 saas is dead. we're building what comes next.
 
