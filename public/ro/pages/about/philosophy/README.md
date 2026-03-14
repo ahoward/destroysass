@@ -4,7 +4,7 @@ in 1985, richard stallman published the gnu manifesto. his argument was simple: 
 
 forty years later, he was more right than even he predicted. five companies control the infrastructure of modern business. they set the prices. they change the terms. they own your data. and you have zero legal recourse when they decide your plan is "legacy" and your price just doubled.
 
-but the free software movement stopped at code. stallman gave us the right to read and modify source code. he didn't solve two harder problems: **who pays to keep it running?** and **who prevents megacorps from taking your community's work and selling it back to you?**
+but the free software movement stopped at code. stallman gave us the right to read and modify source code. he didn't solve two harder problems: **who pays to keep it running?** and **who prevents large platform companies from taking your community's work and selling it back to you?**
 
 open source gave away the store. permissive licenses let amazon, google, and microsoft strip-mine volunteer labor into proprietary services. the community built it. the corporations captured it.
 
@@ -40,7 +40,7 @@ but they can't maintain it when the api landscape shifts under their feet every 
 
 **80% of total cost of ownership is maintenance** — security patches, integration updates, hosting, support, evolution. that's what the collective pays for. that's the real cost of software. and that's what saas vendors use to extract from you indefinitely.
 
-in the destroysaas model, member cells — small product teams who are co-owners of the same cooperative — bid on projects by shipping working MVPs. product thinking, design, and code. the initial build is their audition. the membership votes on the best one and contracts that cell for the hard part: **keeping it alive, secure, and evolving for years**.
+in the destroysaas model, member cells — small product teams who are co-owners of the same cooperative — bid on projects through a funded scoping phase. the cooperative pays for architecture proposals and cost estimates — this is paid work, not spec work. a product steward evaluates bids. the winning cell designs, builds, and operates the software under contract for the hard part: **keeping it alive, secure, and evolving for years**.
 
 ## the middle path
 
@@ -74,7 +74,7 @@ this is a **monoculture**. biology has a word for what happens to monocultures: 
 
 and monocultures don't just fail on their own — they **concentrate power in the hands of the few**. when the tools you depend on are controlled by someone else, your autonomy is an illusion. you make decisions within boundaries someone else drew. your data feeds algorithms you can't inspect. your business model is one terms-of-service update away from irrelevance.
 
-the internet was supposed to decentralize power. instead, it centralized it faster than any technology in history. the answer isn't to build a better monopoly. it's to **make monopoly structurally impossible**.
+the internet was supposed to decentralize power. instead, it centralized it faster than any technology in history. the answer isn't to build a better monopoly. it's to **make monopoly structurally impossible**. structural decisions require both member classes to approve — neither can outvote the other. the cooperative owns the infrastructure. cells carry liability insurance. binding arbitration keeps disputes fast and affordable.
 
 ## decentralization is democracy
 

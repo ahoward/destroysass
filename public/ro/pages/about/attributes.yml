@@ -10,21 +10,21 @@ cta_secondary:
   href: /ideas
 faq:
 - q: "what if I want to leave?"
-  a: "fork freedom. the code is open-source. your data is yours. you can leave any time, take everything, and run it yourself."
+  a: "fork freedom. the source code is collectively owned — you take it, your data (via self-serve export), and the right to run it yourself or hire any developer to host it for you. you cannot resell or offer it as a hosted service to others."
 - q: "who builds the software?"
-  a: "certified cell members — small product teams that handle product, design, engineering, and operations. not offshore agencies. not solo freelancers. real cooperatives with skin in the game that own the whole problem, not just the code. they're members of the cooperative, same as the businesses."
+  a: "certified cell members — small product teams (typically 2–5 people) that handle product, design, engineering, and operations. they're members of the cooperative with the same structural voting rights as businesses. they carry professional liability insurance and must pass quality gates on every release."
 - q: "what's the legal structure?"
-  a: "a limited cooperative association (LCA). a real legal entity that gives you enforceable contracts, voting rights, and the ability to sue if terms are breached. businesses and cells are equal members with one-member-one-vote governance."
+  a: "a limited cooperative association (LCA). a real legal entity that gives you enforceable contracts, voting rights, and legal standing. structural decisions require both member classes to approve. day-to-day operations are handled by an elected board."
 - q: "can I change my pledge amount?"
-  a: "yes, until the cell forms. once a cell enters formation, pledges are locked to protect the collective commitment. you can always increase after formation."
-- q: "what happens after cell formation?"
-  a: "the winning cell takes over — product direction, design, development, hosting, and support. all members vote on priorities. businesses and cells are equal members of the cooperative, accountable to each other — not shareholders."
-- q: "is the code really open source?"
-  a: "always. that's the entire point. you're not paying for code — you're paying for hosting, maintenance, support, and the collective infrastructure that keeps it running."
+  a: "yes, until pledges lock at the board-set threshold. during the build phase, pledges are escrowed for the contracted duration. you can always propose additional pledges for feature rounds on existing projects."
+- q: "what happens after a cell is selected?"
+  a: "the winning cell takes over — product direction, design, development, hosting, and support. a product steward with domain expertise manages scope and priorities on behalf of pledging members. the cell retains full authority over architecture, stack, and implementation."
+- q: "is the code open source?"
+  a: "no — and that's intentional. the source code is collectively owned by the cooperative, licensed under established source-available frameworks (BSL/FSL). members can read, run, modify, and fork it. non-members cannot. this prevents the 'join, copy, compete' attack that has gutted open-source projects. not open source. not closed source. our source."
 - q: "what if no one pledges my idea?"
   a: "it stays visible on the board. share it. rally others. there's no expiration. good ideas find their people."
 - q: "how is this different from open source?"
-  a: "open source gives you code. destroysaas gives you a funded, maintained, hosted product with legal protections and collective governance. the code is open-source, but the service is what you're buying — and you own that too."
+  a: "open source gives you code anyone can take. destroysaas gives you a funded, maintained, hosted product with collectively owned source code, legal protections, collective governance, professional cells with liability insurance, and a reserve fund. you own it without giving it away."
 go-deeper:
 - title: the math
   href: /about/math
@@ -34,7 +34,7 @@ go-deeper:
   description: "limited cooperative association, enforceable contracts, fork freedom, and why you have more rights here than you've ever had as a saas customer."
 - title: the financial model
   href: /about/money
-  description: "how cells get funded, inventor equity, treasury mechanics, and exactly where every dollar goes."
+  description: "how cells get funded, access fee mechanics, treasury management, and exactly where every dollar goes."
 - title: the philosophy
   href: /about/philosophy
   description: "from stallman to credit unions — why collective ownership of software is the only path to financial freedom for small business."
@@ -49,10 +49,10 @@ how-cells-work:
 - step: idea
   description: "someone proposes software their business needs — what it does, what they'd pay monthly."
 - step: pledges
-  description: "other businesses with the same need back it with monthly commitments. $25–$500/mo per business."
+  description: "other businesses with the same need back it with monthly commitments."
 - step: threshold
-  description: "when monthly pledges hit $1,000, the idea reaches threshold. pledges lock."
-- step: cell formation
-  description: "the cooperative triggers cell formation. contracts are signed. businesses and the winning cell become equal members of the LCA."
+  description: "when monthly pledges hit the board-set threshold for that project category, pledges lock."
+- step: scope
+  description: "the cooperative funds a scoping phase. certified cells submit architecture proposals and cost estimates — paid work, not spec work."
 - step: build + own
-  description: "a certified member cell designs, builds, and operates it. all members vote on priorities. you own what you paid for."
+  description: "a product steward evaluates bids. the winning cell designs, builds, and operates it. the source code is collectively owned. you own what you paid for."

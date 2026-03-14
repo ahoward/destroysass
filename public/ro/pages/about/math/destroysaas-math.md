@@ -1,5 +1,5 @@
-instead of renting from a vendor, 20 businesses who need the same tool **pool $50/month each**. that's $1,000/month — enough to fund a product cooperative to design, build, and operate it.
+instead of renting from a vendor, 20 businesses who need the same tool **pledge $250/month each**. that's $5,000/month — enough to retain a cell, cover hosting, and build real software. each business pays $250/month instead of $500/month for Salesforce.
 
-same tool. same features. same uptime. **90% less cost. 100% more ownership.**
+over 3 years, as 30 more businesses join and pay access fees, the original pledgers' effective cost drops further. after 5 years, those 20 founding businesses have paid roughly half what they would have paid in saas rent — and they own the result.
 
-and because the code is open-source and the legal entity gives you enforceable contracts, if anything goes wrong — you have standing. you can vote. you can sue. you can fork the code and walk away with everything.
+same tool. same features. same uptime. **lower cost. actual ownership.** and because the source code is collectively owned and the legal entity gives you enforceable contracts, if anything goes wrong — you have standing. you can vote. you can fork the code and walk away with everything.

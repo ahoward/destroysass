@@ -7,46 +7,60 @@ details:
   subtitle: no take-rate. public budgets. surplus shared.
   items:
   - label: take-rate
-    text: "zero. the cooperative doesn't skim a percentage off the top. there is no 10%, no 15%, no formation fee, no certification fee. dues cover operations. pledges fund projects. that's it."
+    text: "zero on project pledges. the cooperative doesn't skim a percentage of cell budgets. dues and access fees fund operations, reserves, and the core platform. pledges fund projects. that's it."
   - label: budgets
-    text: "cells submit next month's planned budget with line items. the board approves it. the cooperative pays upfront on the 1st — cells never work on spec. at month's end, cells report actuals. planned vs. actual is visible to every member. surplus rolls forward as project runway; surplus from completed projects returns to the treasury."
+    text: "cells submit next month's planned budget by category (labor, hosting, tools, admin). budgets at or below the original bid cap are auto-approved. the cooperative pays upfront on the 1st — cells never work on spec. at month's end, cells report actuals by category. category-level summaries are visible to all members. the board reviews detailed line items."
+  - label: cell margin
+    text: "the cell's margin is the difference between their bid cap and their actual spend. that margin is the cell's money — theirs to keep, no questions asked. cells are rewarded for efficiency, not punished for it."
   - label: budget caps
-    text: "a cell's monthly budget cannot exceed the project's pledged revenue. the money in caps the money out. if pledges drop, the budget scales down automatically."
+    text: "a cell's monthly budget cannot exceed the project's pledged revenue. the money in caps the money out. if pledges drop below the minimum viable maintenance cost, the board funds the gap from the treasury or initiates a deprecation vote."
   - label: surplus
     text: "year-end surplus is split 50/50 — half to a business pool (distributed pro-rata by dues + pledges), half to a cell pool (distributed pro-rata by dues + paid budgets). each class benefits from the value they created."
+  - label: access fees
+    text: "new members joining existing projects pay an access fee that amortizes the initial build cost. a portion is credited back to original pledging members, reducing their effective cost over time. cells earn a recurring share of access fees from projects they built — this share vests and persists even after handing off maintenance."
   - label: equity
-    text: "one member, one vote. regardless of how much you've pledged or invoiced. patronage tracks contributions over time for surplus distribution, but voting is always equal."
+    text: "structural decisions require approval from both member classes. operations are delegated to an elected board. patronage tracks contributions over time for surplus distribution."
   - label: exit
-    text: "stop paying. fork the code. done. members have full access to the source. you can leave any time and take everything with you."
+    text: "fork the code. export your data. hire any developer to run it. you cannot resell or offer it as a hosted service. the exit is real and practical."
   vibe: "credit union for software. members fund it, members own it, members see every dollar. the cooperative is the platform."
 money-flow:
-  subtitle: two streams in, two streams out
+  subtitle: three streams in, three streams out
   lines:
   - members pay monthly dues
-  - → dues fund cooperative operating costs
+  - → dues fund operating costs, reserve fund, and core platform
   - businesses pledge toward specific projects
   - → pledges fund cell budgets (ring-fenced per project)
+  - new members pay access fees on existing projects
+  - → access fees amortize build costs, credited to original pledgers
   - "→ year-end surplus split 50/50 between business pool and cell pool"
 money-in:
-  subtitle: dues from all members, pledges from businesses
+  subtitle: dues from all members, pledges from businesses, access fees from new joiners
   items:
   - label: monthly dues
-    text: "every member pays dues — businesses and cells alike. dues fund operating costs: legal, insurance, hosting, platform maintenance, board expenses, and the reserve fund."
+    text: "every member pays dues — businesses and cells alike. dues fund operating costs: legal, insurance, hosting, platform maintenance, board expenses, the reserve fund, and the core platform (shared infrastructure like authentication, design systems, notification services)."
   - label: project pledges
     text: "businesses pledge toward specific projects on top of dues. pledges are ring-fenced — money pledged for the invoicing tool goes to the invoicing tool, not to general operations."
+  - label: access fees
+    text: "new members joining existing projects pay an access fee. a portion is credited to original pledging members. as more members join, the per-member cost structurally declines."
 money-out:
-  subtitle: cell budgets and operating costs
+  subtitle: cell budgets, core platform, and operating costs
   items:
   - label: cell budgets
-    text: "cells submit a planned budget for the coming month's work, drawing against the cap established in their bid. the board reviews and approves. the cooperative pays upfront on the 1st — no spec work, no net-30, no cash flow games. actuals are reported at month's end. all budgets are public."
+    text: "cells submit a planned budget for the coming month's work by category, drawing against the cap established in their bid. budgets within the bid cap are auto-approved. the cooperative pays upfront on the 1st — no spec work, no net-30. category-level summaries are public. the cell's margin (bid cap minus actuals) is theirs to keep."
+  - label: core platform
+    text: "shared infrastructure — authentication, authorization, design systems, notification services, billing integration — funded by the treasury, not individual project pledges. ensures interoperability across projects."
   - label: operating costs
     text: "legal fees, insurance, hosting, platform maintenance, board expenses, reserve fund. funded by dues, not by skimming project pledges."
 safeguards:
-  subtitle: transparency and competition
+  subtitle: transparency, competition, and accountability
   items:
-  - public budgets — every budget is visible to every member
-  - "board review — elected board reviews and approves budgets monthly"
-  - "the vote — any member can call a vote to replace an underperforming cell"
-  - competition — other cells can bid to take over a project
+  - public budgets — category-level summaries visible to every member
+  - "board review — elected mixed-class board reviews and approves budgets monthly"
+  - "code quality gates — automated testing, IP provenance scanning, documentation, and maintainability standards"
+  - "the vote — cell replacement requires supermajority + measurable performance failures, not popularity contests"
+  - "competition — other cells can bid after a replacement vote succeeds; incumbent has right of first refusal"
+  - "infrastructure ownership — the cooperative holds the keys, not the cell"
   - budget-pledge alignment — money in caps money out, always
-  - "pledge churn protection — if revenue drops, budgets scale down automatically"
+  - "reserve fund — financial buffer for disputes, legal defense, and transitions"
+  - "data portability — every project ships self-serve data export from day one"
+  - "binding arbitration — disputes resolved quickly and affordably"

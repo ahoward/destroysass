@@ -12,19 +12,22 @@ cta_secondary:
 money-in:
 - label: monthly dues
   value: all members
-  description: "every member — businesses and cells alike — pays monthly dues. this funds operating costs: legal fees, insurance, hosting, platform maintenance, board expenses, and the reserve fund."
+  description: "every member — businesses and cells alike — pays monthly dues. this funds operating costs: legal fees, insurance, hosting, platform maintenance, board expenses, the reserve fund, and the core platform (shared infrastructure like authentication, design systems, notifications)."
 - label: project pledges
   value: businesses
-  description: "businesses pledge toward specific projects on top of dues. pledges are ring-fenced — money pledged for the invoicing tool goes to the invoicing tool, not to general operations. if pledges never hit the funding threshold, nobody pays."
+  description: "businesses pledge toward specific projects on top of dues. pledges are ring-fenced — money pledged for the invoicing tool goes to the invoicing tool, not to general operations. during the build phase, pledges are escrowed for the contracted duration."
+- label: access fees
+  value: new members
+  description: "new members joining existing projects pay an access fee that amortizes the initial build cost. a portion is credited back to the original pledging members, reducing their effective cost over time. cells earn a recurring, vesting share of access fees from projects they built."
 money-out:
 - label: public budgets
-  description: "every budget is visible to every member of the cooperative. no secret line items. no hidden costs. sunlight is the disinfectant."
-- label: board review
-  description: "the elected board reviews and approves budgets as part of routine operations. they can flag anomalies and request justification before payment."
-- label: efficiency margin
-  description: "if a cell budgets 100 hours and finishes in 80, they keep the difference. this is by design — it rewards honest, efficient work."
-- label: budget overruns
-  description: "the board approves overruns up to 20% of the original budget. anything beyond that requires a vote of the project's pledging businesses. the cell bears the risk of bad estimates."
+  description: "category-level budget summaries are visible to every member of the cooperative. the board reviews detailed line items. no secret costs, no hidden margins."
+- label: auto-approval
+  description: "budgets at or below the original bid cap are auto-approved. the board only intervenes on overages or anomalies. no monthly chokepoint."
+- label: cell margin
+  description: "the cell's margin is the difference between their bid cap and their actual spend. that margin is the cell's money — theirs to keep, no questions asked. cells are rewarded for efficiency."
+- label: budget caps
+  description: "a cell's monthly budget cannot exceed the project's pledged revenue. the money in caps the money out. if pledges drop below the minimum viable maintenance cost, the board funds from treasury or initiates a deprecation vote."
 patronage:
   intro: "the cooperative tracks **patronage** — how much each member has contributed over time. this is standard cooperative practice and determines how year-end surplus gets distributed."
   outro: "the 50/50 split is a starting point. the membership can vote to adjust it. patronage is tracked automatically. no manual accounting."

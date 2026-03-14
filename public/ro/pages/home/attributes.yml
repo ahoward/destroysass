@@ -5,7 +5,10 @@ how-it-works:
   text: "submit a software concept your business needs. describe the problem, what you'd pay per month for a maintained, hosted solution you actually own."
 - number: 2
   title: pledge
-  text: "other businesses with the same problem back the concept with monthly commitments. when the threshold is reached, a cell forms."
+  text: "other businesses with the same problem back the concept with monthly commitments. when pledges reach the board-set threshold, the project is approved."
 - number: 3
+  title: build
+  text: "the cooperative funds a scoping phase. certified cells submit architecture proposals — paid work, not spec work. a product steward evaluates bids. the winning cell designs, builds, and operates it under contract."
+- number: 4
   title: own
-  text: "certified product cooperatives compete by shipping working MVPs — product vision, design, and code. the collective picks the best one. the winning cell designs, builds, and operates it under contract. the code is open-source. you own it."
+  text: "the source code is collectively owned by the cooperative — not open source, not closed source, our source. you own it, you govern it, and you can fork it if you ever want to leave."

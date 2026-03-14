@@ -15,22 +15,26 @@ criteria:
 - you want to co-own the outcome, not just bill for hours
 - you believe small teams beat big teams
 - you want a vote in how the cooperative runs
+- you carry (or can obtain) professional liability insurance
 how-it-works:
 - step: '1'
   title: a business submits an idea
   description: "you have a software problem. you describe it, name what you'd pay monthly, and post it to the board."
 - step: '2'
   title: others pledge
-  description: "other businesses with the same problem pledge their own monthly commitment. $25 to $500 — whatever makes sense."
+  description: "other businesses with the same problem pledge their own monthly commitment."
 - step: '3'
   title: the board approves the project
-  description: "when total monthly pledges reach $1,000/month, pledges lock. the cooperative board reviews and approves the project."
+  description: "when total monthly pledges reach the board-set threshold for that category, pledges lock. the cooperative board reviews and approves the project."
 - step: '4'
-  title: cells bid
-  description: "certified cells submit bids on the approved project. each bid establishes a monthly cap — the maximum the cell can draw each month to deliver and operate it."
+  title: scoping phase
+  description: "the cooperative funds a scoping phase — certified cells submit architecture proposals and cost estimates. this is paid work, not spec work."
 - step: '5'
-  title: the cooperative picks the winner
-  description: "business members who funded the idea evaluate bids and select a cell. that cell becomes responsible for building, shipping, and operating the product."
+  title: a product steward evaluates bids
+  description: "a technical lead with domain expertise evaluates cell bids on behalf of pledging members. the steward manages scope and priorities — the cell retains full authority over architecture, stack, and implementation."
+- step: '6'
+  title: build + operate
+  description: "the winning cell designs, builds, and operates the software under contract. code must pass automated quality gates before every release."
 responsibilities:
 - label: product direction
   description: what to build and why
@@ -39,4 +43,6 @@ responsibilities:
 - label: engineering
   description: code, infrastructure, CI/CD
 - label: operations
-  description: hosting, uptime, support
+  description: hosting, uptime, on-call support
+- label: documentation
+  description: architecture docs, runbooks, transition readiness

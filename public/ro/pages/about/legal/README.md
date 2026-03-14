@@ -2,28 +2,34 @@
 
 destroysaas is a **Limited Cooperative Association (LCA)** — a real legal entity recognized by state law. you're not a "user." you're a **member-owner** with a share of the cooperative, voting rights, and enforceable standing.
 
-this is the core difference. a saas vendor can change terms, raise prices, get acquired, or shut down — and your only recourse is to cancel. a cooperative member can **vote, sue, and enforce**. you have standing in court. you have a seat at the table. the software answers to you, not shareholders.
+this is the core difference. a saas vendor can change terms, raise prices, get acquired, or shut down — and your only recourse is to cancel. a cooperative member can **vote, enforce, and exit with everything**. you have standing in court. you have a seat at the table. the software answers to you, not shareholders.
 
 ## governance
 
-governance is simple: **one member, one vote** from day one. a $50/month business has the same vote as a $500/month business. a two-person cell has the same vote as a ten-person cell. no weighted voting, no special share classes, no genesis phases.
+governance has two layers. **structural decisions** — bylaws, membership terms, new member classes — require approval from a majority of *each* member class independently. neither class can outvote the other on matters that define the cooperative itself.
 
-the cooperative elects a **board of directors** annually from its membership. the board handles day-to-day operations — reviewing monthly budgets, approving routine new members, fast-tracking uncontested projects, mediating disputes, and managing the cooperative's operating expenses. any member can run. the board reports monthly to the full membership.
+**day-to-day operations** — budget approvals, project launches, cell certifications — are delegated to an **elected board** composed of members from both classes. the board reports monthly to the full membership. any member can run for the board.
 
-big decisions — changing bylaws, adjusting dues, replacing a cell, admitting new cell members — go to a **full member vote**. transparent by default.
+participation is optional. you *can* vote, review budgets, and propose ideas. you don't *have* to. the software works either way.
 
 ## fork freedom
 
-all code produced by a cell is open-source under AGPL or MIT. your data belongs to you. if you want to leave, you take **everything** — the code, your data, and the right to run it yourself.
+source code is collectively owned by the cooperative — licensed under established source-available frameworks (BSL/FSL), adapted for cooperative ownership. your data belongs to you. if you want to leave, you take **everything** — the code, your data, and the right to run and modify the software for your own business, including hiring any developer or agency to host it for you.
 
-this isn't a marketing promise. it's a legal obligation baked into the LCA operating agreement. fork freedom is the default, not a feature.
+you cannot resell, sublicense, or offer the forked code as a hosted service to others. this prevents the "join, copy, compete" attack that has gutted open-source projects.
+
+this isn't a marketing promise. it's a legal obligation baked into the LCA operating agreement and enforced through binding arbitration. fork freedom is the default, not a feature.
 
 ## cells
 
-cells are small product teams — typically cooperatives themselves — that design, build, and maintain software. they're not outside contractors. they're **member organizations** of the cooperative, with the same voting rights as any business member. they pay dues. they have skin in the game.
+cells are small product teams — typically 2–5 people — that design, build, and maintain software. they're **member organizations** of the cooperative, with the same structural voting rights as any business member. they pay dues. they have skin in the game. they may use subcontractors, but the cell is responsible for all work product and IP compliance.
 
-cells bid on approved projects and submit **monthly budgets** for their work. every budget is public — every member of the cooperative can review every line item. the board reviews and approves budgets as part of routine operations. no secret costs, no hidden margins.
+cells bid on approved projects and submit **monthly budgets** by category. category-level summaries are visible to all members. the board reviews detailed line items. budgets at or below the original bid cap are auto-approved.
 
-all work is **work-for-hire**. intellectual property belongs to the cooperative, not the cell. if a cell underperforms or walks away, the cooperative votes to replace them and routes the project to a new cell. **the software survives the cell**. always.
+the cell's margin is the difference between their bid cap and their actual spend — that margin is the cell's money, no questions asked. cells also earn a recurring share of access fees from new members joining projects the cell built — creating long-term upside, not just capped labor.
 
-> the bottom line: you own a share of a cooperative that owns the software, the data, and the infrastructure. you can vote, sue, fork, and leave. try doing that with salesforce.
+source code produced under cooperative contracts is owned by the cooperative. cells retain rights to any code, libraries, or tools they created before the engagement or independently outside of it. internal tooling remains the cell's property — the cooperative owns the deliverable product, not the means of production.
+
+cells carry professional liability (E&O) insurance as a condition of certification, with liability capped at the total fees paid under that project contract.
+
+> the bottom line: you own a share of a cooperative that owns the software, the data, and the infrastructure. you can vote, enforce, fork, and leave. try doing that with salesforce.
