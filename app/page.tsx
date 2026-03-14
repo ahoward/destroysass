@@ -35,7 +35,7 @@ export default async function Home() {
 
       {/* hero */}
       <main className="max-w-2xl mx-auto px-6 pt-20 pb-32">
-        <ROMarkdown raw={page.sections.hero.raw} images={page.images} className={PROSE_CLASSES + " [&>p:first-of-type]:text-red-600 [&>p:first-of-type]:font-bold [&>p:first-of-type]:text-sm [&>p:first-of-type]:uppercase [&>p:first-of-type]:tracking-widest [&>p:first-of-type]:mb-4 [&>h1]:text-4xl [&>h1]:sm:text-5xl [&>h1]:font-bold [&>h1]:leading-tight [&>h1]:tracking-tight [&>h1]:lowercase [&>h1]:mb-6 [&>p:nth-of-type(2)]:text-xl [&>p:nth-of-type(2)]:text-[var(--text-secondary)] [&>p:nth-of-type(2)]:mb-2 [&>p:nth-of-type(3)]:text-sm [&>p:nth-of-type(3)]:text-[var(--text-muted)] [&>p:nth-of-type(3)]:mb-16"} />
+        <ROMarkdown raw={page.sections.hero.raw} images={page.images} className={PROSE_CLASSES + " [&>p:first-of-type]:text-red-600 [&>p:first-of-type]:font-black [&>p:first-of-type]:text-4xl [&>p:first-of-type]:sm:text-5xl [&>p:first-of-type]:uppercase [&>p:first-of-type]:tracking-tight [&>p:first-of-type]:leading-none [&>p:first-of-type]:mb-6 [&>h1]:text-4xl [&>h1]:sm:text-5xl [&>h1]:font-bold [&>h1]:leading-tight [&>h1]:tracking-tight [&>h1]:lowercase [&>h1]:mb-6 [&>p:nth-of-type(2)]:text-xl [&>p:nth-of-type(2)]:text-[var(--text-secondary)] [&>p:nth-of-type(2)]:mb-2 [&>p:nth-of-type(3)]:text-sm [&>p:nth-of-type(3)]:text-[var(--text-muted)] [&>p:nth-of-type(3)]:mb-16"} />
 
         {/* problem */}
         <div className="border-l-2 border-[var(--border-primary)] pl-6 mb-16">
