@@ -4,7 +4,7 @@ import Image from "next/image";
 import type { ROImage } from "./types";
 
 export const PROSE_CLASSES =
-  "prose prose-sm dark:prose-invert max-w-none text-[var(--text-secondary)] prose-headings:text-[var(--text-primary)] prose-headings:lowercase prose-headings:tracking-tight prose-strong:text-[var(--text-primary)] prose-a:text-red-500 prose-hr:border-[var(--border-primary)] prose-table:text-sm prose-th:text-left prose-th:p-2 prose-td:p-2";
+  "prose dark:prose-invert max-w-none text-[var(--text-secondary)] prose-headings:text-[var(--text-primary)] prose-headings:lowercase prose-headings:tracking-tight prose-strong:text-[var(--text-primary)] prose-a:text-red-500 prose-hr:border-[var(--border-primary)] prose-table:text-sm prose-th:text-left prose-th:p-2 prose-td:p-2";
 
 export function ROMarkdown({
   raw,

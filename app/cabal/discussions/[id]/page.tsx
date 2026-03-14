@@ -99,7 +99,7 @@ export default async function CabalDiscussionPage({
         </div>
 
         {/* body */}
-        <div className="prose prose-sm dark:prose-invert max-w-none mb-8 text-[var(--text-secondary)] prose-headings:text-[var(--text-primary)] prose-headings:lowercase prose-headings:tracking-tight prose-strong:text-[var(--text-primary)] prose-a:text-red-500 prose-hr:border-[var(--border-primary)]">
+        <div className="prose dark:prose-invert max-w-none mb-8 text-[var(--text-secondary)] prose-headings:text-[var(--text-primary)] prose-headings:lowercase prose-headings:tracking-tight prose-strong:text-[var(--text-primary)] prose-a:text-red-500 prose-hr:border-[var(--border-primary)]">
           <Markdown remarkPlugins={[remarkGfm]}>{disc.body}</Markdown>
         </div>
 
