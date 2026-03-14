@@ -10,6 +10,7 @@ import type { ROPage, ROSection } from "./types";
 
 const MD_EXTENSIONS = new Set([".md", ".markdown"]);
 const YAML_EXTENSIONS = new Set([".yml", ".yaml"]);
+const ATTRIBUTES_NAMES = new Set(["attributes.yml", "attributes.yaml"]);
 
 const remarkPipeline = remark().use(remarkGfm).use(remarkHtml);
 
@@ -19,23 +20,24 @@ async function renderMarkdown(raw: string): Promise<string> {
 }
 
 export async function compilePage(root: string, slug: string): Promise<ROPage> {
-  const metaPath = findMetaFile(root, slug);
+  const pageDir = path.join(root, slug);
+  const metaPath = findMetaFile(pageDir);
   const meta = metaPath ? (yaml.load(fs.readFileSync(metaPath, "utf8")) as Record<string, unknown>) : {};
 
-  const sectionDir = path.join(root, slug);
-  const assetDir = path.join(sectionDir, "assets");
+  const assetDir = path.join(pageDir, "assets");
   const baseUrl = `/ro/${slug}`;
 
   const sections: Record<string, ROSection> = {};
   const data: Record<string, unknown> = {};
 
-  if (fs.existsSync(sectionDir) && fs.statSync(sectionDir).isDirectory()) {
-    const entries = fs.readdirSync(sectionDir);
+  if (fs.existsSync(pageDir) && fs.statSync(pageDir).isDirectory()) {
+    const entries = fs.readdirSync(pageDir);
 
     for (const entry of entries) {
       if (entry === "assets") continue;
+      if (ATTRIBUTES_NAMES.has(entry.toLowerCase())) continue;
 
-      const entryPath = path.join(sectionDir, entry);
+      const entryPath = path.join(pageDir, entry);
       if (!fs.statSync(entryPath).isFile()) continue;
 
       const ext = path.extname(entry).toLowerCase();
@@ -73,11 +75,11 @@ export async function compileSection(
   slug: string,
   section: string
 ): Promise<ROSection> {
-  const sectionDir = path.join(root, slug);
-  const assetDir = path.join(sectionDir, "assets");
+  const pageDir = path.join(root, slug);
+  const assetDir = path.join(pageDir, "assets");
   const baseUrl = `/ro/${slug}`;
 
-  const mdPath = path.join(sectionDir, `${section}.md`);
+  const mdPath = path.join(pageDir, `${section}.md`);
   if (!fs.existsSync(mdPath)) {
     throw new Error(`Section not found: ${mdPath}`);
   }
@@ -98,9 +100,9 @@ async function compileMarkdownFile(
   return { raw, html };
 }
 
-function findMetaFile(root: string, slug: string): string | null {
-  for (const ext of [".yml", ".yaml"]) {
-    const p = path.join(root, `${slug}${ext}`);
+function findMetaFile(pageDir: string): string | null {
+  for (const name of ATTRIBUTES_NAMES) {
+    const p = path.join(pageDir, name);
     if (fs.existsSync(p)) return p;
   }
   return null;
@@ -115,31 +117,23 @@ export function discoverSlugs(root: string): string[] {
     const entries = fs.readdirSync(dir);
 
     for (const entry of entries) {
-      const entryPath = path.join(dir, entry);
-      const ext = path.extname(entry).toLowerCase();
-
-      if (YAML_EXTENSIONS.has(ext) && fs.statSync(entryPath).isFile()) {
-        const name = path.basename(entry, ext);
-        const slug = prefix ? `${prefix}/${name}` : name;
-        slugs.push(slug);
-      }
-    }
-
-    // recurse into subdirectories that aren't node directories (those with a sibling .yml)
-    for (const entry of entries) {
-      const entryPath = path.join(dir, entry);
       if (entry === "assets") continue;
+
+      const entryPath = path.join(dir, entry);
       if (!fs.statSync(entryPath).isDirectory()) continue;
 
-      // check if this directory is a section dir (has a sibling .yml)
-      const hasSiblingMeta = entries.some(
-        (e) => YAML_EXTENSIONS.has(path.extname(e).toLowerCase()) && path.basename(e, path.extname(e)) === entry
-      );
+      const slug = prefix ? `${prefix}/${entry}` : entry;
 
-      if (!hasSiblingMeta) {
-        // it's a namespace directory, recurse
-        walk(entryPath, prefix ? `${prefix}/${entry}` : entry);
+      // a page directory contains attributes.yml
+      const subEntries = fs.readdirSync(entryPath);
+      const hasAttributes = subEntries.some((e) => ATTRIBUTES_NAMES.has(e.toLowerCase()));
+
+      if (hasAttributes) {
+        slugs.push(slug);
       }
+
+      // always recurse — pages can be nested
+      walk(entryPath, slug);
     }
   }
 
