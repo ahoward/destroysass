@@ -1,26 +1,24 @@
 title: financial model — destroysaas
-description: how money moves through the cooperative. one model. no take-rate.
+description: "how money moves through the cooperative. one model. no take-rate."
 heading: the financial model
-subheading: how money moves through the cooperative. one model. no take-rate.
-intro: destroysaas is a cooperative — not a platform. businesses and cells are all members of the same organization. both pay dues. both vote. there is no investor class, no platform class, no middleman
-  skimming a percentage.
+subheading: "how money moves through the cooperative. one model. no take-rate."
+intro: "destroysaas is a cooperative — not a platform. businesses and cells are all members of the same organization. both pay dues. both vote. there is no investor class, no platform class, no middleman skimming a percentage."
 details:
   subtitle: no take-rate. public budgets. surplus shared.
   items:
   - label: take-rate
-    text: zero. the cooperative doesn't skim a percentage off the top. there is no 10%, no 15%, no formation fee, no certification fee. dues cover operations. pledges fund projects. that's it.
+    text: "zero. the cooperative doesn't skim a percentage off the top. there is no 10%, no 15%, no formation fee, no certification fee. dues cover operations. pledges fund projects. that's it."
   - label: budgets
-    text: monthly, submitted ahead of time, public. every member can review every budget. the board approves before payment. cells that finish early keep the margin — rewarding efficiency, not billing.
+    text: "monthly, submitted ahead of time, public. every member can review every budget. the board approves before payment. cells that finish early keep the margin — rewarding efficiency, not billing."
   - label: budget caps
-    text: a cell's monthly budget cannot exceed the project's pledged revenue. the money in caps the money out. if pledges drop, the budget scales down automatically.
+    text: "a cell's monthly budget cannot exceed the project's pledged revenue. the money in caps the money out. if pledges drop, the budget scales down automatically."
   - label: surplus
-    text: year-end surplus is split 50/50 — half to a business pool (distributed pro-rata by dues + pledges), half to a cell pool (distributed pro-rata by dues + paid budgets). each class benefits from
-      the value they created.
+    text: "year-end surplus is split 50/50 — half to a business pool (distributed pro-rata by dues + pledges), half to a cell pool (distributed pro-rata by dues + paid budgets). each class benefits from the value they created."
   - label: equity
-    text: one member, one vote. regardless of how much you've pledged or invoiced. patronage tracks contributions over time for surplus distribution, but voting is always equal.
+    text: "one member, one vote. regardless of how much you've pledged or invoiced. patronage tracks contributions over time for surplus distribution, but voting is always equal."
   - label: exit
-    text: stop paying. fork the code. done. all code is open-source. you can leave any time.
-  vibe: credit union for software. members fund it, members own it, members see every dollar. the cooperative is the platform.
+    text: "stop paying. fork the code. done. all code is open-source. you can leave any time."
+  vibe: "credit union for software. members fund it, members own it, members see every dollar. the cooperative is the platform."
 money-flow:
   subtitle: two streams in, two streams out
   lines:
@@ -28,27 +26,27 @@ money-flow:
   - → dues fund cooperative operating costs
   - businesses pledge toward specific projects
   - → pledges fund cell budgets (ring-fenced per project)
-  - → year-end surplus split 50/50 between business pool and cell pool
+  - "→ year-end surplus split 50/50 between business pool and cell pool"
 money-in:
   subtitle: dues from all members, pledges from businesses
   items:
   - label: monthly dues
-    text: 'every member pays dues — businesses and cells alike. dues fund operating costs: legal, insurance, hosting, platform maintenance, board expenses, and the reserve fund.'
+    text: "every member pays dues — businesses and cells alike. dues fund operating costs: legal, insurance, hosting, platform maintenance, board expenses, and the reserve fund."
   - label: project pledges
-    text: businesses pledge toward specific projects on top of dues. pledges are ring-fenced — money pledged for the invoicing tool goes to the invoicing tool, not to general operations.
+    text: "businesses pledge toward specific projects on top of dues. pledges are ring-fenced — money pledged for the invoicing tool goes to the invoicing tool, not to general operations."
 money-out:
   subtitle: cell budgets and operating costs
   items:
   - label: cell budgets
-    text: cells submit a monthly budget for the coming month's work, drawing against the cap established in their bid. budgets are public. the elected board reviews and approves before payment.
+    text: "cells submit a monthly budget for the coming month's work, drawing against the cap established in their bid. budgets are public. the elected board reviews and approves before payment."
   - label: operating costs
-    text: legal fees, insurance, hosting, platform maintenance, board expenses, reserve fund. funded by dues, not by skimming project pledges.
+    text: "legal fees, insurance, hosting, platform maintenance, board expenses, reserve fund. funded by dues, not by skimming project pledges."
 safeguards:
   subtitle: transparency and competition
   items:
   - public budgets — every budget is visible to every member
-  - board review — elected board reviews and approves budgets monthly
-  - the vote — any member can call a vote to replace an underperforming cell
+  - "board review — elected board reviews and approves budgets monthly"
+  - "the vote — any member can call a vote to replace an underperforming cell"
   - competition — other cells can bid to take over a project
   - budget-pledge alignment — money in caps money out, always
-  - pledge churn protection — if revenue drops, budgets scale down automatically
+  - "pledge churn protection — if revenue drops, budgets scale down automatically"

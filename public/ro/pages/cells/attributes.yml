@@ -1,8 +1,8 @@
 title: cells — destroysaas
-description: small product teams that join destroysaas as equal cooperative members. they bid on projects, submit public budgets, and vote alongside businesses.
+description: "small product teams that join destroysaas as equal cooperative members. they bid on projects, submit public budgets, and vote alongside businesses."
 heading: cells
-tagline: small product teams that join destroysaas as equal cooperative members. they bid on projects, submit public budgets, and share in governance.
-cta_text: ready to co-own software that belongs to the people who use it?
+tagline: "small product teams that join destroysaas as equal cooperative members. they bid on projects, submit public budgets, and share in governance."
+cta_text: "ready to co-own software that belongs to the people who use it?"
 cta_primary:
   text: apply to become a cell →
   href: /cells/apply
@@ -18,19 +18,19 @@ criteria:
 how-it-works:
 - step: '1'
   title: a business submits an idea
-  description: you have a software problem. you describe it, name what you'd pay monthly, and post it to the board.
+  description: "you have a software problem. you describe it, name what you'd pay monthly, and post it to the board."
 - step: '2'
   title: others pledge
-  description: other businesses with the same problem pledge their own monthly commitment. $25 to $500 — whatever makes sense.
+  description: "other businesses with the same problem pledge their own monthly commitment. $25 to $500 — whatever makes sense."
 - step: '3'
   title: the board approves the project
-  description: when total monthly pledges reach $1,000/month, pledges lock. the cooperative board reviews and approves the project.
+  description: "when total monthly pledges reach $1,000/month, pledges lock. the cooperative board reviews and approves the project."
 - step: '4'
   title: cells bid
-  description: certified cells submit bids on the approved project. each bid establishes a monthly cap — the maximum the cell can draw each month to deliver and operate it.
+  description: "certified cells submit bids on the approved project. each bid establishes a monthly cap — the maximum the cell can draw each month to deliver and operate it."
 - step: '5'
   title: the cooperative picks the winner
-  description: business members who funded the idea evaluate bids and select a cell. that cell becomes responsible for building, shipping, and operating the product.
+  description: "business members who funded the idea evaluate bids and select a cell. that cell becomes responsible for building, shipping, and operating the product."
 responsibilities:
 - label: product direction
   description: what to build and why

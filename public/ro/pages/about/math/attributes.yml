@@ -1,10 +1,10 @@
 title: the math — destroysaas
-description: the economics of SaaS don't work for small business. here's the math on collective software ownership.
-heading: 'the math doesn''t work.
-
-  here''s math that does.'
+description: "the economics of SaaS don't work for small business. here's the math on collective software ownership."
+heading: |-
+  the math doesn't work.
+  here's math that does.
 subheading: you don't need ideology. you need a spreadsheet.
-cta_text: ready to stop paying rent?
+cta_text: "ready to stop paying rent?"
 cta_primary:
   text: join destroysaas →
   href: /auth
@@ -41,17 +41,17 @@ examples:
   tools: Jobber ($70) + QuickBooks ($30) + Mailchimp ($20)
   saas: $120/mo
   ds: $50/mo
-  note: scheduling, invoicing, and client comms in one tool built for landscapers, not generic businesses.
+  note: "scheduling, invoicing, and client comms in one tool built for landscapers, not generic businesses."
 - industry: boutique retail
-  tools: Shopify ($79) + Square ($60) + Mailchimp ($20) + Homebase ($40)
+  tools: "Shopify ($79) + Square ($60) + Mailchimp ($20) + Homebase ($40)"
   saas: $199/mo
   ds: $50/mo
-  note: inventory, POS, email, and scheduling built for independent retail — not a platform that takes a cut of every sale.
+  note: "inventory, POS, email, and scheduling built for independent retail — not a platform that takes a cut of every sale."
 - industry: professional services
   tools: Asana ($125) + Harvest ($60) + FreshBooks ($35)
   saas: $220/mo
   ds: $50/mo
-  note: project tracking, time billing, and invoicing designed for consultants and agencies — not enterprise teams of 500.
+  note: "project tracking, time billing, and invoicing designed for consultants and agencies — not enterprise teams of 500."
 saas-tools:
   tools:
   - tool: CRM

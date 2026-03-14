@@ -1,12 +1,11 @@
-title: destroysaas — the place where small businesses stop renting software and start owning it
+title: "destroysaas — the place where small businesses stop renting software and start owning it"
 how-it-works:
 - number: 1
   title: propose
-  text: submit a software concept your business needs. describe the problem, what you'd pay per month for a maintained, hosted solution you actually own.
+  text: "submit a software concept your business needs. describe the problem, what you'd pay per month for a maintained, hosted solution you actually own."
 - number: 2
   title: pledge
-  text: other businesses with the same problem back the concept with monthly commitments. when the threshold is reached, a cell forms.
+  text: "other businesses with the same problem back the concept with monthly commitments. when the threshold is reached, a cell forms."
 - number: 3
   title: own
-  text: certified product cooperatives compete by shipping working MVPs — product vision, design, and code. the collective picks the best one. the winning cell designs, builds, and operates it under contract.
-    the code is open-source. you own it.
+  text: "certified product cooperatives compete by shipping working MVPs — product vision, design, and code. the collective picks the best one. the winning cell designs, builds, and operates it under contract. the code is open-source. you own it."

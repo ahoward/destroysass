@@ -1,11 +1,11 @@
-title: "philosophy — destroysaas"
+title: philosophy — destroysaas
 description: "from stallman to credit unions — why collective ownership of software is the only path to financial freedom for small business."
-heading: "the philosophy"
-tagline: "why ownership is the only thing that matters."
-cta_text: "see how the model works in practice"
+heading: the philosophy
+tagline: why ownership is the only thing that matters.
+cta_text: see how the model works in practice
 cta_primary:
-  text: "the legal model →"
-  href: "/about/legal"
+  text: the legal model →
+  href: /about/legal
 cta_secondary:
-  text: "back to about →"
-  href: "/about"
+  text: back to about →
+  href: /about

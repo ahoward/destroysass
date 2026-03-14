@@ -1,10 +1,10 @@
 title: the commons — destroysaas
-description: join the movement. pay $25/year, get access to the best open-source tools the co-op builds. real software, not a newsletter.
+description: "join the movement. pay $25/year, get access to the best open-source tools the co-op builds. real software, not a newsletter."
 heading: the commons
 subtitle: pay $25/year. get the tools.
-tagline: every tool built by the co-op is open source. destroysaas curates the best ones, runs public instances, and gives every member access. real software — not a demo, not a trial, not a newsletter.
+tagline: "every tool built by the co-op is open source. destroysaas curates the best ones, runs public instances, and gives every member access. real software — not a demo, not a trial, not a newsletter."
 cta_text: the commons is coming soon. join the waitlist.
-cta_href: /auth?next=/commons
+cta_href: "/auth?next=/commons"
 cta_button: join the movement
 cta_note: $25/year — or $50 lifetime
 comparison:
@@ -21,13 +21,13 @@ comparison:
     - dedicated, single-tenant
   - - SLA
     - best-effort
-    - 99% uptime, 48hr response
+    - "99% uptime, 48hr response"
   - - data
     - shared instance
     - isolated, yours
   - - customization
     - default config
-    - custom features & integrations
+    - "custom features & integrations"
   - - governance
     - one member, one vote
     - one member, one vote
@@ -37,7 +37,7 @@ comparison:
   - - support
     - community
     - direct cell support
-  note: same codebase. same features. the difference is infrastructure, support, and guarantees — not artificial feature gates.
+  note: "same codebase. same features. the difference is infrastructure, support, and guarantees — not artificial feature gates."
 flywheel:
 - businesses pledge toward projects
 - → cells build open-source tools
@@ -48,20 +48,19 @@ flywheel:
 how-it-works:
 - step: '01'
   title: members fund development
-  body: businesses propose ideas and pledge toward specific projects. cells (product teams) bid on the work and build it. all members pay dues. all code is open source.
+  body: "businesses propose ideas and pledge toward specific projects. cells (product teams) bid on the work and build it. all members pay dues. all code is open source."
 - step: '02'
   title: the co-op curates the best tools
-  body: not everything makes the cut. destroysaas identifies the most useful, most stable tools the cooperative produces — the ones with broad appeal beyond the original sponsors.
+  body: "not everything makes the cut. destroysaas identifies the most useful, most stable tools the cooperative produces — the ones with broad appeal beyond the original sponsors."
 - step: '03'
   title: community members get access
-  body: the co-op runs separate public instances of the curated tools. you join, you get in. same codebase, different infrastructure. no mixing with business data.
+  body: "the co-op runs separate public instances of the curated tools. you join, you get in. same codebase, different infrastructure. no mixing with business data."
 what-members-get:
 - title: access to the tools
-  description: the full product. not a limited tier, not a freemium gate. the same software the businesses use, running on co-op-hosted infrastructure. we're a cooperative, not a SaaS company with extra
-    steps.
+  description: "the full product. not a limited tier, not a freemium gate. the same software the businesses use, running on co-op-hosted infrastructure. we're a cooperative, not a SaaS company with extra steps."
 - title: a vote
-  description: governance voice on cooperative-wide decisions. board elections, policy, direction. one member, one vote. not weighted by how much you pay.
+  description: "governance voice on cooperative-wide decisions. board elections, policy, direction. one member, one vote. not weighted by how much you pay."
 - title: full transparency
-  description: every dollar in, every dollar out. cell performance, financials, decisions — all public. you see what your membership funds.
+  description: "every dollar in, every dollar out. cell performance, financials, decisions — all public. you see what your membership funds."
 - title: a pipeline
-  description: if you start a business and need dedicated infrastructure, you're already in the cooperative. upgrade from community to a full business membership with a dedicated instance, SLA, and support.
+  description: "if you start a business and need dedicated infrastructure, you're already in the cooperative. upgrade from community to a full business membership with a dedicated instance, SLA, and support."

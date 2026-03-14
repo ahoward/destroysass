@@ -1,54 +1,50 @@
 title: ara t. howard — authors — destroysaas
-description: ruby hero. 481M+ gem downloads. founded a worker-owned LCA. open-sourced the bylaws. now building the infrastructure for collective software ownership.
+description: "ruby hero. 481M+ gem downloads. founded a worker-owned LCA. open-sourced the bylaws. now building the infrastructure for collective software ownership."
 name: ara t. howard
 role: founder
-tagline: didn't theorize about cooperative software ownership. built and operated one.
+tagline: "didn't theorize about cooperative software ownership. built and operated one."
 camps:
   items:
   - label: technologists
-    description: can build the platform but have never operated a cooperative, filed an LCA, or dealt with the legal and financial plumbing of collective ownership.
+    description: "can build the platform but have never operated a cooperative, filed an LCA, or dealt with the legal and financial plumbing of collective ownership."
   - label: cooperative advocates
-    description: understand the legal model and the mission but can't build the technology themselves.
-  highlight: ara is in neither camp. he's in both. 481 million gem downloads and a real LCA with open-sourced bylaws. the "coop-in-a-box" automation destroysaas is building for cells is a productization
-    of his own experience converting a company to cooperative ownership.
+    description: "understand the legal model and the mission but can't build the technology themselves."
+  highlight: "ara is in neither camp. he's in both. 481 million gem downloads and a real LCA with open-sourced bylaws. the \"coop-in-a-box\" automation destroysaas is building for cells is a productization of his own experience converting a company to cooperative ownership."
 cooperative-experience:
-  intro: this is the part that matters most. most people who talk about cooperative software ownership have never actually operated a cooperative. **ara has**.
+  intro: "this is the part that matters most. most people who talk about cooperative software ownership have never actually operated a cooperative. **ara has**."
   items:
   - label: founded dojo4
-    description: a software consultancy in boulder, colorado (2009) that became a worker-owned limited cooperative association (LCA). not a marketing label — a real legal entity with real cooperative governance.
+    description: "a software consultancy in boulder, colorado (2009) that became a worker-owned limited cooperative association (LCA). not a marketing label — a real legal entity with real cooperative governance."
   - label: B-Corp certified
-    description: dojo4 was certified by B Lab and voted Best for the World (workers category) multiple years running. verified social and environmental performance, public transparency, legal accountability.
+    description: "dojo4 was certified by B Lab and voted Best for the World (workers category) multiple years running. verified social and environmental performance, public transparency, legal accountability."
   - label: LLC → LCA conversion
-    description: converted dojo4 from a standard LLC to a limited cooperative association — the exact same legal structure destroysaas proposes for every cell. filed the articles. wrote the operating agreement.
-      lived the governance. this isn't theory.
+    description: "converted dojo4 from a standard LLC to a limited cooperative association — the exact same legal structure destroysaas proposes for every cell. filed the articles. wrote the operating agreement. lived the governance. this isn't theory."
   - label: open-sourced the bylaws
-    description: published dojo4's LCA bylaws, cooperative conversion documents, and policy templates on github (dojo4/policy). the legal templates for destroysaas cells aren't hypothetical — they're based
-      on documents ara already wrote, used, and published for anyone to fork.
+    description: "published dojo4's LCA bylaws, cooperative conversion documents, and policy templates on github (dojo4/policy). the legal templates for destroysaas cells aren't hypothetical — they're based on documents ara already wrote, used, and published for anyone to fork."
   - label: social impact clients
-    description: dojo4 built technology for greenpeace, girl effect, UNICEF, and other organizations where the work matters more than the margin. the ethos isn't new.
+    description: "dojo4 built technology for greenpeace, girl effect, UNICEF, and other organizations where the work matters more than the margin. the ethos isn't new."
 links:
 - label: github
-  href: https://github.com/ahoward
+  href: "https://github.com/ahoward"
   detail: 188 repos, 516 followers
 - label: rubygems
-  href: https://rubygems.org/profiles/ahoward
+  href: "https://rubygems.org/profiles/ahoward"
   detail: 102 gems, 481M+ downloads
 - label: dojo4 cooperative bylaws
-  href: https://github.com/dojo4/policy/tree/master/co-op
+  href: "https://github.com/dojo4/policy/tree/master/co-op"
   detail: open-sourced LCA conversion documents
 technical-credibility:
-  intro: 'the open source record speaks for itself:'
+  intro: "the open source record speaks for itself:"
   items:
   - label: 102 published rubygems
     value: 481M+ total downloads
-    description: infrastructure-grade open source used by millions of developers worldwide. open4 (138M), systemu (102M), require_all (86M), macaddr (71M).
+    description: "infrastructure-grade open source used by millions of developers worldwide. open4 (138M), systemu (102M), require_all (86M), macaddr (71M)."
   - label: ruby hero award
     value: railsconf 2014
-    description: recognized for sustained, prolific contribution to the ruby ecosystem. ~150 gems at the time of the award.
+    description: "recognized for sustained, prolific contribution to the ruby ecosystem. ~150 gems at the time of the award."
   - label: 188 public github repos
     value: 516 followers
-    description: decades of open source work spanning systems programming, web infrastructure, scientific computing, and developer tooling.
+    description: "decades of open source work spanning systems programming, web infrastructure, scientific computing, and developer tooling."
   - label: CIRES / NOAA
     value: scientific computing
-    description: built data pipelines and distributed systems at the cooperative institute for research in environmental sciences. unix, systems programming, and computational science before devops was
-      a word.
+    description: "built data pipelines and distributed systems at the cooperative institute for research in environmental sciences. unix, systems programming, and computational science before devops was a word."

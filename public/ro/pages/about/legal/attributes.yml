@@ -1,7 +1,7 @@
 title: legal model — destroysaas
-description: how destroysaas gives you real legal standing over the software you fund. one cooperative, real ownership, fork freedom.
+description: "how destroysaas gives you real legal standing over the software you fund. one cooperative, real ownership, fork freedom."
 heading: the legal model
-tagline: you have more rights here than you've ever had as a saas customer.
+tagline: "you have more rights here than you've ever had as a saas customer."
 cta_text: see how the money works
 cta_primary:
   text: the financial model →
@@ -12,10 +12,10 @@ cta_secondary:
 dispute-resolution:
 - step: '1'
   title: direct communication
-  description: members and cells resolve issues through direct conversation first. most things get handled here.
+  description: "members and cells resolve issues through direct conversation first. most things get handled here."
 - step: '2'
   title: board mediation
-  description: if direct communication fails, the board reviews the deliverables against the cell's proposal and budget, and makes a ruling. either party can appeal to a full member vote.
+  description: "if direct communication fails, the board reviews the deliverables against the cell's proposal and budget, and makes a ruling. either party can appeal to a full member vote."
 - step: '3'
   title: legal recourse
-  description: if governance fails, you have standing to enforce your rights in court. you're a co-owner of a legal entity, not a customer clicking "I agree."
+  description: "if governance fails, you have standing to enforce your rights in court. you're a co-owner of a legal entity, not a customer clicking \"I agree.\""
