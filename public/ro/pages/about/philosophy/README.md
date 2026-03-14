@@ -4,9 +4,11 @@ in 1985, richard stallman published the gnu manifesto. his argument was simple: 
 
 forty years later, he was more right than even he predicted. five companies control the infrastructure of modern business. they set the prices. they change the terms. they own your data. and you have zero legal recourse when they decide your plan is "legacy" and your price just doubled.
 
-but the free software movement stopped at code. stallman gave us the right to read and modify source code. he didn't solve the harder problem: **who pays to keep it running?**
+but the free software movement stopped at code. stallman gave us the right to read and modify source code. he didn't solve two harder problems: **who pays to keep it running?** and **who prevents megacorps from taking your community's work and selling it back to you?**
 
-destroysaas extends the free software movement to the business layer — the hosting, the maintenance, the governance, the legal standing. free code without funded maintenance is a tire without a car. we're building the car.
+open source gave away the store. permissive licenses let amazon, google, and microsoft strip-mine volunteer labor into proprietary services. the community built it. the corporations captured it.
+
+destroysaas extends the free software movement to the business layer — the hosting, the maintenance, the governance, the legal standing — and adds something stallman never addressed: **collective ownership of the source code itself**. not public. not permissive. *ours*. members can read it, run it, modify it, and fork it. but it belongs to the cooperative, not the commons. that's not a restriction. that's a protection.
 
 ## the credit union model
 
@@ -46,9 +48,11 @@ the internet was built on the backs of open-source contributors who gave away mi
 
 but two traps have emerged. mega-corporations are internalizing ai-driven development into **walled gardens** — proprietary systems that lock you in tighter than any saas product ever did. meanwhile, the "app factory" evangelists promise one-click software that **they will own**, handing you a compiled binary while keeping the source code.
 
-we need the middle path. not one massive service with a million users. not app factories that steal your ip. **community-scale software** — tools designed for dozens or hundreds of users, built for specific needs, sustained through legal cooperatives that pool resources and share costs.
+and open source itself has become a trap. permissive licenses (MIT, Apache) let anyone take the code — including the companies you're trying to escape. copyleft licenses (GPL) protect freedom but don't fund maintenance. neither model builds a **hyper community** — a group of people with shared ownership, shared governance, and the collective agency to say "this is ours."
 
-**by pooling resources, ordinary businesses can finally afford the true cost of software maintenance — and retain absolute ownership of the source code.**
+we need the middle path. not one massive service with a million users. not app factories that steal your ip. not open source that gets captured by the platforms it was meant to replace. **community-owned software** — tools designed for dozens or hundreds of users, built for specific needs, sustained through legal cooperatives that pool resources and share costs, licensed so the code belongs to the members and nobody else.
+
+**by pooling resources, ordinary businesses can finally afford the true cost of software maintenance — and retain absolute ownership of the source code. not open. not closed. *ours*.**
 
 ## the saaspocalypse
 
@@ -84,4 +88,4 @@ destroysaas isn't a software company. it's a **cooperative** — one organizatio
 
 **when small businesses own their own infrastructure, they can't be captured. that's not a feature. that's the point.**
 
-> stallman gave us the right to read the code. credit unions gave us the model for member ownership. destroysaas combines both — free code, funded maintenance, collective governance, and legal standing. not because it's idealistic. because concentrated power is the oldest threat in human history, and ownership is the oldest defense.
+> stallman gave us the right to read the code. credit unions gave us the model for member ownership. destroysaas combines both — member-owned code, funded maintenance, collective governance, and legal standing. not open source. not closed source. *our source*. not because it's idealistic. because concentrated power is the oldest threat in human history, and ownership is the oldest defense.
