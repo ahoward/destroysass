@@ -20,6 +20,7 @@ export interface ROPage {
   sections: Record<string, ROSection>;
   data: Record<string, unknown>;
   images: Record<string, ROImage>;
+  get(path: string): unknown;
 }
 
 export interface ROReader {

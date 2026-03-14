@@ -63,6 +63,9 @@ export async function compilePage(root: string, slug: string): Promise<ROPage> {
     sections,
     data: expandedMeta,
     images,
+    get(dotpath: string): unknown {
+      return dig(expandedMeta, dotpath);
+    },
   };
 }
 
@@ -94,6 +97,30 @@ async function compileMarkdownFile(
   const html = expandAssetUrls(htmlRaw, baseUrl, assetDir);
 
   return { raw, html };
+}
+
+function dig(obj: unknown, dotpath: string): unknown {
+  const keys = dotpath.split(".");
+  let current: unknown = obj;
+
+  for (const key of keys) {
+    if (current === null || current === undefined) return undefined;
+
+    if (Array.isArray(current)) {
+      const index = Number(key);
+      if (Number.isInteger(index)) {
+        current = current[index];
+      } else {
+        return undefined;
+      }
+    } else if (typeof current === "object") {
+      current = (current as Record<string, unknown>)[key];
+    } else {
+      return undefined;
+    }
+  }
+
+  return current;
 }
 
 function findMetaFile(pageDir: string): string | null {
