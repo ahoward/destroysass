@@ -21,6 +21,9 @@
 /.next/
 /out/
 
+# ro build output
+/public/api/ro/
+
 # production
 /build
 

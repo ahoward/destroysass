@@ -1,230 +1,106 @@
 import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
+import { RO, ROMarkdown, PROSE_CLASSES } from "@/lib/ro";
 
-export const metadata: Metadata = {
-  title: "about — destroysaas",
-};
+const ro = RO();
 
-const faqs = [
-  {
-    q: "what if I want to leave?",
-    a: "fork freedom. the code is open-source. your data is yours. you can leave any time, take everything, and run it yourself.",
-  },
-  {
-    q: "who builds the software?",
-    a: "certified cell members — small product teams that handle product, design, engineering, and operations. not offshore agencies. not solo freelancers. real cooperatives with skin in the game that own the whole problem, not just the code. they're members of the cooperative, same as the businesses.",
-  },
-  {
-    q: "what's the legal structure?",
-    a: "a limited cooperative association (LCA). a real legal entity that gives you enforceable contracts, voting rights, and the ability to sue if terms are breached. businesses and cells are equal members with one-member-one-vote governance.",
-  },
-  {
-    q: "can I change my pledge amount?",
-    a: "yes, until the cell forms. once a cell enters formation, pledges are locked to protect the collective commitment. you can always increase after formation.",
-  },
-  {
-    q: "what happens after cell formation?",
-    a: "the winning cell takes over — product direction, design, development, hosting, and support. all members vote on priorities. businesses and cells are equal members of the cooperative, accountable to each other — not shareholders.",
-  },
-  {
-    q: "is the code really open source?",
-    a: "always. that's the entire point. you're not paying for code — you're paying for hosting, maintenance, support, and the collective infrastructure that keeps it running.",
-  },
-  {
-    q: "what if no one pledges my idea?",
-    a: "it stays visible on the board. share it. rally others. there's no expiration. good ideas find their people.",
-  },
-  {
-    q: "how is this different from open source?",
-    a: "open source gives you code. destroysaas gives you a funded, maintained, hosted product with legal protections and collective governance. the code is open-source, but the service is what you're buying — and you own that too.",
-  },
-];
+export async function generateMetadata(): Promise<Metadata> {
+  const { meta } = await ro.page("pages/about");
+  return { title: meta.title as string };
+}
+
+interface CellStep { step: string; description: string }
+interface GoDeeper { title: string; href: string; description: string; wide?: boolean }
+interface FAQ { q: string; a: string }
 
 export default async function AboutPage() {
+  const page = await ro.page("pages/about");
+  const meta = page.meta as Record<string, unknown>;
+  const steps = (page.data["how-cells-work"] ?? []) as CellStep[];
+  const cards = (page.data["go-deeper"] ?? []) as GoDeeper[];
+  const faqs = (page.data.faq ?? []) as FAQ[];
+  const cta_primary = meta.cta_primary as { text: string; href: string };
+  const cta_secondary = meta.cta_secondary as { text: string; href: string };
+
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       <Nav currentPath="/about" />
 
       <main className="max-w-2xl mx-auto px-6 pt-16 pb-32">
-        {/* hero */}
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight lowercase mb-4">
-          why we&apos;re building this
+          {meta.heading as string}
         </h1>
         <p className="text-[var(--text-secondary)] text-lg mb-16">
-          software should be infrastructure you own, not rent you pay forever.
+          {meta.tagline as string}
         </p>
 
-        {/* the problem */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">the problem</h2>
-          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
-            <p>
-              every month, your business sends money to software companies that can raise prices,
-              change terms, get acquired, or shut down — and you have <span className="text-[var(--text-primary)] font-medium">zero legal recourse</span>.
-            </p>
-            <p>
-              ai made building software cheaper. but building was never the expensive part.{" "}
-              <span className="text-[var(--text-primary)] font-medium">80% of total cost of ownership is maintenance</span> —
-              updates, hosting, security, support. that&apos;s the part saas vendors use to extract from you indefinitely.
-            </p>
-            <p>
-              you don&apos;t have a software problem. you have an <span className="text-[var(--text-primary)] font-medium">ownership problem</span>.
-            </p>
-          </div>
-        </section>
+        <ROMarkdown
+          raw={page.sections.content.raw}
+          images={page.images}
+          className={PROSE_CLASSES}
+        />
 
-        {/* the model */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">the model</h2>
-          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
-            <p>
-              destroysaas flips the script. instead of renting from a vendor, businesses{" "}
-              <span className="text-[var(--text-primary)] font-medium">collectively fund the software they need</span>.
-              certified member cells design, build, and operate it — accountable to the same cooperative you belong to.
-            </p>
-            <p>
-              the code is open-source. the data belongs to you. the legal structure — a{" "}
-              <span className="text-[var(--text-primary)] font-medium">limited cooperative association</span> — gives you real enforceable rights.
-              one member, one vote. the ability to sue if terms are breached. fork freedom if you want to leave.
-            </p>
-            <p>
-              the person who submits the original idea gets a revenue share if the cell scales.
-              good ideas should be rewarded.
-            </p>
-          </div>
-        </section>
+        {steps.length > 0 && (
+          <section className="my-16">
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">how cells work</h2>
+            <div className="space-y-6">
+              {steps.map((item) => (
+                <div key={item.step} className="flex gap-4">
+                  <span className="text-red-600 font-bold text-sm uppercase shrink-0 w-20 pt-0.5">
+                    {item.step}
+                  </span>
+                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
-        {/* how cells work */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">how cells work</h2>
-          <div className="space-y-6">
-            {[
-              {
-                step: "idea",
-                desc: "someone proposes software their business needs — what it does, what they'd pay monthly.",
-              },
-              {
-                step: "pledges",
-                desc: "other businesses with the same need back it with monthly commitments. $25–$500/mo per business.",
-              },
-              {
-                step: "threshold",
-                desc: "when monthly pledges hit $1,000, the idea reaches threshold. pledges lock.",
-              },
-              {
-                step: "cell formation",
-                desc: "the cooperative triggers cell formation. contracts are signed. businesses and the winning cell become equal members of the LCA.",
-              },
-              {
-                step: "build + own",
-                desc: "a certified member cell designs, builds, and operates it. all members vote on priorities. you own what you paid for.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="flex gap-4">
-                <span className="text-red-600 font-bold text-sm uppercase shrink-0 w-20 pt-0.5">
-                  {item.step}
-                </span>
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        {cards.length > 0 && (
+          <section className="my-16">
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">go deeper</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {cards.map((card) => (
+                <a
+                  key={card.href}
+                  href={card.href}
+                  className={`block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors${card.wide ? " sm:col-span-2" : ""}`}
+                >
+                  <p className="font-semibold mb-1">{card.title}</p>
+                  <p className="text-[var(--text-muted)] text-sm leading-relaxed">{card.description}</p>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
-        {/* go deeper */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">go deeper</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <a
-              href="/about/math"
-              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
-            >
-              <p className="font-semibold mb-1">the math</p>
-              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                the economics of SaaS don&apos;t work for small business. here&apos;s the
-                math on collective ownership &mdash; with a calculator to run your own numbers.
-              </p>
-            </a>
-            <a
-              href="/about/legal"
-              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
-            >
-              <p className="font-semibold mb-1">the legal model</p>
-              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                limited cooperative association, enforceable contracts, fork freedom, and why you have more rights here than
-                you&apos;ve ever had as a saas customer.
-              </p>
-            </a>
-            <a
-              href="/about/money"
-              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
-            >
-              <p className="font-semibold mb-1">the financial model</p>
-              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                how cells get funded, inventor equity, treasury mechanics, and exactly where every dollar goes.
-              </p>
-            </a>
-            <a
-              href="/about/philosophy"
-              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
-            >
-              <p className="font-semibold mb-1">the philosophy</p>
-              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                from stallman to credit unions &mdash; why collective ownership of software
-                is the only path to financial freedom for small business.
-              </p>
-            </a>
-            <a
-              href="/about/governance"
-              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors"
-            >
-              <p className="font-semibold mb-1">the governance</p>
-              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                how destroysaas itself is structured, funded, and governed.
-                we&apos;re forming as a Colorado LCA &mdash; our draft{" "}
-                <span className="text-red-500">bylaws</span> and{" "}
-                <span className="text-red-500">articles of organization</span> are public.
-              </p>
-            </a>
-            <a
-              href="/about/authors"
-              className="block border border-[var(--border-primary)] rounded-lg p-6 hover:border-red-600 transition-colors sm:col-span-2"
-            >
-              <p className="font-semibold mb-1">the authors</p>
-              <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                the people behind destroysaas and why they&apos;re building this. not theorists &mdash; practitioners
-                who&apos;ve already operated cooperatives, shipped infrastructure, and open-sourced the bylaws.
-              </p>
-            </a>
-          </div>
-        </section>
+        {faqs.length > 0 && (
+          <section className="my-16">
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">faq</h2>
+            <div className="space-y-6">
+              {faqs.map((faq) => (
+                <div key={faq.q} className="border-l-2 border-[var(--border-primary)] pl-6">
+                  <p className="font-medium text-[var(--text-primary)] mb-1">{faq.q}</p>
+                  <p className="text-[var(--text-muted)] text-sm leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
-        {/* faq */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">faq</h2>
-          <div className="space-y-6">
-            {faqs.map((faq) => (
-              <div key={faq.q} className="border-l-2 border-[var(--border-primary)] pl-6">
-                <p className="font-medium text-[var(--text-primary)] mb-1">{faq.q}</p>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* cta */}
         <div className="border-t border-[var(--border-primary)] pt-12 text-center">
-          <p className="text-[var(--text-muted)] mb-6">ready to stop renting?</p>
+          <p className="text-[var(--text-muted)] mb-6">{meta.cta_text as string}</p>
           <a
-            href="/ideas/new"
+            href={cta_primary.href}
             className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded transition-colors mr-4"
           >
-            submit an idea &rarr;
+            {cta_primary.text}
           </a>
           <a
-            href="/ideas"
+            href={cta_secondary.href}
             className="inline-block text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors mt-3 sm:mt-0"
           >
-            browse ideas &rarr;
+            {cta_secondary.text}
           </a>
         </div>
       </main>

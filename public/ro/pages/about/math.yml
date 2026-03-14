@@ -1,0 +1,11 @@
+title: "the math — destroysaas"
+description: "the economics of SaaS don't work for small business. here's the math on collective software ownership."
+heading: "the math doesn't work.\nhere's math that does."
+subheading: "you don't need ideology. you need a spreadsheet."
+cta_text: "ready to stop paying rent?"
+cta_primary:
+  text: "join destroysaas →"
+  href: "/auth"
+cta_secondary:
+  text: "browse ideas →"
+  href: "/ideas"

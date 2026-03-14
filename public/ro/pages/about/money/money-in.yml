@@ -1,0 +1,6 @@
+- label: "monthly dues"
+  value: "all members"
+  description: "every member — businesses and cells alike — pays monthly dues. this funds operating costs: legal fees, insurance, hosting, platform maintenance, board expenses, and the reserve fund."
+- label: "project pledges"
+  value: "businesses"
+  description: "businesses pledge toward specific projects on top of dues. pledges are ring-fenced — money pledged for the invoicing tool goes to the invoicing tool, not to general operations. if pledges never hit the funding threshold, nobody pays."

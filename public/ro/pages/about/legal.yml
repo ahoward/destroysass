@@ -1,0 +1,11 @@
+title: "legal model — destroysaas"
+description: "how destroysaas gives you real legal standing over the software you fund. one cooperative, real ownership, fork freedom."
+heading: "the legal model"
+tagline: "you have more rights here than you've ever had as a saas customer."
+cta_text: "see how the money works"
+cta_primary:
+  text: "the financial model →"
+  href: "/about/money"
+cta_secondary:
+  text: "back to about →"
+  href: "/about"

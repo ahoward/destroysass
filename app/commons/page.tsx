@@ -1,204 +1,142 @@
 import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
+import { RO, ROMarkdown } from "@/lib/ro";
 
-export const metadata: Metadata = {
-  title: "the commons — destroysaas",
-  description:
-    "join the movement. pay $25/year, get access to the best open-source tools the co-op builds. real software, not a newsletter.",
-};
+const ro = RO();
 
-export default function CommonsPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const { meta } = await ro.page("pages/commons");
+  return {
+    title: meta.title as string,
+    description: meta.description as string,
+  };
+}
+
+interface HowStep { step: string; title: string; body: string }
+interface Benefit { title: string; description: string }
+interface Comparison {
+  columns: string[];
+  rows: string[][];
+  note: string;
+}
+
+export default async function CommonsPage() {
+  const page = await ro.page("pages/commons");
+  const meta = page.meta as Record<string, unknown>;
+  const steps = (page.data["how-it-works"] ?? []) as HowStep[];
+  const benefits = (page.data["what-members-get"] ?? []) as Benefit[];
+  const comparison = (page.data.comparison ?? { columns: [], rows: [], note: "" }) as Comparison;
+  const flywheel = (page.data.flywheel ?? []) as string[];
+
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       <Nav currentPath="/commons" />
 
       <main className="max-w-2xl mx-auto px-6 pt-20 pb-32">
-        {/* hero */}
         <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight lowercase mb-6">
-          the commons
+          {meta.heading as string}
         </h1>
         <p className="text-xl text-[var(--text-secondary)] mb-2">
-          pay $25/year. get the tools.
+          {meta.subtitle as string}
         </p>
         <p className="text-sm text-[var(--text-muted)] mb-16">
-          every tool built by the co-op is open source. destroysaas curates
-          the best ones, runs public instances, and gives every member access.
-          real software &mdash; not a demo, not a trial, not a newsletter.
+          {meta.tagline as string}
         </p>
 
         {/* how it works */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            how it works
-          </h2>
-          <div className="space-y-6">
-            {[
-              {
-                step: "01",
-                title: "members fund development",
-                body: "businesses propose ideas and pledge toward specific projects. cells (product teams) bid on the work and build it. all members pay dues. all code is open source.",
-              },
-              {
-                step: "02",
-                title: "the co-op curates the best tools",
-                body: "not everything makes the cut. destroysaas identifies the most useful, most stable tools the cooperative produces \u2014 the ones with broad appeal beyond the original sponsors.",
-              },
-              {
-                step: "03",
-                title: "community members get access",
-                body: "the co-op runs separate public instances of the curated tools. you join, you get in. same codebase, different infrastructure. no mixing with business data.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="flex gap-4">
-                <span className="text-red-600 font-bold text-sm shrink-0 pt-0.5">
-                  {item.step}
-                </span>
-                <div>
-                  <p className="font-semibold text-sm mb-1">{item.title}</p>
-                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                    {item.body}
-                  </p>
+        {steps.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">how it works</h2>
+            <div className="space-y-6">
+              {steps.map((item) => (
+                <div key={item.step} className="flex gap-4">
+                  <span className="text-red-600 font-bold text-sm shrink-0 pt-0.5">{item.step}</span>
+                  <div>
+                    <p className="font-semibold text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{item.body}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
-        {/* what you get */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            what members get
-          </h2>
-          <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
-            <div className="border border-[var(--border-primary)] rounded-lg p-5">
-              <p className="font-semibold text-[var(--text-primary)] mb-1">
-                access to the tools
-              </p>
-              <p className="text-sm">
-                the full product. not a limited tier, not a freemium gate. the same
-                software the businesses use, running on co-op-hosted infrastructure.
-                we&apos;re a cooperative, not a SaaS company with extra steps.
-              </p>
+        {/* what members get */}
+        {benefits.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">what members get</h2>
+            <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+              {benefits.map((item) => (
+                <div key={item.title} className="border border-[var(--border-primary)] rounded-lg p-5">
+                  <p className="font-semibold text-[var(--text-primary)] mb-1">{item.title}</p>
+                  <p className="text-sm">{item.description}</p>
+                </div>
+              ))}
             </div>
-            <div className="border border-[var(--border-primary)] rounded-lg p-5">
-              <p className="font-semibold text-[var(--text-primary)] mb-1">
-                a vote
-              </p>
-              <p className="text-sm">
-                governance voice on cooperative-wide decisions. board elections, policy,
-                direction. one member, one vote. not weighted by how much you pay.
-              </p>
-            </div>
-            <div className="border border-[var(--border-primary)] rounded-lg p-5">
-              <p className="font-semibold text-[var(--text-primary)] mb-1">
-                full transparency
-              </p>
-              <p className="text-sm">
-                every dollar in, every dollar out. cell performance, financials,
-                decisions &mdash; all public. you see what your membership funds.
-              </p>
-            </div>
-            <div className="border border-[var(--border-primary)] rounded-lg p-5">
-              <p className="font-semibold text-[var(--text-primary)] mb-1">
-                a pipeline
-              </p>
-              <p className="text-sm">
-                if you start a business and need dedicated infrastructure, you&apos;re
-                already in the cooperative. upgrade from community to a full business
-                membership with a dedicated instance, SLA, and support.
-              </p>
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* the difference */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            community vs business
-          </h2>
-          <div className="overflow-x-auto border border-[var(--border-primary)] rounded-lg">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-[var(--border-primary)]">
-                  <th className="text-left p-3 font-medium text-[var(--text-muted)]" />
-                  <th className="text-left p-3 font-medium text-red-600">community</th>
-                  <th className="text-left p-3 font-medium text-[var(--text-muted)]">business</th>
-                </tr>
-              </thead>
-              <tbody className="text-[var(--text-secondary)]">
-                {[
-                  ["price", "$25/year", "monthly dues + project pledges"],
-                  ["infrastructure", "shared, multi-tenant", "dedicated, single-tenant"],
-                  ["SLA", "best-effort", "99% uptime, 48hr response"],
-                  ["data", "shared instance", "isolated, yours"],
-                  ["customization", "default config", "custom features & integrations"],
-                  ["governance", "one member, one vote", "one member, one vote"],
-                  ["project pledges", "no", "yes"],
-                  ["support", "community", "direct cell support"],
-                ].map(([label, commons, smb]) => (
-                  <tr key={label} className="border-b border-[var(--border-faint)]">
-                    <td className="p-3 font-medium text-[var(--text-primary)]">{label}</td>
-                    <td className="p-3">{commons}</td>
-                    <td className="p-3">{smb}</td>
+        {/* comparison table */}
+        {comparison.rows.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">community vs business</h2>
+            <div className="overflow-x-auto border border-[var(--border-primary)] rounded-lg">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-[var(--border-primary)]">
+                    {comparison.columns.map((col, i) => (
+                      <th key={i} className={`text-left p-3 font-medium ${i === 1 ? "text-red-600" : "text-[var(--text-muted)]"}`}>
+                        {col}
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-xs text-[var(--text-muted)] mt-3">
-            same codebase. same features. the difference is infrastructure,
-            support, and guarantees &mdash; not artificial feature gates.
-          </p>
-        </section>
+                </thead>
+                <tbody className="text-[var(--text-secondary)]">
+                  {comparison.rows.map((row) => (
+                    <tr key={row[0]} className="border-b border-[var(--border-faint)]">
+                      <td className="p-3 font-medium text-[var(--text-primary)]">{row[0]}</td>
+                      <td className="p-3">{row[1]}</td>
+                      <td className="p-3">{row[2]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-[var(--text-muted)] mt-3">{comparison.note}</p>
+          </section>
+        )}
 
-        {/* the flywheel */}
-        <section className="mb-16">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">
-            the flywheel
-          </h2>
-          <div className="border border-[var(--border-primary)] rounded-lg p-6 bg-[var(--bg-secondary)] font-mono text-sm space-y-1 text-[var(--text-secondary)]">
-            <p>businesses pledge toward projects</p>
-            <p className="pl-4">&rarr; cells build open-source tools</p>
-            <p className="pl-8">&rarr; the co-op curates the best ones</p>
-            <p className="pl-12">&rarr; community members get access</p>
-            <p className="pl-16">&rarr; members start businesses</p>
-            <p className="pl-20">&rarr; new businesses fund more development</p>
-          </div>
-        </section>
+        {/* flywheel */}
+        {flywheel.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">the flywheel</h2>
+            <div className="border border-[var(--border-primary)] rounded-lg p-6 bg-[var(--bg-secondary)] font-mono text-sm space-y-1 text-[var(--text-secondary)]">
+              {flywheel.map((line, i) => (
+                <p key={i} style={{ paddingLeft: `${i * 1}rem` }}>{line}</p>
+              ))}
+            </div>
+          </section>
+        )}
 
-        {/* rei analogy */}
+        {/* rei analogy (from content.md) */}
         <section className="mb-16">
-          <div className="border-l-2 border-red-600 pl-6">
-            <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
-              REI doesn&apos;t make you prove you&apos;re a mountaineer before you
-              join. you pay $30, you&apos;re a member, you get the dividend. you
-              belong.
-            </p>
-            <p className="text-[var(--text-secondary)] leading-relaxed">
-              the commons works the same way. you don&apos;t need to be a business
-              owner. you don&apos;t need to be a developer. you just need to
-              believe that software should be{" "}
-              <span className="text-[var(--text-primary)] font-medium">
-                owned, not rented
-              </span>.
-            </p>
-          </div>
+          <ROMarkdown
+            raw={page.sections.content.raw}
+            images={page.images}
+            className="border-l-2 border-red-600 pl-6 space-y-4 text-[var(--text-secondary)] leading-relaxed"
+          />
         </section>
 
         {/* CTA */}
         <section className="text-center">
-          <p className="text-[var(--text-muted)] text-sm mb-4">
-            the commons is coming soon. join the waitlist.
-          </p>
+          <p className="text-[var(--text-muted)] text-sm mb-4">{meta.cta_text as string}</p>
           <a
-            href="/auth?next=/commons"
+            href={meta.cta_href as string}
             className="inline-block bg-red-600 hover:bg-red-700 text-white text-sm font-medium px-6 py-2.5 rounded transition-colors"
           >
-            join the movement
+            {meta.cta_button as string}
           </a>
-          <p className="text-xs text-[var(--text-faint)] mt-3">
-            $25/year &mdash; or $50 lifetime
-          </p>
+          <p className="text-xs text-[var(--text-faint)] mt-3">{meta.cta_note as string}</p>
         </section>
       </main>
     </div>

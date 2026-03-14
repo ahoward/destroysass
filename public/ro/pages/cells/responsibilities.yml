@@ -1,0 +1,8 @@
+- label: "product direction"
+  description: "what to build and why"
+- label: "design"
+  description: "UX, interface, and brand"
+- label: "engineering"
+  description: "code, infrastructure, CI/CD"
+- label: "operations"
+  description: "hosting, uptime, support"

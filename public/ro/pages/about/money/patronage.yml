@@ -1,0 +1,12 @@
+intro: "the cooperative tracks **patronage** — how much each member has contributed over time. this is standard cooperative practice and determines how year-end surplus gets distributed."
+outro: "the 50/50 split is a starting point. the membership can vote to adjust it. patronage is tracked automatically. no manual accounting."
+items:
+  - label: "business patronage"
+    value: "dues + pledges"
+    description: "you contributed money toward operating costs and specific projects — that's your patronage."
+  - label: "cell patronage"
+    value: "dues + paid budgets"
+    description: "your dues plus the budgets the cooperative actually paid for your work. based on what was spent, not what was requested."
+  - label: "surplus split"
+    value: "50/50"
+    description: "year-end surplus is split into two pools. 50% to the business pool, distributed pro-rata by each business's total dues + pledges. 50% to the cell pool, distributed pro-rata by each cell's total dues + paid budgets. each class benefits from the value they created."

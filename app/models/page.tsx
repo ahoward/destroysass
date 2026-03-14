@@ -3,70 +3,38 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { is_sudo, is_member } from "@/lib/groups";
 import Nav from "@/app/components/nav";
+import { RO, ROMarkdown, PROSE_CLASSES } from "@/lib/ro";
 
-export const metadata: Metadata = {
-  title: "financial model — destroysaas",
-  description:
-    "how money moves through the cooperative. one model. no take-rate.",
-};
+const ro = RO();
 
-const moneyIn = [
-  {
-    label: "monthly dues",
-    text: "every member pays dues — businesses and cells alike. dues fund operating costs: legal, insurance, hosting, platform maintenance, board expenses, and the reserve fund.",
-  },
-  {
-    label: "project pledges",
-    text: "businesses pledge toward specific projects on top of dues. pledges are ring-fenced — money pledged for the invoicing tool goes to the invoicing tool, not to general operations.",
-  },
-];
+export async function generateMetadata(): Promise<Metadata> {
+  const { meta } = await ro.page("pages/models");
+  return {
+    title: meta.title as string,
+    description: meta.description as string,
+  };
+}
 
-const moneyOut = [
-  {
-    label: "cell budgets",
-    text: "cells submit a monthly budget for the coming month's work, drawing against the cap established in their bid. budgets are public. the elected board reviews and approves before payment.",
-  },
-  {
-    label: "operating costs",
-    text: "legal fees, insurance, hosting, platform maintenance, board expenses, reserve fund. funded by dues, not by skimming project pledges.",
-  },
-];
+interface LabeledItem {
+  label: string;
+  text: string;
+}
 
-const details = [
-  {
-    label: "take-rate",
-    text: "zero. the cooperative doesn't skim a percentage off the top. there is no 10%, no 15%, no formation fee, no certification fee. dues cover operations. pledges fund projects. that's it.",
-  },
-  {
-    label: "budgets",
-    text: "monthly, submitted ahead of time, public. every member can review every budget. the board approves before payment. cells that finish early keep the margin — rewarding efficiency, not billing.",
-  },
-  {
-    label: "budget caps",
-    text: "a cell's monthly budget cannot exceed the project's pledged revenue. the money in caps the money out. if pledges drop, the budget scales down automatically.",
-  },
-  {
-    label: "surplus",
-    text: "year-end surplus is split 50/50 — half to a business pool (distributed pro-rata by dues + pledges), half to a cell pool (distributed pro-rata by dues + paid budgets). each class benefits from the value they created.",
-  },
-  {
-    label: "equity",
-    text: "one member, one vote. regardless of how much you've pledged or invoiced. patronage tracks contributions over time for surplus distribution, but voting is always equal.",
-  },
-  {
-    label: "exit",
-    text: "stop paying. fork the code. done. all code is open-source. you can leave any time.",
-  },
-];
+interface MoneyFlow {
+  subtitle: string;
+  lines: string[];
+}
 
-const safeguards = [
-  "public budgets — every budget is visible to every member",
-  "board review — elected board reviews and approves budgets monthly",
-  "the vote — any member can call a vote to replace an underperforming cell",
-  "competition — other cells can bid to take over a project",
-  "budget-pledge alignment — money in caps money out, always",
-  "pledge churn protection — if revenue drops, budgets scale down automatically",
-];
+interface Details {
+  subtitle: string;
+  items: LabeledItem[];
+  vibe: string;
+}
+
+interface Safeguards {
+  subtitle: string;
+  items: string[];
+}
 
 export default async function ModelsPage() {
   const supabase = await createClient();
@@ -86,6 +54,14 @@ export default async function ModelsPage() {
     notFound();
   }
 
+  const page = await ro.page("pages/models");
+  const meta = page.meta as Record<string, unknown>;
+  const moneyFlow = page.data["money-flow"] as MoneyFlow;
+  const moneyIn = page.data["money-in"] as { subtitle: string; items: LabeledItem[] };
+  const moneyOut = page.data["money-out"] as { subtitle: string; items: LabeledItem[] };
+  const details = page.data["details"] as Details;
+  const safeguards = page.data["safeguards"] as Safeguards;
+
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       <Nav currentPath="/models" />
@@ -93,16 +69,13 @@ export default async function ModelsPage() {
       <main className="max-w-2xl mx-auto px-6 pt-16 pb-32">
         {/* hero */}
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight lowercase mb-4">
-          the financial model
+          {meta.heading as string}
         </h1>
         <p className="text-[var(--text-secondary)] text-lg mb-4">
-          how money moves through the cooperative. one model. no take-rate.
+          {meta.subheading as string}
         </p>
         <p className="text-sm text-[var(--text-muted)] mb-16">
-          destroysaas is a cooperative — not a platform. businesses and cells
-          are all members of the same organization. both pay dues. both vote.
-          there is no investor class, no platform class, no middleman skimming
-          a percentage.
+          {meta.intro as string}
         </p>
 
         {/* money flow */}
@@ -114,7 +87,7 @@ export default async function ModelsPage() {
             money flow
           </h3>
           <p className="text-[var(--text-secondary)] mb-6">
-            two streams in, two streams out
+            {moneyFlow.subtitle}
           </p>
 
           <div className="border border-[var(--border-primary)] rounded-lg p-5 mb-6 bg-[var(--bg-secondary)]">
@@ -122,21 +95,11 @@ export default async function ModelsPage() {
               how it moves
             </p>
             <div className="space-y-1 font-mono text-sm">
-              <p className="text-[var(--text-secondary)]">
-                members pay monthly dues
-              </p>
-              <p className="text-[var(--text-secondary)]">
-                &rarr; dues fund cooperative operating costs
-              </p>
-              <p className="text-[var(--text-secondary)]">
-                businesses pledge toward specific projects
-              </p>
-              <p className="text-[var(--text-secondary)]">
-                &rarr; pledges fund cell budgets (ring-fenced per project)
-              </p>
-              <p className="text-[var(--text-secondary)]">
-                &rarr; year-end surplus split 50/50 between business pool and cell pool
-              </p>
+              {moneyFlow.lines.map((line: string) => (
+                <p key={line} className="text-[var(--text-secondary)]">
+                  {line}
+                </p>
+              ))}
             </div>
           </div>
         </section>
@@ -150,11 +113,11 @@ export default async function ModelsPage() {
             money in
           </h3>
           <p className="text-[var(--text-secondary)] mb-6">
-            dues from all members, pledges from businesses
+            {moneyIn.subtitle}
           </p>
 
           <div className="space-y-4 mb-6">
-            {moneyIn.map((item) => (
+            {moneyIn.items.map((item: LabeledItem) => (
               <div key={item.label} className="flex gap-4">
                 <span className="text-red-600 font-bold text-sm uppercase shrink-0 w-24 pt-0.5">
                   {item.label}
@@ -176,11 +139,11 @@ export default async function ModelsPage() {
             money out
           </h3>
           <p className="text-[var(--text-secondary)] mb-6">
-            cell budgets and operating costs
+            {moneyOut.subtitle}
           </p>
 
           <div className="space-y-4 mb-6">
-            {moneyOut.map((item) => (
+            {moneyOut.items.map((item: LabeledItem) => (
               <div key={item.label} className="flex gap-4">
                 <span className="text-red-600 font-bold text-sm uppercase shrink-0 w-24 pt-0.5">
                   {item.label}
@@ -202,11 +165,11 @@ export default async function ModelsPage() {
             how it works
           </h3>
           <p className="text-[var(--text-secondary)] mb-6">
-            no take-rate. public budgets. surplus shared.
+            {details.subtitle}
           </p>
 
           <div className="space-y-4 mb-6">
-            {details.map((detail) => (
+            {details.items.map((detail: LabeledItem) => (
               <div key={detail.label} className="flex gap-4">
                 <span className="text-red-600 font-bold text-sm uppercase shrink-0 w-24 pt-0.5">
                   {detail.label}
@@ -221,8 +184,7 @@ export default async function ModelsPage() {
           {/* vibe */}
           <div className="border-l-2 border-red-600 pl-6 mb-6">
             <p className="text-[var(--text-primary)] font-medium text-sm">
-              credit union for software. members fund it, members own it,
-              members see every dollar. the cooperative is the platform.
+              {details.vibe}
             </p>
           </div>
         </section>
@@ -236,11 +198,11 @@ export default async function ModelsPage() {
             what prevents abuse
           </h3>
           <p className="text-[var(--text-secondary)] mb-6">
-            transparency and competition
+            {safeguards.subtitle}
           </p>
 
           <ul className="space-y-1">
-            {safeguards.map((item) => (
+            {safeguards.items.map((item: string) => (
               <li
                 key={item}
                 className="text-sm text-[var(--text-secondary)] leading-relaxed"
@@ -254,12 +216,11 @@ export default async function ModelsPage() {
         {/* bottom line */}
         <section className="mb-16">
           <div className="border-l-2 border-red-600 pl-6">
-            <p className="text-[var(--text-primary)] font-medium leading-relaxed">
-              businesses collectively fund software they own, built by
-              accountable cooperatives, with open-source code and fork
-              freedom. no take-rate. no middleman. every dollar visible to
-              every member.
-            </p>
+            <ROMarkdown
+              raw={page.sections["bottom-line"].raw}
+              images={page.images}
+              className="text-[var(--text-primary)] font-medium leading-relaxed [&>p]:m-0"
+            />
           </div>
         </section>
 
@@ -272,13 +233,13 @@ export default async function ModelsPage() {
             href="/about/math"
             className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded transition-colors mr-4"
           >
-            the math &rarr;
+            the math →
           </a>
           <a
             href="/about/money"
             className="inline-block text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors mt-3 sm:mt-0"
           >
-            current financial model &rarr;
+            current financial model →
           </a>
         </div>
       </main>

@@ -1,0 +1,11 @@
+title: "governance — destroysaas"
+description: "how destroysaas itself is structured, funded, and governed. transparency about what this project is today and where it's headed."
+heading: "how destroysaas itself works"
+tagline: "if we're going to tell you that ownership and transparency matter, we should start with ourselves."
+cta_text: "want to shape what this becomes?"
+cta_primary:
+  text: "get in touch →"
+  href: "mailto:ara@destroysaas.coop"
+cta_secondary:
+  text: "back to about →"
+  href: "/about"

@@ -1,0 +1,5 @@
+ai didn't drive software costs to zero. it shifted the bottleneck. the true cost of software has always been maintaining it — 80% of total cost of ownership is maintenance, not the initial build. traditional saas extracts that cost from you forever, gives you no ownership, and cuts off your legal recourse when things break.
+
+open-source was supposed to be the answer. but open-source requires a **community** — people who care enough to maintain, review, document, and evolve the code. ai and vibe coding are destroying that community. when anyone can generate a codebase in an afternoon, nobody has a reason to contribute to yours. the volunteer maintenance model is collapsing.
+
+**destroysaas brings the community back — not through volunteerism, but through collective ownership. when you fund it, you govern it. when you govern it, you maintain it. the incentive is the ownership.**

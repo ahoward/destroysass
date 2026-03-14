@@ -1,0 +1,10 @@
+title: "about — destroysaas"
+heading: "why we're building this"
+tagline: "software should be infrastructure you own, not rent you pay forever."
+cta_text: "ready to stop renting?"
+cta_primary:
+  text: "submit an idea →"
+  href: "/ideas/new"
+cta_secondary:
+  text: "browse ideas →"
+  href: "/ideas"

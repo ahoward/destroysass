@@ -1,0 +1,8 @@
+- label: "public budgets"
+  description: "every budget is visible to every member of the cooperative. no secret line items. no hidden costs. sunlight is the disinfectant."
+- label: "board review"
+  description: "the elected board reviews and approves budgets as part of routine operations. they can flag anomalies and request justification before payment."
+- label: "efficiency margin"
+  description: "if a cell budgets 100 hours and finishes in 80, they keep the difference. this is by design — it rewards honest, efficient work."
+- label: "budget overruns"
+  description: "the board approves overruns up to 20% of the original budget. anything beyond that requires a vote of the project's pledging businesses. the cell bears the risk of bad estimates."

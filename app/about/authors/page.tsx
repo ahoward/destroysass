@@ -1,33 +1,39 @@
 import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
+import { RO } from "@/lib/ro";
 
-export const metadata: Metadata = {
-  title: "authors — destroysaas",
-  description:
-    "the people behind destroysaas. builders, cooperators, and troublemakers.",
-};
+const ro = RO();
 
-const authors = [
-  {
-    slug: "ara-t-howard",
-    name: "ara t. howard",
-    role: "founder",
-    summary:
-      "102 rubygems. 481M+ downloads. ruby hero. founded a worker-owned LCA. open-sourced the bylaws. now productizing everything he learned.",
-  },
-];
+export async function generateMetadata(): Promise<Metadata> {
+  const { meta } = await ro.page("pages/about/authors");
+  return {
+    title: meta.title as string,
+    description: meta.description as string,
+  };
+}
+
+interface Author {
+  slug: string;
+  name: string;
+  role: string;
+  summary: string;
+}
 
 export default async function AuthorsPage() {
+  const page = await ro.page("pages/about/authors");
+  const meta = page.meta as Record<string, unknown>;
+  const authors = (page.data.authors ?? []) as Author[];
+
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
       <Nav currentPath="/about/authors" />
 
       <main className="max-w-2xl mx-auto px-6 pt-16 pb-32">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight lowercase mb-4">
-          authors
+          {meta.heading as string}
         </h1>
         <p className="text-[var(--text-secondary)] text-lg mb-16">
-          the people building destroysaas and why they give a damn.
+          {meta.tagline as string}
         </p>
 
         <div className="space-y-6">

@@ -1,0 +1,11 @@
+columns: ["", "community", "business"]
+rows:
+  - ["price", "$25/year", "monthly dues + project pledges"]
+  - ["infrastructure", "shared, multi-tenant", "dedicated, single-tenant"]
+  - ["SLA", "best-effort", "99% uptime, 48hr response"]
+  - ["data", "shared instance", "isolated, yours"]
+  - ["customization", "default config", "custom features & integrations"]
+  - ["governance", "one member, one vote", "one member, one vote"]
+  - ["project pledges", "no", "yes"]
+  - ["support", "community", "direct cell support"]
+note: "same codebase. same features. the difference is infrastructure, support, and guarantees — not artificial feature gates."

@@ -1,0 +1,12 @@
+intro: "this is the part that matters most. most people who talk about cooperative software ownership have never actually operated a cooperative. **ara has**."
+items:
+  - label: "founded dojo4"
+    description: "a software consultancy in boulder, colorado (2009) that became a worker-owned limited cooperative association (LCA). not a marketing label — a real legal entity with real cooperative governance."
+  - label: "B-Corp certified"
+    description: "dojo4 was certified by B Lab and voted Best for the World (workers category) multiple years running. verified social and environmental performance, public transparency, legal accountability."
+  - label: "LLC → LCA conversion"
+    description: "converted dojo4 from a standard LLC to a limited cooperative association — the exact same legal structure destroysaas proposes for every cell. filed the articles. wrote the operating agreement. lived the governance. this isn't theory."
+  - label: "open-sourced the bylaws"
+    description: "published dojo4's LCA bylaws, cooperative conversion documents, and policy templates on github (dojo4/policy). the legal templates for destroysaas cells aren't hypothetical — they're based on documents ara already wrote, used, and published for anyone to fork."
+  - label: "social impact clients"
+    description: "dojo4 built technology for greenpeace, girl effect, UNICEF, and other organizations where the work matters more than the margin. the ethos isn't new."

@@ -1,0 +1,11 @@
+title: "cells — destroysaas"
+description: "small product teams that join destroysaas as equal cooperative members. they bid on projects, submit public budgets, and vote alongside businesses."
+heading: "cells"
+tagline: "small product teams that join destroysaas as equal cooperative members. they bid on projects, submit public budgets, and share in governance."
+cta_text: "ready to co-own software that belongs to the people who use it?"
+cta_primary:
+  text: "apply to become a cell →"
+  href: "/cells/apply"
+cta_secondary:
+  text: "browse approved projects →"
+  href: "/ideas"
