@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import ThemeToggle from "./theme_toggle";
 
 type NavLink = {
   href: string;
@@ -67,7 +66,6 @@ export default function NavClient({
               {link.label}
             </a>
           ))}
-          <ThemeToggle />
           <a
             href={authLink.href}
             className={
@@ -85,9 +83,8 @@ export default function NavClient({
           )}
         </div>
 
-        {/* mobile: theme toggle + hamburger */}
+        {/* mobile hamburger */}
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <button
             onClick={() => setOpen(!open)}
             aria-label={open ? "close menu" : "open menu"}

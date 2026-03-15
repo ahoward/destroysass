@@ -1,11 +1,10 @@
+import ThemeToggle from "./theme_toggle";
+
 export default function Footer() {
   return (
     <footer className="border-t border-[var(--border-faint)] bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans">
-      <div className="max-w-2xl mx-auto px-6 py-8 flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
-        <p className="text-xs text-[var(--text-muted)] italic text-center md:text-left">
-          the code is free. the network is the value.
-        </p>
-        <div className="flex flex-wrap justify-center md:justify-end gap-4 text-xs text-[var(--text-muted)]">
+      <div className="max-w-2xl mx-auto px-6 py-8 flex flex-col gap-4">
+        <div className="flex flex-wrap justify-center gap-4 text-xs text-[var(--text-muted)]">
           <a href="/" className="hover:text-[var(--text-secondary)] transition-colors">home</a>
           <a href="/ideas" className="hover:text-[var(--text-secondary)] transition-colors">ideas</a>
           <a href="/about" className="hover:text-[var(--text-secondary)] transition-colors">about</a>
@@ -23,6 +22,12 @@ export default function Footer() {
           >
             github
           </a>
+        </div>
+        <div className="flex items-center justify-center gap-3">
+          <p className="text-xs text-[var(--text-muted)] italic">
+            the code is free. the network is the value.
+          </p>
+          <ThemeToggle />
         </div>
       </div>
     </footer>
